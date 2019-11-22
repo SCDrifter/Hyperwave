@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Hyperwave.Common.SortOrderTicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hyperwave.Common"
+             xmlns:global="clr-namespace:Hyperwave"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16">
+    <UserControl.Resources>
+        <global:ObjectFlagConverter x:Key="BoolToScale">
+            <global:ObjectFlagConverter.FalseValue>
+                <sys:Double>1</sys:Double>
+            </global:ObjectFlagConverter.FalseValue>
+            <global:ObjectFlagConverter.TrueValue>
+                <sys:Double>-1</sys:Double>
+            </global:ObjectFlagConverter.TrueValue>
+        </global:ObjectFlagConverter>
+    </UserControl.Resources>
+    <Grid>
+        <Viewbox>
+            <Path Data="M0,0 L4,6 L8,0 z" Fill="{DynamicResource TextBlockForegroundBrush}" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="{Binding Path=AscendingOrder,Converter={StaticResource BoolToScale}, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Viewbox>
+    </Grid>
+</UserControl>

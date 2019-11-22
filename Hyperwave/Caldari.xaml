@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Hyperwave">
+    <SolidColorBrush x:Key="UnreadMailBackground" Color="#FF00526A"/>
+    <SolidColorBrush x:Key="AcountBarBackground" Color="#D81F2227"/>
+
+    <SolidColorBrush x:Key="EditableBackgroundBrush" Color="#E5192C32"/>
+    <SolidColorBrush x:Key="EditableInnerBorderBrush" Color="#FF12141B"/>
+    <SolidColorBrush x:Key="ComboDropdownBackgroundBrush" Color="#E5171923"/>
+    <SolidColorBrush x:Key="EditableBorderBrush" Color="#FF3E445B"/>
+    <SolidColorBrush x:Key="ContextMenuBackgroundBrush" Color="#FF262A3A"/>
+
+    <Color x:Key="SelectedColor" A="128" B="93" G="60" R="0"/>
+    <Color x:Key="InactiveSelectedColor" A="60" B="93" G="60" R="0"/>
+
+    <SolidColorBrush x:Key="NotificationBorder" Color="#FF364D64"/>
+
+    <LinearGradientBrush x:Key="NotificationBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF28435F" Offset="0"/>
+        <GradientStop Color="#FF426E9C" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="SelectedColorBrush" Color="{StaticResource SelectedColor}"/>
+    <SolidColorBrush x:Key="InactiveSelectedColorBrush" Color="{StaticResource InactiveSelectedColor}"/>
+    <SolidColorBrush x:Key="ButtonMouseHoverBackgroundBrush" Color="#66002963"/>
+    <SolidColorBrush x:Key="ButtonFooterBackgroundBrush" Color="#E5003A4D"/>
+    <SolidColorBrush x:Key="GridViewColumnHeaderGripperBackgroundBrush" Color="#FF001623"/>
+    <SolidColorBrush x:Key="StyledListBackgroundBrush" Color="#F214181D"/>
+    <SolidColorBrush x:Key="StyledListGridViewColumnHeaderBackgroundBrush" Color="#FF1C2E3E"/>
+
+    <SolidColorBrush x:Key="WebBrowserBackgroundBrush" Color="#F20E161F"/>
+    <SolidColorBrush x:Key="MailHeadersBackgroundBrush" Color="#FF2D323E"/>
+    <SolidColorBrush x:Key="TextBlockForegroundBrush" Color="White"/>
+
+    <SolidColorBrush x:Key="CharLinkTextBrush" Color="#FF508A99" />
+    <SolidColorBrush x:Key="InfoHeaderBorderBrush" Color="#FF003F4D"/>
+    <SolidColorBrush x:Key="TabHighlightBackgroundBrush" Color="#FF1C2F3E"/>
+
+    <BitmapImage x:Key="MainWindowBackground" UriSource="Images/Backgrounds/Caldari.png" />
+
+    <SolidColorBrush x:Key="ScrollBarButtonBackgroundBrush" Color="{StaticResource InactiveSelectedColor}"/>
+    <SolidColorBrush x:Key="ScrollBarButtonActiveBackgroundBrush" Color="{StaticResource SelectedColor}"/>
+    <SolidColorBrush x:Key="ScrollBarButtonDisabledBackgroundBrush" Color="#3A666666"/>
+    <SolidColorBrush x:Key="ScrollBarGlyphBrush" Color="#444" />
+    <SolidColorBrush x:Key="ProgressBarForeground" Color="#FF6F859C"/>
+</ResourceDictionary>

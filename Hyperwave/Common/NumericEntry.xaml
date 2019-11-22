@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Hyperwave.Common.NumericEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hyperwave.Common"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="16" Margin="5" x:Name="cNumericEntry">
+    <UserControl.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource FlatTextBox}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockForegroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource TextBlockForegroundBrush}"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource FlatWindowButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockForegroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style TargetType="Grid" x:Key="Background">
+            <Setter Property="Background" Value="{DynamicResource EditableBackgroundBrush}"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <local:NumericEntryConverter x:Key="NumConverter"/>
+        
+    </UserControl.Resources>
+    <Grid Style="{StaticResource Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="cText" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" PreviewTextInput="cText_PreviewTextInput" DataObject.Pasting="cText_Pasting">
+            <TextBox.Text>
+                <MultiBinding Converter="{StaticResource NumConverter}" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                    <Binding Path="Value" ElementName="cNumericEntry"/>
+                    <Binding Path="NumberFormat" ElementName="cNumericEntry"/>
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+        <Button Grid.Column="1" Grid.Row="0" x:Name="cStepUp" Click="cStepUp_Click">
+            <Path Data="M0,6 L4,0 L8,6 z" Fill="{DynamicResource TextBlockForegroundBrush}" RenderTransformOrigin="0.5,0.5"></Path>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="cStepDown" Click="cStepDown_Click">
+            <Path Data="M0,0 L4,6 L8,0 z" Fill="{DynamicResource TextBlockForegroundBrush}" RenderTransformOrigin="0.5,0.5"></Path>
+        </Button>
+    </Grid>
+</UserControl>

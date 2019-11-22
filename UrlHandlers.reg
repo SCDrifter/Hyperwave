@@ -1,0 +1,21 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\hyperwave]
+@="URL:Hyperwave Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\hyperwave\DefaultIcon]
+@="C:\\Projects\\CSharp\\Hyperwave\\Hyperwave\\bin\\Debug\\Hyperwave.exe,1"
+
+[HKEY_CLASSES_ROOT\hyperwave\shell\open\command]
+@="\"C:\\Projects\\CSharp\\Hyperwave\\Hyperwave\\bin\\Debug\\Hyperwave.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\eve-mail]
+@="URL:Eve-Mail Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\eve-mail\DefaultIcon]
+@="C:\\Projects\\CSharp\\Hyperwave\\Hyperwave\\bin\\Debug\\Hyperwave.exe,1"
+
+[HKEY_CLASSES_ROOT\eve-mail\shell\open\command]
+@="\"C:\\Projects\\CSharp\\Hyperwave\\Hyperwave\\bin\\Debug\\Hyperwave.exe\" \"%1\""

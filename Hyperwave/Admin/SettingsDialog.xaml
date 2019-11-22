@@ -1,0 +1,198 @@
+﻿<Window x:Class="Hyperwave.Admin.SettingsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.Admin"
+        xmlns:viewmodel="clr-namespace:Hyperwave.Admin.DataModel"
+        xmlns:viewmodel2="clr-namespace:Hyperwave.ViewModel;assembly=Hyperwave.ViewModel"
+        xmlns:common="clr-namespace:Hyperwave.Common"
+        mc:Ignorable="d"
+        Title="Settings" Height="494.523" Width="675.795" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Style="{StaticResource FlatWindow}" ShowInTaskbar="False" Icon="/Hyperwave;component/Images/Icons/32/Configure.png" Closed="Window_Closed">
+    <Window.UseLayoutRounding>true</Window.UseLayoutRounding>
+    <Window.Resources>
+        <viewmodel:Configuration x:Key="ConfigDataModel"/>
+        <Style TargetType="Grid" x:Key="DataForm">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Style.Resources>
+                <Style TargetType="CheckBox" BasedOn="{StaticResource FlatDialogCheckBox}">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Foreground" Value="{DynamicResource  TextBlockForegroundBrush}"/>
+                </Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource FlatTextBox}">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="ComboBox" BasedOn="{StaticResource FlatWindowComboBox}">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <viewmodel:EmailReadActionConverter x:Key="EmailReadActionConverter"/>
+    </Window.Resources>
+    <Grid x:Name="cRoot" Background="{DynamicResource AcountBarBackground}" RenderOptions.BitmapScalingMode="HighQuality" DataContext="{StaticResource ConfigDataModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="{DynamicResource MailHeadersBackgroundBrush}">
+            <TextBlock Margin="5" Text="Options:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
+        </Grid>
+        <TreeView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="{DynamicResource EditableBackgroundBrush}" MinWidth="100" ItemsSource="{Binding SubPages}" BorderBrush="{x:Null}">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+                    <Setter Property="IsSelected" Value="{Binding IsSelected,Mode=TwoWay}"/>
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="{DynamicResource SelectedColor}"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{DynamicResource InactiveSelectedColor}"/>
+                    </Style.Resources>
+                </Style>
+            </TreeView.Resources>
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding SubPages}">
+                    <StackPanel Orientation="Horizontal" Margin="5" Background="Transparent">
+                        <Image Source="{Binding Image}" Width="16" Height="16"/>
+                        <TextBlock Text="{Binding Name}" FontSize="13.333" Foreground="{DynamicResource TextBlockForegroundBrush}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <GridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch" Background="Transparent"/>
+        <Grid Grid.Column="2" Background="{DynamicResource MailHeadersBackgroundBrush}">
+            <TextBlock Margin="5" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" DataContext="{Binding MailCheck}" Visibility="{Binding Visible}">
+            <Grid Style="{StaticResource DataForm}" MinWidth="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="5" Grid.RowSpan="5" Header="Mail Update"/>
+                <CheckBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="cMailNotify" IsChecked="{Binding ShowNotifications}" Margin="42,10,30,0">Enable mail notifications</CheckBox>
+                <Label Grid.Row="2" Grid.Column="1">_Interval:</Label>
+                <common:NumericEntry Grid.Row="2" Grid.Column="2" MaximumValue="1000" MinimumValue="{Binding MailCheckMin}" Value="{Binding MailCheckInterval,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Grid.Column="3" Grid.Row="2" Width="100" Margin="5" Style="{StaticResource SmallFlatWindowComboBox}" SelectedValue="{Binding MailCheckUnit}">
+                    <viewmodel2:MailCheckIntervalUnit>Seconds</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Minutes</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Hours</viewmodel2:MailCheckIntervalUnit>
+                </ComboBox>
+                <CheckBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" IsChecked="{Binding SupressNotificationsClient}" IsEnabled="{Binding IsChecked,ElementName=cMailNotify}">Suppress notifications when client is running</CheckBox>
+
+                <GroupBox Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="5" Grid.RowSpan="4" Header="Background mail notifications"/>
+
+                <CheckBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" IsChecked="{Binding BackgroundEnabled}"  IsEnabled="{Binding IsChecked,ElementName=cMailNotify}" x:Name="cBackgroundUpdate">Enable background mail update</CheckBox>
+                <Label Grid.Row="7" Grid.Column="1">_Interval:</Label>
+                <common:NumericEntry Grid.Row="7" Grid.Column="2" MaximumValue="1000" MinimumValue="{Binding BackgroundMailCheckMin}" Value="{Binding BackgroundMailCheckInterval,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}"/>
+                <ComboBox Grid.Column="3" Grid.Row="7" Width="100" Margin="5" Style="{StaticResource SmallFlatWindowComboBox}"  SelectedItem="{Binding BackgroundMailCheckUnit}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}">
+                    <viewmodel2:MailCheckIntervalUnit>Seconds</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Minutes</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Hours</viewmodel2:MailCheckIntervalUnit>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" DataContext="{Binding MailRead}" Visibility="{Binding Visible}">
+            <Grid Style="{StaticResource DataForm}" MinWidth="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="4" Grid.RowSpan="3" Header="Mail Options"/>
+                <Label Grid.Row="1" Grid.Column="1">_Mark mail read:</Label>
+                <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding MailReadValues}" SelectedItem="{Binding MailReadAction}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path={},Converter={StaticResource EmailReadActionConverter}}" Foreground="{DynamicResource TextBlockForegroundBrush}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <GroupBox Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" Grid.RowSpan="5" Header="Date &amp; Time"/>
+                <Label Grid.Row="4" Grid.Column="1">_Sample:</Label>
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding DateTimeSample,Mode=OneWay}" IsReadOnly="True"/>
+                <Label Grid.Row="5" Grid.Column="1">_Date Format:</Label>
+                <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding DateFormat,UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Grid.Row="6" Grid.Column="1">_Time Format:</Label>
+                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding TimeFormat,UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" DataContext="{Binding ColorTheme}" Visibility="{Binding Visible}">
+            <GroupBox Header="Select Color Theme" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Row="0" Grid.Column="0" IsChecked="{Binding GallenteSelected}">
+                        <Grid>
+                            <Image Source="../Images/Backgrounds/Gallente.png" Width="200" Margin="10"/>
+                            <Image Source="../Images/Logos/Gallente.png" Width="47"/>
+                        </Grid>
+                    </ToggleButton>
+                    <ToggleButton Grid.Row="0" Grid.Column="1" IsChecked="{Binding CaldariSelected}">
+                        <Grid>
+                            <Image Source="../Images/Backgrounds/Caldari.png" Width="200" Margin="10"/>
+                            <Image Source="../Images/Logos/Caldari.png" Width="47"/>
+                        </Grid>
+                    </ToggleButton>
+                    <ToggleButton Grid.Row="1" Grid.Column="0" IsChecked="{Binding AmarrSelected}">
+                        <Grid>
+                            <Image Source="../Images/Backgrounds/Amarr.png" Width="200" Margin="10"/>
+                            <Image Source="../Images/Logos/Amarr.png" Width="47"/>
+                        </Grid>
+                    </ToggleButton>
+                    <ToggleButton Grid.Row="1" Grid.Column="1" IsChecked="{Binding MinmatarSelected}">
+                        <Grid>
+                            <Image Source="../Images/Backgrounds/Minmatar.png" Width="200" Margin="10"/>
+                            <Image Source="../Images/Logos/Minmatar.png" Width="47"/>
+                        </Grid>
+                    </ToggleButton>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Style="{StaticResource FlatDialogButton}" x:Name="cOk" Click="cOk_Click">_OK</Button>
+            <Button Style="{StaticResource FlatDialogButton}" x:Name="cCancel" Click="cCancel_Click">_Cancel</Button>
+            <Button Style="{StaticResource FlatDialogButton}" x:Name="cApply" Click="cApply_Click" IsEnabled="{Binding HasChanged}">_Apply</Button>
+        </StackPanel>
+    </Grid>
+</Window>

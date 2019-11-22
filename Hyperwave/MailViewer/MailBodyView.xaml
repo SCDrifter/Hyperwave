@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Hyperwave.MailView.MailBodyView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:Hyperwave.MailView"
+            xmlns:base="clr-namespace:Hyperwave"
+            xmlns:common="clr-namespace:Hyperwave.Common"
+            xmlns:user="clr-namespace:Hyperwave.EntityInfoDisplay"
+            mc:Ignorable="d" 
+            LayoutUpdated="UserControl_LayoutUpdated"
+            d:DesignHeight="300" d:DesignWidth="300">
+    <Grid DataContext="{Binding CurrentItem,RelativeSource={RelativeSource AncestorType=UserControl}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Style="{StaticResource MailHeaders}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="cMailSubject" Text="{Binding MailSubject}" Margin="0,0,0,20" FontSize="25" Grid.ColumnSpan="3" Grid.Row="0"/>
+                <Image Source="{Binding From.ImageUrl64,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="64" Height="64" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Margin="0,0,10,0"/>
+                <StackPanel Style="{StaticResource LinkPanel}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MouseUp="cSender_MouseUp">
+                    <TextBlock x:Name="cSender" Text="{Binding From.Name}" FontSize="14pt" Foreground="{DynamicResource CharLinkTextBrush}"/>
+                </StackPanel>
+                <Popup x:Name="cInfoPopup" StaysOpen="False">
+                    <user:EveInfoPanel x:Name="cInfoPanel"></user:EveInfoPanel>
+                </Popup>
+                <ToggleButton Grid.Column="3" VerticalAlignment="Center" x:Name="cShowSource" Visibility="Collapsed" Checked="cShowSource_Checked"><Image Source="/Images/Icons/16/Edit.png" Width="16" Height="16"/></ToggleButton>
+                <TextBlock Text="{Binding Timestamp,Converter={StaticResource DateTimeFormatter}}" FontStyle="Italic" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <TextBlock VerticalAlignment="Center" FontSize="9pt" DockPanel.Dock="Left" Grid.Row="3" Grid.Column="1">To:</TextBlock>
+                <ItemsControl ItemsSource="{Binding Recipients}" Grid.Row="3" Grid.Column="2">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Style="{StaticResource LinkPanel}" MouseUp="cTo_MouseUp" Tag="{Binding}">
+                                <Image Source="{Binding ImageUrl32,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="24" Height="24"/>
+                                <TextBlock Text="{Binding Name}" Margin="0,0,3,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </Grid>
+        </Grid>
+
+        <FlowDocumentScrollViewer  Grid.Row="1"  x:Name="cContent"                                    
+                                   Visibility="{Binding UIEnabled,Converter={StaticResource BoolToCollapsedConverter}}" Background="{x:Null}">
+            <FlowDocumentScrollViewer.Resources>
+                <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
+                    <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
+                </Style>
+            </FlowDocumentScrollViewer.Resources>
+        </FlowDocumentScrollViewer>
+        <Grid  Grid.Row="1" Background="{DynamicResource WebBrowserBackgroundBrush}"
+                        Visibility="{Binding IsLoading,Converter={StaticResource BoolToCollapsedConverter}}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource LoadingPlaque}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                    <common:ProgressSpinner Width="32" VerticalAlignment="Center"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="21.333" FontWeight="Bold" Foreground="{DynamicResource TextBlockForegroundBrush}">Loading</TextBlock>
+                </StackPanel>
+                
+            </StackPanel>
+        </Grid>
+    </Grid>     
+</UserControl>

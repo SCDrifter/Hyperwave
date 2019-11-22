@@ -1,0 +1,2533 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="TempAppIcon.svg">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       id="filter4025">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.77201969"
+         id="feGaussianBlur4027" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4025-1">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.77201969"
+         id="feGaussianBlur4027-6" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4025-1-2">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.77201969"
+         id="feGaussianBlur4027-6-6" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.587715"
+     inkscape:cx="54.827345"
+     inkscape:cy="435.74492"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="IconLow_128"
+       transform="translate(-4.2857143,-0.71428572)"
+       inkscape:label="#g3995"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         id="rect3809"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="18.076468" />
+      <g
+         transform="translate(-3.009069,1.4197617)"
+         id="g3811">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3813"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3815"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3817"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3819"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3821"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan3823"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3825"><tspan
+             sodipodi:role="line"
+             id="tspan3827"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3829"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan3831"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconLow_64"
+       transform="matrix(0.5,0,0,0.5,107.5,73.037949)"
+       inkscape:label="#g3857"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_64.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         y="18.076468"
+         x="215"
+         height="128"
+         width="128"
+         id="rect3833"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3835"
+         transform="translate(140.56236,1.4197617)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3837"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3839"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3841"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3843"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3845"><tspan
+             sodipodi:role="line"
+             id="tspan3847"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3849"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3851"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3853"><tspan
+             sodipodi:role="line"
+             id="tspan3855"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.25,0,0,0.25,238.03571,109.55735)"
+       id="IconLow_32"
+       inkscape:label="#g3897"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_32.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3899"
+         width="128"
+         height="128"
+         x="215"
+         y="18.076468" />
+      <g
+         transform="translate(140.56236,1.4197617)"
+         id="g3901">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3903"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3905"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3907"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3909"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3911"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan3913"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3915"><tspan
+             sodipodi:role="line"
+             id="tspan3917"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3919"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan3921"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconLow_16"
+       transform="matrix(0.125,0,0,0.125,317.41071,127.81691)"
+       inkscape:label="#g3923"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_16.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         y="18.076468"
+         x="215"
+         height="128"
+         width="128"
+         id="rect3925"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3927"
+         transform="translate(140.56236,1.4197617)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3929"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3931"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3933"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3935"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3937"><tspan
+             sodipodi:role="line"
+             id="tspan3939"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3941"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3943"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3945"><tspan
+             sodipodi:role="line"
+             id="tspan3947"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconHigh_128"
+       inkscape:label="#g4029"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008"
+       transform="translate(-14.173228,-23.284589)">
+      <rect
+         y="174.86218"
+         x="71.428574"
+         height="128"
+         width="128"
+         id="rect3971"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <g
+         id="g3973"
+         transform="translate(-3.009069,158.20548)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3975"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025)" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3977"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3979"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3981"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3983"><tspan
+             sodipodi:role="line"
+             id="tspan3985"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3987"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3989"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3991"><tspan
+             sodipodi:role="line"
+             id="tspan3993"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconHigh_64"
+       transform="matrix(0.5,0,0,0.5,168.57143,151.43109)"
+       inkscape:label="#g4043"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_64.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect4045"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="174.86218" />
+      <g
+         transform="translate(-3.009069,158.20548)"
+         id="g4047">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025)"
+           id="rect4049"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect4051"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path4053"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path4055"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text4057"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan4059"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text4061"><tspan
+             sodipodi:role="line"
+             id="tspan4063"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text4065"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan4067"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconHigh_32"
+       transform="matrix(0.25,0,0,0.25,257.5,227.14664)"
+       inkscape:label="#g4069"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_32.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect4071"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="174.86218" />
+      <g
+         transform="translate(-3.009069,158.20548)"
+         id="g4073">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025)"
+           id="rect4075"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect4077"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path4079"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path4081"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text4083"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan4085"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text4087"><tspan
+             sodipodi:role="line"
+             id="tspan4089"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text4091"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan4093"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="IconLow_128-8"
+       transform="translate(333.54329,-3.4594427)"
+       inkscape:label="#g3995"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3809-5"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="18.076468" />
+      <g
+         transform="translate(-3.009069,1.4197617)"
+         id="g3811-7">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3813-6"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3815-1"
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3817-8"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3819-9"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3821-2"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan3823-7"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3825-9"><tspan
+             sodipodi:role="line"
+             id="tspan3827-5"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3829-4"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan3831-3"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="translate(339.34423,1.2954535)"
+       id="IconHigh_128-9"
+       inkscape:label="#g4029"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         y="174.86218"
+         x="71.428574"
+         height="128"
+         width="128"
+         id="rect3971-3"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3973-4"
+         transform="translate(-3.009069,158.20548)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3975-4"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025-1)" />
+        <rect
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3977-6"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3979-0"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3981-6"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3983-6"><tspan
+             sodipodi:role="line"
+             id="tspan3985-1"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3987-8"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3989-4"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3991-9"><tspan
+             sodipodi:role="line"
+             id="tspan3993-6"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="90.000008"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_128.png"
+       inkscape:label="#g3995"
+       transform="matrix(0.5,0,0,0.5,501.58756,69.578791)"
+       id="g3493">
+      <rect
+         y="18.076468"
+         x="71.428574"
+         height="128"
+         width="128"
+         id="rect3495"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3497"
+         transform="translate(-3.009069,1.4197617)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3499"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <rect
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3501"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3503"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3505"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3507"><tspan
+             sodipodi:role="line"
+             id="tspan3509"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3511"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3513"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3515"><tspan
+             sodipodi:role="line"
+             id="tspan3517"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g3519"
+       transform="matrix(0.25,0,0,0.25,595.71122,106.09791)"
+       inkscape:label="#g3995"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3521"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="18.076468" />
+      <g
+         transform="translate(-3.009069,1.4197617)"
+         id="g3523">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3525"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3527"
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3529"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3531"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3533"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan3535"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3537"><tspan
+             sodipodi:role="line"
+             id="tspan3539"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3541"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan3543"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="90.000008"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconLow_128.png"
+       inkscape:label="#g3995"
+       transform="matrix(0.125,0,0,0.125,645.55097,124.35747)"
+       id="g3545">
+      <rect
+         y="18.076468"
+         x="71.428574"
+         height="128"
+         width="128"
+         id="rect3547"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3549"
+         transform="translate(-3.009069,1.4197617)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3551"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <rect
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3553"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3555"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3557"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3559"><tspan
+             sodipodi:role="line"
+             id="tspan3561"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3563"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3565"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3567"><tspan
+             sodipodi:role="line"
+             id="tspan3569"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.5,0,0,0.5,515.46862,152.72654)"
+       id="IconHigh_128-9-0"
+       inkscape:label="#g4029"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         y="174.86218"
+         x="71.428574"
+         height="128"
+         width="128"
+         id="rect3971-3-1"
+         style="fill:none;stroke:none" />
+      <g
+         id="g3973-4-6"
+         transform="translate(-3.009069,158.20548)">
+        <rect
+           y="45.915421"
+           x="84.358215"
+           height="69.147743"
+           width="108.41679"
+           id="rect3975-4-5"
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025-1-2)" />
+        <rect
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="rect3977-6-7"
+           width="106.20697"
+           height="66.670067"
+           x="84.782326"
+           y="46.250244" />
+        <path
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           id="path3979-0-5"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <path
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           id="path3981-6-4"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccc" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="97.678574"
+           y="97.897896"
+           id="text3983-6-1"><tspan
+             sodipodi:role="line"
+             id="tspan3985-1-2"
+             x="97.678574"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3987-8-0"
+           y="97.897896"
+           x="158.92857"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="158.92857"
+             id="tspan3989-4-0"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="130.89285"
+           y="93.790749"
+           id="text3991-9-1"><tspan
+             sodipodi:role="line"
+             id="tspan3993-6-4"
+             x="130.89285"
+             y="93.790749"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       inkscape:export-ydpi="90.000008"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_128.png"
+       inkscape:label="#g4029"
+       id="g3631"
+       transform="matrix(0.25,0,0,0.25,605.04659,228.44209)">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3633"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="174.86218" />
+      <g
+         transform="translate(-3.009069,158.20548)"
+         id="g3635">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025-1-2)"
+           id="rect3637"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3639"
+           style="fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3641"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffcc00;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3643"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffcc00;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3645"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="97.897896"
+             x="97.678574"
+             id="tspan3647"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3649"><tspan
+             sodipodi:role="line"
+             id="tspan3651"
+             x="158.92857"
+             y="97.897896"
+             style="font-size:48px;line-height:1.25">E</tspan></text>
+        <text
+           id="text3653"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             y="93.790749"
+             x="130.89285"
+             id="tspan3655"
+             sodipodi:role="line"
+             style="font-size:48px;line-height:1.25">V</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g4500"
+       transform="matrix(0.99286669,0,0,1,1.2524502,-5.9952504e-7)"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_128.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3659"
+         width="128"
+         height="128"
+         x="176.48444"
+         y="350.62872" />
+      <g
+         transform="matrix(1.0859962,0,0,1.0859962,-171.79278,-16.11086)"
+         id="g4491">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff6600;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path3695"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 510.12704,423.28967 c 0,17.99201 -14.58541,32.57742 -32.57742,32.57742 -17.99201,0 -32.57742,-14.58541 -32.57742,-32.57742 0,-17.99201 14.58541,-32.57742 32.57742,-32.57742 17.99201,0 32.57742,14.58541 32.57742,32.57742 z"
+           transform="matrix(0,-0.53342981,0.53342981,0,152.17865,649.71934)" />
+        <path
+           transform="matrix(0,-0.84591323,0.84591323,0,19.907675,798.94566)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path3697"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4467"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.2635185,1.2635185,0,-156.86032,998.37283)"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           transform="matrix(0,-1.6811237,1.6811237,0,-333.62831,1197.8)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4469"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4485"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-0.84591323,-0.84591323,0,736.1037,798.97367)" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           transform="matrix(0,-1.2635185,-1.2635185,0,912.8717,998.40084)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4487"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4489"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.6811237,-1.6811237,0,1089.6397,1197.8281)" />
+      </g>
+    </g>
+    <g
+       id="g4500-3"
+       transform="matrix(0.49643262,0,0,0.49999927,287.41533,224.19103)"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_64.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3659-5"
+         width="128"
+         height="128"
+         x="176.48444"
+         y="350.62872" />
+      <g
+         transform="matrix(1.0859962,0,0,1.0859962,-171.79278,-16.11086)"
+         id="g4491-1">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff6600;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path3695-2"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 510.12704,423.28967 c 0,17.99201 -14.58541,32.57742 -32.57742,32.57742 -17.99201,0 -32.57742,-14.58541 -32.57742,-32.57742 0,-17.99201 14.58541,-32.57742 32.57742,-32.57742 17.99201,0 32.57742,14.58541 32.57742,32.57742 z"
+           transform="matrix(0,-0.53342981,0.53342981,0,152.17865,649.71934)" />
+        <path
+           transform="matrix(0,-0.84591323,0.84591323,0,19.907675,798.94566)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path3697-0"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4467-1"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.2635185,1.2635185,0,-156.86032,998.37283)"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           transform="matrix(0,-1.6811237,1.6811237,0,-333.62831,1197.8)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4469-6"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4485-4"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-0.84591323,-0.84591323,0,736.1037,798.97367)" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           transform="matrix(0,-1.2635185,-1.2635185,0,912.8717,998.40084)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4487-0"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4489-6"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.6811237,-1.6811237,0,1089.6397,1197.8281)" />
+      </g>
+    </g>
+    <g
+       id="g4500-3-1"
+       transform="matrix(0.24821631,0,0,0.24999963,434.42199,330.41942)"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_32.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3659-5-8"
+         width="128"
+         height="128"
+         x="176.48444"
+         y="350.62872" />
+      <g
+         transform="matrix(1.0859962,0,0,1.0859962,-171.79278,-16.11086)"
+         id="g4491-1-9">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff6600;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path3695-2-8"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 510.12704,423.28967 c 0,17.99201 -14.58541,32.57742 -32.57742,32.57742 -17.99201,0 -32.57742,-14.58541 -32.57742,-32.57742 0,-17.99201 14.58541,-32.57742 32.57742,-32.57742 17.99201,0 32.57742,14.58541 32.57742,32.57742 z"
+           transform="matrix(0,-0.53342981,0.53342981,0,152.17865,649.71934)" />
+        <path
+           transform="matrix(0,-0.84591323,0.84591323,0,19.907675,798.94566)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path3697-0-4"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4467-1-1"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.2635185,1.2635185,0,-156.86032,998.37283)"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           transform="matrix(0,-1.6811237,1.6811237,0,-333.62831,1197.8)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4469-6-4"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4485-4-3"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-0.84591323,-0.84591323,0,736.1037,798.97367)" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           transform="matrix(0,-1.2635185,-1.2635185,0,912.8717,998.40084)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4487-0-9"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4489-6-8"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.6811237,-1.6811237,0,1089.6397,1197.8281)" />
+      </g>
+    </g>
+    <g
+       id="g4500-3-1-8"
+       transform="matrix(0.12410815,0,0,0.12499982,509.35385,366.92651)"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_16.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         style="fill:none;stroke:none"
+         id="rect3659-5-8-0"
+         width="128"
+         height="128"
+         x="176.48444"
+         y="350.62872" />
+      <g
+         transform="matrix(1.0859962,0,0,1.0859962,-171.79278,-16.11086)"
+         id="g4491-1-9-8">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff6600;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path3695-2-8-7"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 510.12704,423.28967 c 0,17.99201 -14.58541,32.57742 -32.57742,32.57742 -17.99201,0 -32.57742,-14.58541 -32.57742,-32.57742 0,-17.99201 14.58541,-32.57742 32.57742,-32.57742 17.99201,0 32.57742,14.58541 32.57742,32.57742 z"
+           transform="matrix(0,-0.53342981,0.53342981,0,152.17865,649.71934)" />
+        <path
+           transform="matrix(0,-0.84591323,0.84591323,0,19.907675,798.94566)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path3697-0-4-7"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4467-1-1-8"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.2635185,1.2635185,0,-156.86032,998.37283)"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           transform="matrix(0,-1.6811237,1.6811237,0,-333.62831,1197.8)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4469-6-4-3"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc"
+           sodipodi:start="0.78539816"
+           sodipodi:end="2.3561945"
+           sodipodi:open="true" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ff7f2a;stroke-width:8.05546284;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4485-4-3-8"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-0.84591323,-0.84591323,0,736.1037,798.97367)" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           transform="matrix(0,-1.2635185,-1.2635185,0,912.8717,998.40084)"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           sodipodi:ry="32.577419"
+           sodipodi:rx="32.577419"
+           sodipodi:cy="423.28967"
+           sodipodi:cx="477.54962"
+           id="path4487-0-9-3"
+           style="fill:none;stroke:#ff9955;stroke-width:5.39305305;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           sodipodi:type="arc" />
+        <path
+           sodipodi:open="true"
+           sodipodi:end="2.3561945"
+           sodipodi:start="0.78539816"
+           sodipodi:type="arc"
+           style="fill:none;stroke:#ffb380;stroke-width:4.05337334;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path4489-6-8-7"
+           sodipodi:cx="477.54962"
+           sodipodi:cy="423.28967"
+           sodipodi:rx="32.577419"
+           sodipodi:ry="32.577419"
+           d="m 500.58534,446.32539 c -12.72228,12.72227 -33.34916,12.72227 -46.07143,0 0,0 0,0 0,0"
+           transform="matrix(0,-1.6811237,-1.6811237,0,1089.6397,1197.8281)" />
+      </g>
+    </g>
+    <g
+       id="g2112"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_128.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         y="518.84137"
+         x="225.25308"
+         height="128"
+         width="128"
+         id="rect2057"
+         style="opacity:1;fill:#e6e6e6;fill-opacity:0.05555556;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         transform="translate(-2.024767,-1.0450189)"
+         id="g2101">
+        <rect
+           transform="rotate(-7.2281506)"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2079"
+           width="19.741282"
+           height="120.97865"
+           x="240.90263"
+           y="560.90009"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="548.70636"
+           x="282.41956"
+           height="63.273361"
+           width="19.741282"
+           id="rect2081"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="487.2204"
+           x="-340.0365"
+           height="120.97865"
+           width="19.741282"
+           id="rect2083"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)" />
+      </g>
+      <g
+         transform="translate(-2.024767,-1.0450189)"
+         id="g2093">
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="558.50928"
+           x="238.14441"
+           height="120.97865"
+           width="19.741282"
+           id="rect2061"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="rotate(-7.2281506)" />
+        <rect
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2063"
+           width="19.741282"
+           height="63.273361"
+           x="279.38245"
+           y="546.68164"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2077"
+           width="19.741282"
+           height="120.97865"
+           x="-336.76874"
+           y="485.59387"
+           ry="9.8706408"
+           rx="9.8706408" />
+      </g>
+    </g>
+    <g
+       id="g2132"
+       transform="matrix(0.5,0,0,0.5,116.80258,471.60683)"
+       style="stroke-width:2"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_64.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="opacity:1;fill:#e6e6e6;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2114"
+         width="128"
+         height="128"
+         x="225.25308"
+         y="518.84137" />
+      <g
+         id="g2122"
+         transform="translate(-2.024767,-1.0450189)"
+         style="stroke-width:2">
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="560.90009"
+           x="240.90263"
+           height="120.97865"
+           width="19.741282"
+           id="rect2116"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="rotate(-7.2281506)" />
+        <rect
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2118"
+           width="19.741282"
+           height="63.273361"
+           x="282.41956"
+           y="548.70636"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2120"
+           width="19.741282"
+           height="120.97865"
+           x="-340.0365"
+           y="487.2204"
+           ry="9.8706408"
+           rx="9.8706408" />
+      </g>
+      <g
+         id="g2130"
+         transform="translate(-2.024767,-1.0450189)"
+         style="stroke-width:2">
+        <rect
+           transform="rotate(-7.2281506)"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2124"
+           width="19.741282"
+           height="120.97865"
+           x="238.14441"
+           y="558.50928"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="546.68164"
+           x="279.38245"
+           height="63.273361"
+           width="19.741282"
+           id="rect2126"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="485.59387"
+           x="-336.76874"
+           height="120.97865"
+           width="19.741282"
+           id="rect2128"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)" />
+      </g>
+    </g>
+    <g
+       style="stroke-width:4"
+       transform="matrix(0.25,0,0,0.25,276.75758,624.83855)"
+       id="g2152"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_32.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         y="518.84137"
+         x="225.25308"
+         height="128"
+         width="128"
+         id="rect2134"
+         style="opacity:1;fill:#e6e6e6;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         style="stroke-width:4"
+         transform="translate(-2.024767,-1.0450189)"
+         id="g2142">
+        <rect
+           transform="rotate(-7.2281506)"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2136"
+           width="19.741282"
+           height="120.97865"
+           x="240.90263"
+           y="560.90009"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="548.70636"
+           x="282.41956"
+           height="63.273361"
+           width="19.741282"
+           id="rect2138"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="487.2204"
+           x="-340.0365"
+           height="120.97865"
+           width="19.741282"
+           id="rect2140"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)" />
+      </g>
+      <g
+         style="stroke-width:4"
+         transform="translate(-2.024767,-1.0450189)"
+         id="g2150">
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="558.50928"
+           x="238.14441"
+           height="120.97865"
+           width="19.741282"
+           id="rect2144"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="rotate(-7.2281506)" />
+        <rect
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2146"
+           width="19.741282"
+           height="63.273361"
+           x="279.38245"
+           y="546.68164"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2148"
+           width="19.741282"
+           height="120.97865"
+           x="-336.76874"
+           y="485.59387"
+           ry="9.8706408"
+           rx="9.8706408" />
+      </g>
+    </g>
+    <g
+       id="g2172"
+       transform="matrix(0.125,0,0,0.125,366.669,705.69372)"
+       style="stroke-width:8"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\Icon2_16.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="opacity:1;fill:#e6e6e6;fill-opacity:0.03535353;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2154"
+         width="128"
+         height="128"
+         x="225.25308"
+         y="518.84137" />
+      <g
+         id="g2162"
+         transform="translate(-2.024767,-1.0450189)"
+         style="stroke-width:8">
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="560.90009"
+           x="240.90263"
+           height="120.97865"
+           width="19.741282"
+           id="rect2156"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="rotate(-7.2281506)" />
+        <rect
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2158"
+           width="19.741282"
+           height="63.273361"
+           x="282.41956"
+           y="548.70636"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)"
+           style="opacity:1;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2160"
+           width="19.741282"
+           height="120.97865"
+           x="-340.0365"
+           y="487.2204"
+           ry="9.8706408"
+           rx="9.8706408" />
+      </g>
+      <g
+         id="g2170"
+         transform="translate(-2.024767,-1.0450189)"
+         style="stroke-width:8">
+        <rect
+           transform="rotate(-7.2281506)"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2164"
+           width="19.741282"
+           height="120.97865"
+           x="238.14441"
+           y="558.50928"
+           ry="9.8706408"
+           rx="9.8706408" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="546.68164"
+           x="279.38245"
+           height="63.273361"
+           width="19.741282"
+           id="rect2166"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           rx="9.8706408"
+           ry="9.8706408"
+           y="485.59387"
+           x="-336.76874"
+           height="120.97865"
+           width="19.741282"
+           id="rect2168"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(-0.992053,-0.12582066,-0.12582066,0.992053,0,0)" />
+      </g>
+    </g>
+    <g
+       id="g2905"
+       transform="translate(-62.642679,47.49662)">
+      <rect
+         style="fill:#d6d6d6;fill-opacity:0.0151515;fill-rule:evenodd;stroke:none;stroke-width:1"
+         id="rect4550"
+         width="63.999973"
+         height="63.999973"
+         x="607.9704"
+         y="576.53644" />
+      <g
+         style="stroke:#999999;stroke-width:1.00015676"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-ydpi="180.22981"
+         id="g2882"
+         transform="matrix(1.4306876,0,0,1.3292886,587.16919,567.27086)">
+        <g
+           style="stroke:#999999;stroke-width:1.00015676"
+           transform="translate(7.2727275,3.09091)"
+           id="g2868">
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             id="path2864"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             id="path2866"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccc" />
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path2870"
+           d="M 42.181818,33.090909 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path2872"
+           d="M 42.181818,39.272727 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path2874"
+           d="M 42.181818,45.272728 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           style="stroke:#999999;stroke-width:1.00015676"
+           id="g2880"
+           transform="matrix(1,0,0,-1,46.482986,60.68721)">
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             id="path2876"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             sodipodi:nodetypes="cc"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             id="path2878"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         transform="matrix(1.4306876,0,0,1.3292886,586.45333,566.01811)"
+         id="g3996"
+         inkscape:export-ydpi="180.22981"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         style="stroke-width:1.00015676">
+        <g
+           id="g3881"
+           transform="translate(7.2727275,3.09091)"
+           style="stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="rect3876"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="ccc"
+             inkscape:connector-curvature="0"
+             id="path3879"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,33.090909 H 21.818182"
+           id="path3885"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,39.272727 H 21.818182"
+           id="path3885-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,45.272728 H 21.818182"
+           id="path3885-3"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <g
+           transform="matrix(1,0,0,-1,46.482986,60.68721)"
+           id="g3960"
+           style="stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="rect3912"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3915"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             sodipodi:nodetypes="cc" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="translate(29.708029,0.35792804)"
+       id="g2949" />
+    <g
+       transform="matrix(2.0000008,0,0,2.0000008,-672.63833,-689.2158)"
+       id="g3147">
+      <rect
+         y="576.53644"
+         x="607.9704"
+         height="63.999973"
+         width="63.999973"
+         id="rect3105"
+         style="fill:#d6d6d6;fill-opacity:0.0151515;fill-rule:evenodd;stroke:none;stroke-width:1" />
+      <g
+         transform="matrix(1.4306876,0,0,1.3292886,587.16919,567.27086)"
+         id="g3125"
+         inkscape:export-ydpi="180.22981"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         style="stroke:#999999;stroke-width:1.00015676">
+        <g
+           id="g3111"
+           transform="translate(7.2727275,3.09091)"
+           style="stroke:#999999;stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3107"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="ccc"
+             inkscape:connector-curvature="0"
+             id="path3109"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,33.090909 H 21.818182"
+           id="path3113"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,39.272727 H 21.818182"
+           id="path3115"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,45.272728 H 21.818182"
+           id="path3117"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <g
+           transform="matrix(1,0,0,-1,46.482986,60.68721)"
+           id="g3123"
+           style="stroke:#999999;stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3119"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3121"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             sodipodi:nodetypes="cc" />
+        </g>
+      </g>
+      <g
+         style="stroke-width:1.00015676"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-ydpi="180.22981"
+         id="g3145"
+         transform="matrix(1.4306876,0,0,1.3292886,586.45333,566.01811)">
+        <g
+           style="stroke-width:1.00015676"
+           transform="translate(7.2727275,3.09091)"
+           id="g3131">
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             id="path3127"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             id="path3129"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccc" />
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3133"
+           d="M 42.181818,33.090909 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3135"
+           d="M 42.181818,39.272727 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3137"
+           d="M 42.181818,45.272728 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           style="stroke-width:1.00015676"
+           id="g3143"
+           transform="matrix(1,0,0,-1,46.482986,60.68721)">
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             id="path3139"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             sodipodi:nodetypes="cc"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             id="path3141"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.50000021,0,0,0.50000021,242.35477,465.96491)"
+       id="g3191">
+      <rect
+         y="576.53644"
+         x="607.9704"
+         height="63.999973"
+         width="63.999973"
+         id="rect3149"
+         style="fill:#d6d6d6;fill-opacity:0.0151515;fill-rule:evenodd;stroke:none;stroke-width:1" />
+      <g
+         transform="matrix(1.4306876,0,0,1.3292886,587.16919,567.27086)"
+         id="g3169"
+         inkscape:export-ydpi="180.22981"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         style="stroke:#999999;stroke-width:1.00015676">
+        <g
+           id="g3155"
+           transform="translate(7.2727275,3.09091)"
+           style="stroke:#999999;stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3151"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="ccc"
+             inkscape:connector-curvature="0"
+             id="path3153"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,33.090909 H 21.818182"
+           id="path3157"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,39.272727 H 21.818182"
+           id="path3159"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,45.272728 H 21.818182"
+           id="path3161"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <g
+           transform="matrix(1,0,0,-1,46.482986,60.68721)"
+           id="g3167"
+           style="stroke:#999999;stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3163"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3165"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             sodipodi:nodetypes="cc" />
+        </g>
+      </g>
+      <g
+         style="stroke-width:1.00015676"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-ydpi="180.22981"
+         id="g3189"
+         transform="matrix(1.4306876,0,0,1.3292886,586.45333,566.01811)">
+        <g
+           style="stroke-width:1.00015676"
+           transform="translate(7.2727275,3.09091)"
+           id="g3175">
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             id="path3171"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             id="path3173"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccc" />
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3177"
+           d="M 42.181818,33.090909 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3179"
+           d="M 42.181818,39.272727 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3181"
+           d="M 42.181818,45.272728 H 21.818182"
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           style="stroke-width:1.00015676"
+           id="g3187"
+           transform="matrix(1,0,0,-1,46.482986,60.68721)">
+          <path
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             id="path3183"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             sodipodi:nodetypes="cc"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             id="path3185"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g3235"
+       transform="matrix(0.2500001,0,0,0.2500001,394.34743,713.16319)">
+      <rect
+         style="fill:#d6d6d6;fill-opacity:0.0151515;fill-rule:evenodd;stroke:none;stroke-width:1"
+         id="rect3193"
+         width="63.999973"
+         height="63.999973"
+         x="607.9704"
+         y="576.53644" />
+      <g
+         style="stroke:#999999;stroke-width:1.00015676"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-ydpi="180.22981"
+         id="g3213"
+         transform="matrix(1.4306876,0,0,1.3292886,587.16919,567.27086)">
+        <g
+           style="stroke:#999999;stroke-width:1.00015676"
+           transform="translate(7.2727275,3.09091)"
+           id="g3199">
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             id="path3195"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             id="path3197"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccc" />
+        </g>
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3201"
+           d="M 42.181818,33.090909 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3203"
+           d="M 42.181818,39.272727 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path3205"
+           d="M 42.181818,45.272728 H 21.818182"
+           style="fill:none;stroke:#999999;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           style="stroke:#999999;stroke-width:1.00015676"
+           id="g3211"
+           transform="matrix(1,0,0,-1,46.482986,60.68721)">
+          <path
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             id="path3207"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccccc" />
+          <path
+             sodipodi:nodetypes="cc"
+             style="fill:none;stroke:#999999;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             id="path3209"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         transform="matrix(1.4306876,0,0,1.3292886,586.45333,566.01811)"
+         id="g3233"
+         inkscape:export-ydpi="180.22981"
+         inkscape:export-xdpi="180.22981"
+         inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\32\NewMail.png"
+         style="stroke-width:1.00015676">
+        <g
+           id="g3219"
+           transform="translate(7.2727275,3.09091)"
+           style="stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3215"
+             d="M 10.363636,8 H 27.818182 L 38.90909,19.636364 V 49.81818 H 10.363636 Z"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             sodipodi:nodetypes="ccc"
+             inkscape:connector-curvature="0"
+             id="path3217"
+             d="M 39.090909,20 27.454545,19.818182 27.272727,8.3636364"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,33.090909 H 21.818182"
+           id="path3221"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,39.272727 H 21.818182"
+           id="path3223"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#ffffff;stroke-width:2.1754005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 42.181818,45.272728 H 21.818182"
+           id="path3225"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <g
+           transform="matrix(1,0,0,-1,46.482986,60.68721)"
+           id="g3231"
+           style="stroke-width:1.00015676">
+          <path
+             sodipodi:nodetypes="cccccc"
+             inkscape:connector-curvature="0"
+             id="path3227"
+             d="m 2.7272727,9.272727 h 8.3636363 v 27.454546 l -4.3636363,6 -4,-6 z"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3229"
+             d="m 2.8558376,36.716244 8.4168894,0.01103"
+             style="fill:none;stroke:#ffffff;stroke-width:1.45026696;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             sodipodi:nodetypes="cc" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="translate(-41.507311,376.60292)"
+       inkscape:export-ydpi="90.000008"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-filename="C:\Projects\CSharp\Hyperwave\Hyperwave\Images\Icons\Temp\IconHigh_128.png"
+       inkscape:label="#g4029"
+       id="g3284">
+      <rect
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         id="rect3260"
+         width="128"
+         height="128"
+         x="71.428574"
+         y="174.86218" />
+      <g
+         transform="translate(-3.009069,158.20548)"
+         id="g3282">
+        <rect
+           style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4025)"
+           id="rect3262"
+           width="108.41679"
+           height="69.147743"
+           x="84.358215"
+           y="45.915421" />
+        <rect
+           y="46.250244"
+           x="84.782326"
+           height="66.670067"
+           width="106.20697"
+           id="rect3264"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3266"
+           d="M 85.223214,112.42915 138.09174,75.630309 190.52225,112.4199"
+           style="fill:#ffffff;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path3268"
+           d="M 84.600276,52.604851 138.12699,93.20659 190.91883,52.857389"
+           style="fill:#ffffff;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <text
+           id="text3272"
+           y="97.897896"
+           x="97.678574"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-size:48px;line-height:1.25"
+             y="97.897896"
+             x="97.678574"
+             id="tspan3270"
+             sodipodi:role="line">E</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="158.92857"
+           y="97.897896"
+           id="text3276"><tspan
+             style="font-size:48px;line-height:1.25"
+             sodipodi:role="line"
+             id="tspan3274"
+             x="158.92857"
+             y="97.897896">E</tspan></text>
+        <text
+           id="text3280"
+           y="93.790749"
+           x="130.89285"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'Alien League';-inkscape-font-specification:'Alien League Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-size:48px;line-height:1.25"
+             y="93.790749"
+             x="130.89285"
+             id="tspan3278"
+             sodipodi:role="line">V</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

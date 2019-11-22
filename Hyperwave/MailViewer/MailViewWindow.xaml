@@ -1,0 +1,96 @@
+﻿<Window x:Class="Hyperwave.MailView.MailViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.MailView"
+        xmlns:base="clr-namespace:Hyperwave"
+        xmlns:common="clr-namespace:Hyperwave.Common"
+        mc:Ignorable="d"
+        Height="755" Width="1091" Title="{Binding Item.MailSubject}" Style="{StaticResource FlatWindow}"
+        Loaded="Window_Loaded" Closed="Window_Closed"
+        >
+    <Grid RenderOptions.BitmapScalingMode="HighQuality">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="{DynamicResource AcountBarBackground}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Style="{StaticResource MediumFlatWindowButton}" IsEnabled="{Binding HasPrevious}" x:Name="cPrevious"
+                            Click="cPrevious_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/UpArrow.png"/>
+                            <TextBlock>Next Mail</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource MediumFlatWindowButton}" IsEnabled="{Binding HasNext}" x:Name="cNext"
+                            Click="cNext_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/DownArrow.png"/>
+                            <TextBlock>Previous Mail</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button x:Name="cReply" Style="{StaticResource MediumFlatWindowButton}" Click="cReply_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/Reply.png"/>
+                            <TextBlock>Reply</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="cReplyAll" Style="{StaticResource MediumFlatWindowButton}" Click="cReplyAll_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/ReplyAll.png"/>
+                            <TextBlock>Reply All</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="cForward" Style="{StaticResource MediumFlatWindowButton}" Click="cForward_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/Forward.png"/>
+                            <TextBlock>Forward</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="cDelete" Style="{StaticResource MediumFlatWindowButton}" Click="cDelete_Click">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/Delete.png"/>
+                            <TextBlock>Delete</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <ToggleButton Style="{StaticResource MediumFlatWindowToggleButton}" x:Name="cLabelMenu">
+                        <StackPanel>
+                            <Image Source="/Images/Icons/32/Label.png"/>
+                            <TextBlock>Labels</TextBlock>
+                            <Popup Style="{StaticResource DropdownMenu}" StaysOpen="False" 
+                                   IsOpen="{Binding IsChecked,ElementName=cLabelMenu,Mode=TwoWay}">
+                                <ItemsControl ItemsSource="{Binding Item.Labels}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <ToggleButton Style="{StaticResource MediumFlatWindowToggleButton}"
+                                                          IsChecked="{Binding Subscribed}" 
+                                                          HorizontalAlignment="Left" 
+                                                          Click="ToggleLabel_Click">
+                                                <StackPanel>
+                                                    <Image Source="/Images/Icons/32/Label.png"/>
+                                                    <TextBlock Text="{Binding Label.Name}"/>
+                                                </StackPanel>
+                                            </ToggleButton>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Popup>
+                        </StackPanel>
+                    </ToggleButton>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <local:MailBodyView Grid.Row="1" x:Name="cViewer" CurrentItem="{Binding Item}" AllowMarkRead="{Binding IsBackedByView}"/>
+    </Grid>
+</Window>

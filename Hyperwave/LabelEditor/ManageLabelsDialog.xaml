@@ -1,0 +1,140 @@
+﻿<Window x:Class="Hyperwave.LabelEditor.ManageLabelsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.LabelEditor"
+        xmlns:localmodel="clr-namespace:Hyperwave.LabelEditor.DataModel"
+        xmlns:base="clr-namespace:Hyperwave"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Manage Labels" Height="312.784" Width="333.239" Style="{StaticResource FlatWindow}" ResizeMode="NoResize" ShowInTaskbar="False"
+        Loaded="Window_Loaded" WindowStartupLocation="CenterOwner">
+    <Window.UseLayoutRounding>true</Window.UseLayoutRounding>
+    <Window.Resources>
+        <localmodel:LabelEditor x:Key="Data"/>
+    </Window.Resources>
+    <Grid Background="{DynamicResource AcountBarBackground}" RenderOptions.BitmapScalingMode="HighQuality" DataContext="{StaticResource Data}" x:Name="cDataRoot">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button Height="26" VerticalAlignment="Center" Focusable="False" 
+                    IsEnabled="{Binding CanUndo}" x:Name="cUndo" Click="cUndo_Click"
+                    Grid.Row="0" Grid.Column="0" Margin="5" Style="{StaticResource FlatDialogButton}">
+                <TextBlock FontFamily="Wingdings">&#xC5;</TextBlock>
+            </Button>
+            <Grid x:Name="cNewItemPanel" Grid.Column="1" Grid.Row="0" DataContext="{Binding NewItem}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox MinHeight="0" Height="26" x:Name="cNewItem" Grid.Column="0" GotFocus="cNewItem_GotFocus"
+                         Text="{Binding Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}"/>
+                <Popup StaysOpen="True" IsOpen="{Binding ShowError,Mode=OneWay}">                    
+                    <Popup.Resources>
+                        <SolidColorBrush x:Key="ButtonMouseHoverBackgroundBrush" Color="#66633629"/>
+                    </Popup.Resources>
+                    <Border Background="#FF2B1818" BorderBrush="#FF572727" BorderThickness="1">
+                        <Grid MinHeight="24" MinWidth="220" Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label VerticalAlignment="Center" Content="{Binding ErrorText}"/>
+                            <ToggleButton Grid.Column="1" IsChecked="{Binding ShowError,Converter={StaticResource Negate}}">
+                                <Image Source="/Images/Icons/16/Delete.png" Width="12"/>
+                            </ToggleButton>
+                        </Grid>
+                    </Border>
+                </Popup>
+                <Button  Grid.Column="1" x:Name="cAddItem" Click="cAddItem_Click" IsEnabled="{Binding IsValid}">
+                    <Image Source="/Images/Icons/16/Add.png" Width="16"/>
+                </Button>
+            </Grid>
+            <Button  Height="26" VerticalAlignment="Center" Focusable="False" 
+                     IsEnabled="{Binding CanRedo}" Click="cRedo_Click" x:Name="cRedo"
+                     Grid.Row="0" Grid.Column="2" Margin="5" Style="{StaticResource FlatDialogButton}">
+                <TextBlock FontFamily="Wingdings">&#xC6;</TextBlock>
+            </Button>
+            <ScrollViewer Background="{DynamicResource WebBrowserBackgroundBrush}" 
+                          BorderBrush="{x:Null}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
+                          IsEnabled="{Binding CanEdit}">
+                <ItemsControl ItemsSource="{Binding LabelItems}" Margin="5">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid x:Name="cTemplateItem" Background="Transparent" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.Resources>
+                                        <base:BoolMapConverter x:Key="OpacityMap">
+                                            <base:BoolMapConverter.FalseItem><sys:Double>0.5</sys:Double></base:BoolMapConverter.FalseItem>
+                                            <base:BoolMapConverter.TrueItem><sys:Double>1.0</sys:Double></base:BoolMapConverter.TrueItem>
+                                        </base:BoolMapConverter>
+                                    </Grid.Resources>
+                                    <Image Source="{Binding LabelType,Converter={StaticResource LabelTypeToImageConverter}}" 
+                                           Width="16"  
+                                           Opacity="{Binding Owner.CanEdit,Converter={StaticResource OpacityMap}}"
+                                           Grid.Column="0"/>
+
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="5,0,10,2" MouseLeftButtonUp="cText_MouseLeftButtonUp"
+                                           FontSize="16"  Text="{Binding Name}" Foreground="{DynamicResource TextBlockForegroundBrush}" 
+                                               Opacity="{Binding Owner.CanEdit,Converter={StaticResource OpacityMap}}"
+                                           Visibility="{Binding IsEditing,Converter={StaticResource BoolNotToCollapsedConverter}}" x:Name="cText"
+                                           Tag="{Binding Path={},ElementName=cEditBox}"/>
+                                    <TextBox FontSize="16" Grid.Column="1" Margin="5,0,10,0"
+                                         Text="{Binding EditingName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                         Tag="{Binding}"
+                                         Visibility="{Binding IsEditing,Converter={StaticResource BoolToCollapsedConverter}}"
+                                         x:Name="cEditBox"/>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal"
+                                            Visibility="{Binding IsEditing,Converter={StaticResource BoolToCollapsedConverter}}">
+                                        <Button x:Name="cSaveEdit" Click="cSaveEdit_Click" Tag="{Binding}">
+                                            <Image Source="/Images/Icons/16/Edit.png" Width="16"/>
+                                        </Button>
+                                        <Button Margin="5,0,0,0" x:Name="cCancelEdit" Click="cCancelEdit_Click" Tag="{Binding}">
+                                            <Image Source="/Images/Icons/16/Cancel.png" Width="16"/>
+                                        </Button>
+                                    </StackPanel>
+                                    <Button Grid.Column="2" IsEnabled="{Binding CanDelete}" x:Name="cDeleteItem" Click="cDeleteItem_Click"
+                                             Tag="{Binding}">
+                                        <Button.Visibility>
+                                            <MultiBinding Converter="{StaticResource BoolExpressionToCollapsedConverter}" ConverterParameter="$0 and !$1 and $2">
+                                                <Binding Path="IsMouseOver" ElementName="cTemplateItem"/>
+                                                <Binding Path="IsEditing"/>
+                                                <Binding Path="Owner.CanEdit"/>
+                                            </MultiBinding>
+                                        </Button.Visibility>
+                                        <Image Source="/Images/Icons/16/Delete.png" Width="12"/>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+            </ScrollViewer>
+            <ProgressBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="2,5" Height="12" 
+                         Visibility="{Binding IsWorking,Converter={StaticResource BoolToCollapsedConverter}}"
+                         Maximum="{Binding MaxProgress}" Minimum="0" Value="{Binding CurrentProgress,Mode=OneWay}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource FlatDialogButton}">
+                        <Setter Property="IsEnabled" Value="{Binding CanEdit}"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="cOk" Click="cOk_Click">_OK</Button>
+                <Button x:Name="cCancel">_Cancel</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

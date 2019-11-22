@@ -1,0 +1,170 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave"
+        xmlns:viewmodel="clr-namespace:Hyperwave.ViewModel;assembly=Hyperwave.ViewModel"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Hyperwave.MainWindow"
+        xmlns:viewer="clr-namespace:Hyperwave.MailView"
+        xmlns:common="clr-namespace:Hyperwave.Common"
+    
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Hyperwave" Height="755" Width="1091" WindowStartupLocation="CenterScreen" 
+        Visibility="Visible" Loaded="Window_Loaded" Closed="Window_Closed" Closing="Window_Closing"
+        Style="{StaticResource FlatWindow}" Icon="Images/Icons/Program.ico">
+
+    <Window.UseLayoutRounding>true</Window.UseLayoutRounding>
+    <Window.Resources>
+        <Style TargetType="ScrollViewer" BasedOn="{StaticResource FlatScrollViewer}"></Style>
+    </Window.Resources>
+    <Grid RenderOptions.BitmapScalingMode="HighQuality">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="238*"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="433*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Background="{DynamicResource AcountBarBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="51*"/>
+                <RowDefinition Height="603*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <Button Click="cCreateAccount_Click" Name="cCreateAccount">
+                    <Image Width="32" Height="32" Source="Images/Icons/32/NewAccount.png"/>
+                </Button>
+
+                <ToggleButton DockPanel.Dock="Right" HorizontalAlignment="Right">
+                    <StackPanel>
+                        <Image Width="32" Height="32" Source="/Images/Icons/32/Configure.png"/>
+                        <Popup Style="{StaticResource DropdownMenu}" StaysOpen="False" IsOpen="{Binding IsChecked,RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}},Mode=TwoWay}">
+                            <StackPanel>
+                                <Button x:Name="cSettings" Click="cSettings_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Settings...</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="cUpgrade" Click="cUpgrade_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Donate...</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Rectangle Height="4" Fill="{DynamicResource StyledListBackgroundBrush}"/>
+
+                                <Button x:Name="cAbout" Click="cAbout_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>About...</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Popup>
+                    </StackPanel>
+                </ToggleButton>
+
+
+            </DockPanel>
+            <TreeView x:Name="cAccounts" Margin="0,0,0,0" Grid.Row="1" Background="{x:Null}" Foreground="{DynamicResource TextBlockForegroundBrush}" BorderBrush="{x:Null}" SelectedItemChanged="cAccounts_SelectedItemChanged">
+                <TreeView.Resources>
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>
+                        <Setter Property="IsSelected" Value="{Binding IsSelected,Mode=TwoWay}"/>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="{DynamicResource SelectedColor}"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{DynamicResource InactiveSelectedColor}"/>
+                        </Style.Resources>
+                    </Style>
+                    <HierarchicalDataTemplate DataType="{x:Type viewmodel:ViewAccount}" ItemsSource="{Binding Labels}">
+                        <StackPanel Orientation="Horizontal" Margin="5" Background="Transparent">
+                            <Image Source="{Binding ImageUrl, Converter={StaticResource AbsoluteStringToImageConverter}}"/>
+                            <TextBlock Text="{Binding UserName}" Margin="5,0,0,0" VerticalAlignment="Center" FontWeight="{Binding ShowUnreadItems,Converter={StaticResource BoolToFontWeightConverter}}" Foreground="{Binding AccountState,Converter={StaticResource AccountStateToBrushConverter}}">
+                                <TextBlock.FontSize>
+                                    <System:Double>18.667</System:Double>
+                                </TextBlock.FontSize>
+                            </TextBlock>
+                            <common:ProgressSpinner Width="30" Height="30" Margin="5,0,0,0" Visibility="{Binding ShowSpinner,Converter={StaticResource BoolToVisibleConverter}}"/>
+
+                            <Grid Margin="5,0,0,0" Visibility="{Binding ShowUnreadItems,Converter={StaticResource BoolToVisibleConverter}}">
+                                <Ellipse Width="30" Height="30" Fill="{DynamicResource UnreadMailBackground}"/>
+                                <TextBlock Text="{Binding UnreadCount,Converter={StaticResource IntToReadCountConverter}}" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14.667" Foreground="{DynamicResource TextBlockForegroundBrush}"/>
+                            </Grid>
+
+                            <ToggleButton Width="22" Height="22">
+                                <ToggleButton.Visibility>
+                                    <MultiBinding Converter="{StaticResource BoolExpressionToVisibilityConverter}" ConverterParameter="$2 and ($0 or $1)">
+                                        <Binding Path="IsMouseOver" RelativeSource="{RelativeSource AncestorType={x:Type StackPanel}}"/>
+                                        <Binding Path="IsChecked" RelativeSource="{RelativeSource Self}"/>
+                                        <Binding Path="IsSelected"/>
+                                    </MultiBinding>
+                                </ToggleButton.Visibility>
+                                <Grid>
+                                    <Image Width="16" Height="16" Source="/Images/Icons/32/Configure.png"/>
+                                    <Popup Style="{StaticResource DropdownMenu}" StaysOpen="False" IsOpen="{Binding IsChecked,RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}},Mode=TwoWay}">
+                                        <StackPanel>
+                                            <Button x:Name="cManageLabels" Click="cManageLabels_Click" Tag="{Binding}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Width="32" Height="32" Source="Images/Icons/32/Label.png"/>
+                                                    <TextBlock>Manage Labels...</TextBlock>
+                                                </StackPanel>
+                                            </Button>
+                                            <Rectangle Height="4" Fill="{DynamicResource StyledListBackgroundBrush}"/>
+                                            <Button Click="AccountRemove_Click" Tag="{Binding}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Width="32" Height="32" Source="Images/Icons/32/Delete.png"/>
+                                                    <TextBlock>Remove Account</TextBlock>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </Popup>
+                                </Grid>
+                            </ToggleButton>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodel:ViewLabel}">
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Image Source="{Binding Type,Converter={StaticResource LabelTypeToImageConverter}}" Width="16" Height="16"/>
+                            <TextBlock Text="{Binding Name}" 
+                                       Margin="5,0,0,0" VerticalAlignment="Center" 
+                                       Foreground="{DynamicResource TextBlockForegroundBrush}" FontWeight="{Binding HasUnreadItems,Converter={StaticResource BoolToFontWeightConverter}}"/>
+                            <Grid Margin="5,0,0,0" Visibility="{Binding HasUnreadItems,Converter={StaticResource BoolToVisibleConverter}}">
+                                <Ellipse Width="20" Height="20" Fill="{DynamicResource UnreadMailBackground}"/>
+                                <TextBlock Text="{Binding UnreadCount,Converter={StaticResource IntToReadCountConverter}}" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="9.333" Foreground="{DynamicResource TextBlockForegroundBrush}"/>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Button Margin="0,0,10,0" x:Name="cRefresh" Click="cRefresh_Click" Style="{StaticResource LargeFlatWindowButton}">
+                    <StackPanel>
+                        <Image Source="Images/Icons/32/SyncMails.png" Width="32" Height="32"/>
+                        <TextBlock>Refresh</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Margin="0,0,10,0" IsEnabled="False" Style="{StaticResource LargeFlatWindowButton}">
+                    <StackPanel>
+                        <Image Source="Images/Icons/32/Calendar.png" Width="32" Height="32"/>
+                        <TextBlock>Calendar</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button IsEnabled="False" Style="{StaticResource LargeFlatWindowButton}">
+                    <StackPanel>
+                        <Image Source="Images/Icons/32/Contacts.png" Width="32" Height="32"/>
+                        <TextBlock>Contacts</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="4" HorizontalAlignment="Stretch" Background="{DynamicResource AcountBarBackground}"/>
+        <viewer:MailListView Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" x:Name="cMailList" SelectedItemChanged="cMailList_SelectedItemChanged"/>
+        <viewer:MailBodyView x:Name="cMailViewer" Grid.Row="3" Grid.Column="2" Visibility="Hidden" AllowMarkRead="True"/>
+        <GridSplitter Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" Background="{DynamicResource AcountBarBackground}"/>
+    </Grid>
+</Window>

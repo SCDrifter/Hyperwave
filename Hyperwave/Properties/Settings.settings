@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Hyperwave.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MailReadAction" Type="Hyperwave.Config.EmailReadAction" Scope="User">
+      <Value Profile="(Default)">BeforeMessageLoad</Value>
+    </Setting>
+    <Setting Name="DateFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dd-MMM-yyyy</Value>
+    </Setting>
+    <Setting Name="TimeFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">h:mm:ss</Value>
+    </Setting>
+    <Setting Name="MailCheckInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="BackgroundMailCheckInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1800</Value>
+    </Setting>
+    <Setting Name="BackgroundEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowNotifications" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SupressNotificationsClient" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MailCheckUnit" Type="Hyperwave.ViewModel.MailCheckIntervalUnit" Scope="User">
+      <Value Profile="(Default)">Seconds</Value>
+    </Setting>
+    <Setting Name="BackgroundMailCheckUnit" Type="Hyperwave.ViewModel.MailCheckIntervalUnit" Scope="User">
+      <Value Profile="(Default)">Minutes</Value>
+    </Setting>
+    <Setting Name="ColorScheme" Type="Hyperwave.Config.SkinStyle" Scope="User">
+      <Value Profile="(Default)">Gallente</Value>
+    </Setting>
+    <Setting Name="BackgroundSettingChecksum" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1739211801</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

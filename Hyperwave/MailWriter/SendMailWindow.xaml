@@ -1,0 +1,34 @@
+﻿<Window x:Class="Hyperwave.MailWriter.SendMailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.MailWriter"
+        mc:Ignorable="d"
+        Title="Sending Eve Mail" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ProgressBar IsIndeterminate="True" Margin="5,10" Height="12" Width="365" x:Name="cProgress"/>
+        <Grid Grid.Row="1" x:Name="cErrorPanel" Visibility="Collapsed" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock TextAlignment="Center" FontSize="16" FontWeight="Bold">Unable to Send Eve Mail</TextBlock>
+            <Expander Grid.Row="1" Header="Technical Details">
+                <TextBox AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" 
+                         MinHeight="50" Margin="5" 
+                         Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
+                         x:Name="cDetails"/>
+            </Expander>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Margin="5" x:Name="cRetry" VerticalAlignment="Center" Click="cRetry_Click"><Label Margin="3,1">_Retry</Label></Button>
+                <Button Margin="5" x:Name="cCancel" VerticalAlignment="Center" Click="cCancel_Click"><Label Margin="3,1">_Cancel</Label></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,133 @@
+﻿<Window x:Class="Hyperwave.Admin.AboutDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.Admin"
+        xmlns:viewmodel="clr-namespace:Hyperwave.Admin.DataModel"
+        mc:Ignorable="d"
+        Title="About" Height="386.327" Width="605.592"
+        Style="{StaticResource FlatWindow}" ResizeMode="NoResize" ShowInTaskbar="False" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DataTemplate x:Key="CharacterData">
+            <StackPanel Orientation="Horizontal" DataContext="{Binding Value}">
+                <Image Source="{Binding ImageUrl32,Converter={StaticResource AbsoluteStringToImageConverter}}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="{DynamicResource AcountBarBackground}" Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" HorizontalContentAlignment="Right" Margin="5">_Author:</Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource SelectableTextBlock}" Text="{Binding AppInfo.CompanyName,Mode=OneWay}" Margin="5"/>
+        <Label Grid.Row="1" HorizontalContentAlignment="Right" Margin="5">_Copyright:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource SelectableTextBlock}" Text="{Binding AppInfo.LegalCopyright,Mode=OneWay}" Margin="5"/>
+        <TabControl Grid.Row="2" Grid.Column="0" Margin="5" Grid.ColumnSpan="2" SelectedIndex="{Binding TabIndex}">
+            <TabItem Header="Credits">
+                <FlowDocumentScrollViewer>
+                    <FlowDocumentScrollViewer.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
+                            <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
+                        </Style>
+                    </FlowDocumentScrollViewer.Resources>
+                    <FlowDocumentScrollViewer.Document>
+                        <FlowDocument FontFamily="Arial" FontSize="12" Background="{DynamicResource WebBrowserBackgroundBrush}" Foreground="{DynamicResource TextBlockForegroundBrush}">
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="https://www.flaticon.com/authors/dimitry-miroliubov" ToolTip="Dimitry Miroliubov" Click="Hyperlink_Click">Dimitry Miroliubov</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0" Click="Hyperlink_Click">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="https://www.flaticon.com/authors/gregor-cresnar" ToolTip="Gregor Cresnar" Click="Hyperlink_Click">Gregor Cresnar</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="http://www.freepik.com" ToolTip="Freepik" Click="Hyperlink_Click">Freepik</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0" Click="Hyperlink_Click">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="https://www.flaticon.com/authors/smashicons" ToolTip="Smashicons" Click="Hyperlink_Click">Smashicons</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0" Click="Hyperlink_Click">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="https://www.flaticon.com/authors/daniel-bruce" ToolTip="Daniel Bruce" Click="Hyperlink_Click">Daniel Bruce</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0" Click="Hyperlink_Click">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                            <Paragraph>Icons made by
+                                <Hyperlink NavigateUri="https://www.flaticon.com/authors/roundicons" ToolTip="Roundicons" Click="Hyperlink_Click">Roundicons</Hyperlink> from
+                                <Hyperlink NavigateUri="https://www.flaticon.com/" ToolTip="Flaticon" Click="Hyperlink_Click">www.flaticon.com</Hyperlink> is licensed by
+                                <Hyperlink NavigateUri="http://creativecommons.org/licenses/by/3.0/" ToolTip="Creative Commons BY 3.0" Click="Hyperlink_Click">CC 3.0 BY</Hyperlink>
+                            </Paragraph>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer.Document>
+                </FlowDocumentScrollViewer>
+            </TabItem>
+            <TabItem Header="Donate">
+                <FlowDocumentScrollViewer>
+
+                    <FlowDocumentScrollViewer.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
+                            <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
+                        </Style>
+                    </FlowDocumentScrollViewer.Resources>
+                    <FlowDocument FontFamily="Arial" FontSize="12" Background="{DynamicResource WebBrowserBackgroundBrush}" Foreground="White">
+                        <Paragraph>
+                            For those who wish to contribute towards the development of hyperwave should know that this application runs on internet flattery and twitter mentions.
+                        </Paragraph>
+                        <Paragraph>
+                            But if you a person that can only show appreciation by throwing money at people(not judging) you can send ISK to
+                            <Hyperlink NavigateUri="eve-mail://character/96181148" Click="Hyperlink_Click">Deadmeat Zukalick</Hyperlink>.
+                        </Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </TabItem>
+            <TabItem Header="License">
+                <FlowDocumentScrollViewer>
+
+                    <FlowDocumentScrollViewer.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
+                            <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
+                        </Style>
+                        <Style TargetType="ListItem">
+                            <Setter Property="Margin" Value="0,0,0,20"/>
+                        </Style>
+                    </FlowDocumentScrollViewer.Resources>
+                    <FlowDocument FontFamily="Arial" FontSize="12" Background="{DynamicResource WebBrowserBackgroundBrush}" Foreground="White">
+                        <Paragraph>
+                            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                        </Paragraph>
+                        <List MarkerStyle="Decimal">
+                            <ListItem><Paragraph>The above copyright notice and these permission notices shall be included in all copies or substantial portions of the Software.</Paragraph></ListItem>
+                            <ListItem>
+                                <Paragraph>Any Modified Software must remain in complience with
+                                    <Hyperlink NavigateUri="https://community.eveonline.com/support/policies/third-party-policies-en/" Click="Hyperlink_Click">CCP Third Party Policy</Hyperlink>.
+                                </Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>
+                                    Any Modified Software must use it's own user agent field when sending requests to CCP Eve Swagger Interface("ESI").
+                                </Paragraph>
+                            </ListItem>
+                        </List>
+                        <Paragraph>
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                            
+                        </Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

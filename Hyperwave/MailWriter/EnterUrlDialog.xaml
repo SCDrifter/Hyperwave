@@ -1,0 +1,40 @@
+﻿<Window x:Class="Hyperwave.MailWriter.EnterUrlDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.MailWriter"
+        mc:Ignorable="d"
+        Title="Enter URL" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        ContentRendered="Window_ContentRendered" Style="{StaticResource FlatWindow}" ResizeMode="NoResize">
+    <Grid Background="{DynamicResource AcountBarBackground}">
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.RowSpan="4" Margin="20,0" FontFamily="Webdings" FontSize="64" VerticalAlignment="Center">ü</TextBlock>
+
+            <Label Grid.Column="1">Hyperlink URL:</Label>
+            <TextBox x:Name="cUrl" Grid.Column="1" Grid.Row="1" MinWidth="250" Text="{Binding Url,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="1" Grid.Row="2">Hyperlink Description:</Label>
+            <TextBox x:Name="cDescription" Grid.Column="1" Grid.Row="3" MinWidth="250" Text="{Binding Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <WrapPanel Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button Style="{StaticResource FlatDialogButton}" 
+                        IsEnabled="{Binding IsValid}"
+                        IsDefault="True" Name="cOK" Click="cOK_Click" MinWidth="60">_OK</Button>
+                <Button Style="{StaticResource FlatDialogButton}" IsCancel="True" MinWidth="60">_Cancel</Button>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+
+</Window>

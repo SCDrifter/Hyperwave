@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Hyperwave">
+    <SolidColorBrush x:Key="UnreadMailBackground" Color="#FF859344"/>
+    <SolidColorBrush x:Key="AcountBarBackground" Color="#D84F4C38"/>
+
+    <SolidColorBrush x:Key="EditableBackgroundBrush" Color="#E568684C"/>
+    <SolidColorBrush x:Key="EditableInnerBorderBrush" Color="#FF1B1B14"/>
+    <SolidColorBrush x:Key="ComboDropdownBackgroundBrush" Color="#E5474730"/>
+    <SolidColorBrush x:Key="EditableBorderBrush" Color="#FF5B5B44"/>
+    <SolidColorBrush x:Key="ContextMenuBackgroundBrush" Color="#FF6E6E4E"/>
+
+    <Color x:Key="SelectedColor" A="102" G="132" B="34" R="132"/>
+    <Color x:Key="InactiveSelectedColor" A="60" G="99" B="34" R="102"/>
+
+    <SolidColorBrush x:Key="SelectedColorBrush" Color="{StaticResource SelectedColor}"/>
+    <SolidColorBrush x:Key="InactiveSelectedColorBrush" Color="{StaticResource InactiveSelectedColor}"/>
+    <SolidColorBrush x:Key="ButtonMouseHoverBackgroundBrush" Color="#66636329"/>
+    <SolidColorBrush x:Key="ButtonFooterBackgroundBrush" Color="#E54D4D3A"/>
+    <SolidColorBrush x:Key="GridViewColumnHeaderGripperBackgroundBrush" Color="#FF232316"/>
+    <SolidColorBrush x:Key="StyledListBackgroundBrush" Color="#F2272713"/>
+    <SolidColorBrush x:Key="StyledListGridViewColumnHeaderBackgroundBrush" Color="#FF404023"/>
+
+    <SolidColorBrush x:Key="WebBrowserBackgroundBrush" Color="#F21B1B0E"/>
+    <SolidColorBrush x:Key="MailHeadersBackgroundBrush" Color="#FF3A3A2F"/>
+    <SolidColorBrush x:Key="TextBlockForegroundBrush" Color="White"/>
+
+    <SolidColorBrush x:Key="CharLinkTextBrush" Color="#FF999961" />
+    <SolidColorBrush x:Key="InfoHeaderBorderBrush" Color="#FF646451"/>
+    <SolidColorBrush x:Key="TabHighlightBackgroundBrush" Color="#FF4E532C"/>
+
+    <BitmapImage x:Key="MainWindowBackground" UriSource="Images/Backgrounds/Amarr.png" />
+
+    <SolidColorBrush x:Key="ScrollBarButtonBackgroundBrush" Color="{StaticResource InactiveSelectedColor}"/>
+    <SolidColorBrush x:Key="ScrollBarButtonActiveBackgroundBrush" Color="{StaticResource SelectedColor}"/>
+    <SolidColorBrush x:Key="ScrollBarButtonDisabledBackgroundBrush" Color="#3A666666"/>
+    <SolidColorBrush x:Key="ScrollBarGlyphBrush" Color="#444" />
+    <SolidColorBrush x:Key="ProgressBarForeground" Color="#FF9C9C6F"/>
+
+    <SolidColorBrush x:Key="NotificationBorder" Color="#FF8D794E"/>
+
+    <LinearGradientBrush x:Key="NotificationBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF5F4B28" Offset="0"/>
+        <GradientStop Color="#FF9C8C42" Offset="1"/>
+    </LinearGradientBrush>
+    
+</ResourceDictionary>

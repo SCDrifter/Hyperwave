@@ -1,0 +1,33 @@
+﻿<Window x:Class="Hyperwave.MailView.LabelEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.MailView"
+        xmlns:base="clr-namespace:Hyperwave"
+        xmlns:common="clr-namespace:Hyperwave.Common"        
+        mc:Ignorable="d"
+        Title="Change Labels" Height="300" Width="300" 
+        ResizeMode="NoResize" Loaded="Window_Loaded" 
+        WindowStartupLocation="CenterOwner"
+        Style="{StaticResource FlatWindow}">
+    <Grid Background="{DynamicResource AcountBarBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" Margin="5" Background="{DynamicResource StyledListBackgroundBrush}">
+            <ItemsControl x:Name="cLabelList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}" Style="{StaticResource FlatDialogCheckBox}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+            <Button Style="{StaticResource FlatDialogButton}" x:Name="cOK" Width="49" IsDefault="True" Click="cOK_Click" VerticalAlignment="Center">_OK</Button>
+            <Button Style="{StaticResource FlatDialogButton}" x:Name="cCancel" Width="50" Margin="10,0,0,0" IsCancel="True" VerticalAlignment="Center">_Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

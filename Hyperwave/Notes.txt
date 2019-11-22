@@ -1,0 +1,2 @@
+﻿Commandline parameters:
+NewMail -character 96181148 -subject "Test Cmd Subject" -body body

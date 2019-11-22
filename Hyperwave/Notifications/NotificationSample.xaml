@@ -1,0 +1,9 @@
+﻿<Notification xmlns:a="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns="clr-namespace:Hyperwave.Notifications"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Notification.Title>Re: Fleet Tomorrow</Notification.Title>
+    <Notification.Line1>Klump Klopper</Notification.Line1>
+    <Notification.Line2>Deadmeat Zukalick</Notification.Line2>
+    <Notification.ImageUrl>https://imageserver.eveonline.com/Character/2113384502_128.jpg</Notification.ImageUrl>
+</Notification>

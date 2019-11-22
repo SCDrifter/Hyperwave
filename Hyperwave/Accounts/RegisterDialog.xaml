@@ -1,0 +1,50 @@
+﻿<Window x:Class="Hyperwave.Accounts.RegisterDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.Accounts"
+        xmlns:base="clr-namespace:Hyperwave"
+        xmlns:common="clr-namespace:Hyperwave.Common"
+        mc:Ignorable="d"
+        Title="Add Character Account" Height="375.818" Width="409.068" Style="{StaticResource FlatWindow}"
+        ShowInTaskbar="False"  WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Closing="Window_Closing"
+        >
+    <Grid Background="{DynamicResource AcountBarBackground}">
+        <DockPanel x:Name="cCreationPage">
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" >
+                <Button x:Name="cCreateAccount" Style="{StaticResource FlatDialogButton}" HorizontalAlignment="Center" IsDefault="True" Click="cCreateAccount_Click">
+                    <TextBlock Margin="5,2">Create</TextBlock>
+                </Button>
+                <CheckBox Margin="0,0,0,10" HorizontalAlignment="Center"
+                          Style="{StaticResource FlatDialogCheckBox}" 
+                          IsEnabled="{Binding CanUseBuiltinBrowser}"
+                          IsChecked="{Binding UseBuiltinBrowser,Mode=TwoWay}">Use Builtin Browser</CheckBox>
+            </StackPanel>
+            <Grid  DockPanel.Dock="Top" Background="{DynamicResource MailHeadersBackgroundBrush}">
+                <TextBlock HorizontalAlignment="Center" Margin="5">Select Permissions</TextBlock>
+            </Grid>
+            <StackPanel Width="137" Height="144" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,41">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/Icons/16/Checkbox.png" Width="16" Height="16"></Image>
+                    <TextBlock Margin="5,0,0,0">Read Mail</TextBlock>
+                </StackPanel>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding MailSend,Mode=TwoWay}" Margin="0,5,0,0">Send mail</CheckBox>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding MailWrite,Mode=TwoWay}" Margin="0,5,0,0">Organize mail</CheckBox>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding ContactsRead,Mode=TwoWay}" IsEnabled="False" Margin="0,5,0,0">Read Contacts</CheckBox>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding ContactsWrite,Mode=TwoWay}" IsEnabled="False" Margin="0,5,0,0">Write Contacts</CheckBox>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding CalendarRead,Mode=TwoWay}" IsEnabled="False" Margin="0,5,0,0">Read Calendar</CheckBox>
+                <CheckBox Style="{StaticResource FlatDialogCheckBox}" IsChecked="{Binding CalendarWrite,Mode=TwoWay}" IsEnabled="False" Margin="0,5,0,0">Write Calendar</CheckBox>
+
+            </StackPanel>
+        </DockPanel>
+        <DockPanel x:Name="cActionPage" Visibility="Hidden">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="cActionText">Doing somthing</TextBlock>
+                </DockPanel>
+                <ProgressBar Height="5" Margin="0,5,0,0" Width="184" IsIndeterminate="True"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

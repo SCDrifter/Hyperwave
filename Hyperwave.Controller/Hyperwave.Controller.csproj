@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8F5F413-903F-4BC1-96CD-041AFB1A6EE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hyperwave.Controller</RootNamespace>
+    <AssemblyName>Hyperwave.Controller</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NO_TEST_NOTIFICATIONS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AssemblySign.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IO.Swagger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\EveSwaggerInterface\CSharp\src\IO.Swagger\bin\Release\IO.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="CommandRouter.cs" />
+    <Compile Include="DraftMessageSource.cs" />
+    <Compile Include="EveMailClient.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IDraftWindow.cs" />
+    <Compile Include="Label.cs" />
+    <Compile Include="MailCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfoCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hyperwave.Auth\Hyperwave.Auth.csproj">
+      <Project>{420d40e9-d736-4d62-9475-4f5b984cf2d3}</Project>
+      <Name>Hyperwave.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Config\Hyperwave.Config.csproj">
+      <Project>{f94cc468-b4aa-4a8d-9b63-c58fbc74b046}</Project>
+      <Name>Hyperwave.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.DB\Hyperwave.DB.csproj">
+      <Project>{80b394f4-b204-45b4-9753-af0d2d7e2c01}</Project>
+      <Name>Hyperwave.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.UserCache\Hyperwave.UserCache.csproj">
+      <Project>{278daa95-1471-4a58-957a-32a131dd4e26}</Project>
+      <Name>Hyperwave.UserCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.ViewModel\Hyperwave.ViewModel.csproj">
+      <Project>{5b7281a7-cbfb-4e4a-bf29-2e4a003c77fc}</Project>
+      <Name>Hyperwave.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="AssemblySign.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

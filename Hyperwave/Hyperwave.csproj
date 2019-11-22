@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85A4D6DE-34C9-4748-9EA9-CD5144D44C89}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hyperwave</RootNamespace>
+    <AssemblyName>Hyperwave</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Icons\Program.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TaskDialogLib, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8d1aed4b4c06c9a8, processorArchitecture=MSIL">
+      <HintPath>..\packages\TaskDialogLib.1.1.0.0\lib\net40\TaskDialogLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Accounts\SSOLoginController.cs" />
+    <Compile Include="Admin\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DataModel\ColorThemePage.cs" />
+    <Compile Include="Admin\DataModel\ConfigPage.cs" />
+    <Compile Include="Admin\DataModel\Configuration.cs" />
+    <Compile Include="Admin\DataModel\MailCheckPage.cs" />
+    <Compile Include="Admin\DataModel\MailReadPage.cs" />
+    <Compile Include="Admin\DataModel\PropertyValue.cs" />
+    <Compile Include="Admin\SettingsDialog.xaml.cs">
+      <DependentUpon>SettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BoolEvaluator.cs" />
+    <Compile Include="Common\NumericEntry.xaml.cs">
+      <DependentUpon>NumericEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\SortOrderTicker.xaml.cs">
+      <DependentUpon>SortOrderTicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters.cs" />
+    <Compile Include="EntityInfoDisplay\EveInfoPanel.xaml.cs">
+      <DependentUpon>EveInfoPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="LabelEditor\DataModel\AddRemoveUndoItem.cs" />
+    <Compile Include="LabelEditor\DataModel\EditUndoItem.cs" />
+    <Compile Include="LabelEditor\DataModel\LabelEditor.cs" />
+    <Compile Include="LabelEditor\DataModel\LabelItem.cs" />
+    <Compile Include="LabelEditor\DataModel\NewItem.cs" />
+    <Compile Include="LabelEditor\DataModel\UndoItem.cs" />
+    <Compile Include="LabelEditor\ManageLabelsDialog.xaml.cs">
+      <DependentUpon>ManageLabelsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailViewer\LabelEditor.xaml.cs">
+      <DependentUpon>LabelEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailViewer\MailListView.xaml.cs">
+      <DependentUpon>MailListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailViewer\MailBodyView.xaml.cs">
+      <DependentUpon>MailBodyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailViewer\MailViewWindow.xaml.cs">
+      <DependentUpon>MailViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailWriter\EnterUrlDialog.xaml.cs">
+      <DependentUpon>EnterUrlDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailWriter\MailWriter.xaml.cs">
+      <DependentUpon>MailWriter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MailWriter\SendMailWindow.xaml.cs">
+      <DependentUpon>SendMailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications\Notification.cs" />
+    <Compile Include="Notifications\NotificationWindow.xaml.cs">
+      <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Common\ProgressSpinner.xaml.cs">
+      <DependentUpon>ProgressSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\RegisterDialog.xaml.cs">
+      <DependentUpon>RegisterDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Admin\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\SettingsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Amarr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Caldari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\NumericEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\SortOrderTicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EntityInfoDisplay\EveInfoPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gallente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LabelEditor\ManageLabelsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailViewer\LabelEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailViewer\MailListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailViewer\MailBodyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailViewer\MailViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailWriter\EnterUrlDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailWriter\MailWriter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailWriter\SendMailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Common\ProgressSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Accounts\RegisterDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Minmatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="Notifications\NotificationSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </DesignData>
+    <Page Include="Notifications\NotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Images\Icons\16\Alliance.png" />
+    <Resource Include="Images\Icons\16\Corp.png" />
+    <Resource Include="Images\Icons\16\Filter.png" />
+    <Resource Include="Images\Icons\16\Inbox.png" />
+    <Resource Include="Images\Icons\16\Outbox.png" />
+    <Resource Include="Images\Backgrounds\Amarr.png" />
+    <Resource Include="Images\Backgrounds\Caldari.png" />
+    <Resource Include="Images\Backgrounds\Gallente.png" />
+    <Resource Include="Images\Backgrounds\Minmatar.png" />
+    <Resource Include="Images\Icons\16\Checkbox.png" />
+    <Resource Include="Images\Icons\16\MailinglistFilter.png" />
+    <Resource Include="Images\Icons\32\Forward.png" />
+    <Resource Include="Images\Icons\32\Reply.png" />
+    <Resource Include="Images\Icons\32\Delete.png" />
+    <Resource Include="Images\Icons\32\Configure.png" />
+    <Resource Include="Images\Icons\32\Exit.png" />
+    <Resource Include="Images\Icons\32\MarkRead.png" />
+    <Resource Include="Images\Icons\32\MarkUnread.png" />
+    <Resource Include="Images\Icons\32\Download.png" />
+    <Resource Include="Images\Icons\16\GenericEntity.png" />
+    <Resource Include="Images\Icons\32\GenericEntity.png" />
+    <Resource Include="Images\Icons\64\GenericEntity.png" />
+    <Resource Include="Images\Icons\16\MailingList.png" />
+    <Resource Include="Images\Icons\32\MailingList.png" />
+    <Resource Include="Images\Icons\64\MailingList.png" />
+    <Resource Include="Images\Icons\32\ReplyAll.png" />
+    <Resource Include="Images\Icons\32\Flag.png" />
+    <Resource Include="Images\Icons\32\Label.png" />
+    <Resource Include="Images\Icons\32\LeftArrow.png" />
+    <Resource Include="Images\Icons\32\RightArrow.png" />
+    <Resource Include="Images\Icons\32\DownArrow.png" />
+    <Resource Include="Images\Icons\32\UpArrow.png" />
+    <Resource Include="Images\Icons\64\SendMail.png" />
+    <Resource Include="Images\Icons\16\Delete.png" />
+    <Resource Include="Images\Icons\16\OnlineSearch.png" />
+    <Resource Include="Images\Icons\16\Drafts.png" />
+    <Resource Include="Images\Icons\16\Save.png" />
+    <Resource Include="Images\Icons\Program.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\16\Read.png" />
+    <Resource Include="Images\Icons\16\Unread.png" />
+    <Resource Include="Images\Icons\32\NewMail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\32\NewAccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\32\SyncMails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\32\Calendar.png" />
+    <Resource Include="Images\Icons\32\Contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hyperwave.Auth\Hyperwave.Auth.csproj">
+      <Project>{420d40e9-d736-4d62-9475-4f5b984cf2d3}</Project>
+      <Name>Hyperwave.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Config\Hyperwave.Config.csproj">
+      <Project>{f94cc468-b4aa-4a8d-9b63-c58fbc74b046}</Project>
+      <Name>Hyperwave.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Controller\Hyperwave.Controller.csproj">
+      <Project>{b8f5f413-903f-4bc1-96cd-041afb1a6ee2}</Project>
+      <Name>Hyperwave.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Shell\Hyperwave.Shell.csproj">
+      <Project>{137b2c23-d855-40a2-9833-15b5219841e6}</Project>
+      <Name>Hyperwave.Shell</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.UserCache\Hyperwave.UserCache.csproj">
+      <Project>{278daa95-1471-4a58-957a-32a131dd4e26}</Project>
+      <Name>Hyperwave.UserCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.ViewModel\Hyperwave.ViewModel.csproj">
+      <Project>{5b7281a7-cbfb-4e4a-bf29-2e4a003c77fc}</Project>
+      <Name>Hyperwave.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LexEngine\LexEngine.csproj">
+      <Project>{fea9bbb1-f7c4-4e18-b34f-2ec9ba00578c}</Project>
+      <Name>LexEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\ImagePay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\128\GenericEntity.png" />
+    <Resource Include="Images\Icons\128\MailingList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Mail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\32\Themes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\16\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\16\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\16\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logos\Amarr.png" />
+    <Resource Include="Images\Logos\Caldari.png" />
+    <Resource Include="Images\Logos\Gallente.png" />
+    <Resource Include="Images\Logos\Minmatar.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Sound\CalandarEvent.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\NewMail.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\NewMails.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

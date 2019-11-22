@@ -1,0 +1,409 @@
+﻿<Window x:Class="Hyperwave.MailWriter.MailWriter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hyperwave.MailWriter"
+        xmlns:sys ="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewmodel="clr-namespace:Hyperwave.ViewModel;assembly=Hyperwave.ViewModel"
+        xmlns:global="clr-namespace:Hyperwave"
+        xmlns:common="clr-namespace:Hyperwave.Common"
+        mc:Ignorable="d"
+        Icon="/Images/Icons/Mail.ico"
+        Title="{Binding MailTitle}" Height="490" Width="647" Style="{StaticResource FlatWindow}"
+        Deactivated="Window_Deactivated" Closed="Window_Closed" Loaded="Window_Loaded">
+    <Window.UseLayoutRounding>true</Window.UseLayoutRounding>
+    <Window.Resources>
+        <global:ObjectFlagConverter TrueValue="{StaticResource LinkPanel}" FalseValue="{StaticResource ErrorLinkPanel}" x:Key="MailColor"/>
+        
+        <Style TargetType="ContentControl" x:Key="LookupPoup">
+            <Setter Property="Foreground" Value="{DynamicResource TextBlockForegroundBrush}"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid Background="{DynamicResource EditableBackgroundBrush}" x:Name="cParent">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="600">
+                                <StackPanel Margin="5">
+                                    <TextBlock FontWeight="Bold"
+                                Text="Characters"
+                                Visibility="{Binding HasCharacters,Converter={StaticResource BoolToCollapsedConverter}}"/>
+                                    <ItemsControl ItemsSource="{Binding FirstCharacters}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Style="{StaticResource LinkPanel}" Margin="5" 
+                                                        Tag="{Binding DataContext,ElementName=cParent}" 
+                                                        MouseDown="Selection_MouseDown">
+                                                    <Image Source="{Binding ImageUrl16,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="16"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <Button Focusable="False" x:Name="FetchCharacters" Style="{StaticResource FooterButton}"
+                                        Visibility="{Binding HasMoreCharacters,Converter={StaticResource BoolToCollapsedConverter}}"
+                                        Click="FetchCharacters_Click"
+                                        >
+                                        <StackPanel Orientation="Horizontal" Margin="3">
+                                            <Image Source="/Images/Icons/32/DownArrow.png" Width="10" Height="10"/>
+                                            <TextBlock Margin="5,0,0,0" Foreground="{DynamicResource TextBlockForegroundBrush}" FontSize="9.333">Show More</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <TextBlock FontWeight="Bold"
+                                Text="Alliances"
+                                Visibility="{Binding HasAlliances,Converter={StaticResource BoolToCollapsedConverter}}"/>
+                                    <ItemsControl ItemsSource="{Binding FirstAlliances}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Style="{StaticResource LinkPanel}" Margin="5" 
+                                                        Tag="{Binding DataContext,ElementName=cParent}" 
+                                                        MouseDown="Selection_MouseDown">
+                                                    <Image Source="{Binding ImageUrl16,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="16"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <Button Focusable="False" x:Name="FetchAlliances" Style="{StaticResource FooterButton}"
+                                        Visibility="{Binding HasMoreAlliances,Converter={StaticResource BoolToCollapsedConverter}}"
+                                        Click="FetchAlliances_Click"
+                                        >
+                                        <StackPanel Orientation="Horizontal" Margin="3">
+                                            <Image Source="/Images/Icons/32/DownArrow.png" Width="10" Height="10"/>
+                                            <TextBlock Margin="5,0,0,0" Foreground="{DynamicResource TextBlockForegroundBrush}" FontSize="9.333">Show More</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <TextBlock FontWeight="Bold"
+                                Text="Corporations"
+                                Visibility="{Binding HasCorporations,Converter={StaticResource BoolToCollapsedConverter}}"/>
+                                    <ItemsControl ItemsSource="{Binding FirstCorporations}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Style="{StaticResource LinkPanel}" Margin="5" 
+                                                        Tag="{Binding DataContext,ElementName=cParent}" 
+                                                        MouseDown="Selection_MouseDown">
+                                                    <Image Source="{Binding ImageUrl16,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="16"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <Button Focusable="False" x:Name="FetchCorporations" Style="{StaticResource FooterButton}"
+                                        Visibility="{Binding HasMoreCorporations,Converter={StaticResource BoolToCollapsedConverter}}"
+                                        Click="FetchCorporations_Click"
+                                        >
+                                        <StackPanel Orientation="Horizontal" Margin="3">
+                                            <Image Source="/Images/Icons/32/DownArrow.png" Width="10" Height="10"/>
+                                            <TextBlock Margin="5,0,0,0" Foreground="{DynamicResource TextBlockForegroundBrush}" FontSize="9.333">Show More</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <TextBlock FontWeight="Bold"
+                                Text="Mailing Lists"
+                                Visibility="{Binding HasMailinglists,Converter={StaticResource BoolToCollapsedConverter}}"/>
+                                    <ItemsControl ItemsSource="{Binding FirstMailinglists}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Style="{StaticResource LinkPanel}" Margin="5" 
+                                                        Tag="{Binding DataContext,ElementName=cParent}" 
+                                                        MouseDown="Selection_MouseDown">
+                                                    <Image Source="{Binding ImageUrl16,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="16"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <Button Focusable="False" x:Name="FetchMailinglists" Style="{StaticResource FooterButton}"
+                                        Visibility="{Binding HasMoreMailinglists,Converter={StaticResource BoolToCollapsedConverter}}"
+                                        Click="FetchMailinglists_Click"
+                                        >
+                                        <StackPanel Orientation="Horizontal" Margin="3">
+                                            <Image Source="/Images/Icons/32/DownArrow.png" Width="10" Height="10"/>
+                                            <TextBlock Margin="5,0,0,0" Foreground="{DynamicResource TextBlockForegroundBrush}" FontSize="9.333">Show More</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <StackPanel Orientation="Horizontal" Margin="10" Visibility="{Binding IsLoading,Converter={StaticResource BoolToCollapsedConverter}}">
+                                        <common:ProgressSpinner Width="24" Height="24"/>
+                                        <TextBlock Margin="5,0" FontWeight="Bold" FontSize="16">Searching...</TextBlock>
+                                    </StackPanel>
+                                    <TextBlock FontStyle="Italic" HorizontalAlignment="Center">
+                                        <TextBlock.Visibility>
+                                            <MultiBinding Converter="{StaticResource BoolExpressionToCollapsedConverter}"
+                                                      ConverterParameter="!$0 and !$1">
+                                                <Binding Path="HasItems"/>
+                                                <Binding Path="IsLoading"/>
+                                            </MultiBinding>
+                                        </TextBlock.Visibility>
+                                    <Run>'</Run><Run Text="{Binding Text}"/><Run>' not found.</Run>
+                                    </TextBlock>
+                                    <Button Focusable="False" Margin="10" x:Name="SearchOnline" 
+                                        IsEnabled="{Binding CanGoOnline}"
+                                        Click="SearchOnline_Click">
+                                        <StackPanel Orientation="Horizontal" Margin="5">
+                                            <Image Source="/Images/Icons/16/OnlineSearch.png" Width="16" Height="16"/>
+                                            <TextBlock Margin="5,0,0,0" Foreground="{DynamicResource TextBlockForegroundBrush}">Search Online</TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid RenderOptions.BitmapScalingMode="HighQuality">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="{DynamicResource AcountBarBackground}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <Button x:Name="cSend" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cSend_Click">
+            <Image Source="/Images/Icons/64/SendMail.png" Width="64" Height="64" Margin="5"/>
+        </Button>
+        
+        <TextBlock Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,9">From:</TextBlock>
+        <ComboBox x:Name="cFromAccount" Grid.Column="2" Grid.Row="0" Margin="5" Height="27" SelectedItem="{Binding Account,Mode=TwoWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding ImageUrl,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="32" VerticalAlignment="Center" Margin="5,0"/>
+                        <TextBlock Text="{Binding UserName}" Foreground="{DynamicResource TextBlockForegroundBrush}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">To:</TextBlock>
+        <ItemsControl Grid.Column="2" Grid.Row="1" ItemsSource="{Binding EditableReceipients}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Style="{StaticResource FromBox}" Margin="5" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodel:DraftMailRecipient}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource LinkButton}" 
+                                    Visibility="{Binding IsEditing,Converter={StaticResource BoolNotToCollapsedConverter}}" 
+                                    Tag="{Binding Path={},RelativeSource={RelativeSource AncestorType=Grid}}"
+                                    Click="Item_Click">
+                                <StackPanel Style="{Binding IsValid,Converter={StaticResource MailColor}}" Margin="5">
+                                    <Image Source="{Binding ImageUrl16,Converter={StaticResource AbsoluteStringToImageConverter}}" Width="16"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource AttachedButton}"
+                                    Visibility="{Binding IsEditing,Converter={StaticResource BoolNotToCollapsedConverter}}"
+                                    Click="DeleteItem_Click">
+                                <Image Width="14" Height="14" Source="/Images/Icons/16/Delete.png"/>
+                            </Button>
+
+                        </StackPanel>
+                        <StackPanel Visibility="{Binding IsEditing,Converter={StaticResource BoolToCollapsedConverter}}">
+                            <Border BorderThickness="1" BorderBrush="{DynamicResource EditableBorderBrush}">
+                                <TextBox x:Name="cTextBox" MinWidth="70" MaxWidth="200" Height="24"
+                                    Text="{Binding Editor.Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                    Margin="0,1" Background="{x:Null}"
+                                    CaretBrush="White" 
+                                    LostFocus="cTextBox_LostFocus" KeyDown="cTextBox_KeyDown">
+                                    <TextBox.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Command="ApplicationCommands.Cut" Tag="static"/>
+                                            <MenuItem Command="ApplicationCommands.Copy" Tag="static"/>
+                                            <MenuItem Command="ApplicationCommands.Paste" Tag="static"/>
+                                        </ContextMenu>
+                                    </TextBox.ContextMenu>
+                                </TextBox>
+                            </Border>
+                            <Popup IsOpen="{Binding Editor.ShowSuggestions,Mode=OneWay}">
+                                <ContentControl Content="{Binding Editor}" Style="{DynamicResource LookupPoup}">
+                                </ContentControl>
+                            </Popup>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodel:NewDraftMailRecipient}">
+                    <Grid>
+                        <Button Margin="5" 
+                                Tag="{Binding Path={},RelativeSource={RelativeSource AncestorType=Grid}}"
+                                Visibility="{Binding IsEditing,Converter={StaticResource BoolNotToCollapsedConverter}}" Click="Item_Click">
+                            <Image Source="/Images/Icons/32/NewAccount.png" Width="16"/>
+                        </Button>
+                        <StackPanel Visibility="{Binding IsEditing,Converter={StaticResource BoolToCollapsedConverter}}">
+                            <Border BorderThickness="1" BorderBrush="{DynamicResource EditableBorderBrush}">
+                                <TextBox x:Name="cTextBox" MinWidth="70" MaxWidth="200" Height="24"
+                                    Text="{Binding Editor.Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                        Margin="0,1" Background="{x:Null}"
+                                        CaretBrush="White" 
+                                         LostFocus="cTextBox_LostFocus" KeyDown="cTextBox_KeyDown">
+                                    <TextBox.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Command="ApplicationCommands.Cut" Tag="static"/>
+                                            <MenuItem Command="ApplicationCommands.Copy" Tag="static"/>
+                                            <MenuItem Command="ApplicationCommands.Paste" Tag="static"/>
+                                        </ContextMenu>
+                                    </TextBox.ContextMenu>
+                                </TextBox>
+                            </Border>
+                            <Popup IsOpen="{Binding Editor.ShowSuggestions,Mode=OneWay}">
+                                <ContentControl Content="{Binding Editor}" Style="{DynamicResource LookupPoup}">
+                                </ContentControl>
+                            </Popup>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.Resources>
+        </ItemsControl>
+
+        <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right">Subject:</TextBlock>
+        <TextBox Grid.Column="2" Grid.Row="2" Margin="5" Height="26" 
+                 SpellCheck.IsEnabled="True"
+                 Text="{Binding Subject,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 ContextMenuOpening="cSubject_ContextMenuOpening" x:Name="cSubject">
+            <TextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="ApplicationCommands.Cut" Tag="static"/>
+                    <MenuItem Command="ApplicationCommands.Copy" Tag="static"/>
+                    <MenuItem Command="ApplicationCommands.Paste" Tag="static"/>
+                </ContextMenu>
+            </TextBox.ContextMenu>
+        </TextBox>
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource MailHeadersBackgroundBrush}" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Margin="5" DataContext="{Binding Path={},ElementName=cContent}">
+                <StackPanel.Resources>
+                    <Style TargetType="ToggleButton" BasedOn="{StaticResource FlatWindowToggleButton}">
+                        <Setter Property="Width" Value="16"/>
+                        <Setter Property="Height" Value="16"/>
+                        <Setter Property="Focusable" Value="False"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Width="16" Height="16" VerticalAlignment="Center" Focusable="False" Click="cSaveDraft_Click" x:Name="cSaveDraft">
+                    <Image Width="12" Height="12" Source="/Images/Icons/16/Save.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+                <Rectangle Width="2" Fill="{DynamicResource StyledListBackgroundBrush}" Margin="5,0"/>
+                <Button Width="16" Height="16" VerticalAlignment="Center" Focusable="False"
+                         Command="ApplicationCommands.Undo" CommandTarget="{Binding}">
+                    <TextBlock FontFamily="Wingdings">&#xC5;</TextBlock>
+                </Button>
+                <Button Width="16" Height="16" VerticalAlignment="Center" Focusable="False"
+                         Command="ApplicationCommands.Redo" CommandTarget="{Binding}">
+                    <TextBlock FontFamily="Wingdings">&#xC6;</TextBlock>
+                </Button>
+                <Rectangle Width="2" Fill="{DynamicResource StyledListBackgroundBrush}" Margin="5,0"/>
+                <ToggleButton x:Name="cToggleBold" Command="EditingCommands.ToggleBold" CommandTarget="{Binding}">
+                    <TextBlock FontWeight="Bold">B</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="cToggleItalic" Width="16" Height="16" Command="EditingCommands.ToggleItalic" CommandTarget="{Binding}">
+                    <TextBlock FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center">I</TextBlock>
+                </ToggleButton>
+                <ToggleButton x:Name="cToggleUnderline" Width="16" Height="16" Command="EditingCommands.ToggleUnderline" CommandTarget="{Binding}">
+                    <TextBlock TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center">U</TextBlock>
+                </ToggleButton>
+                <Rectangle Width="2" Fill="{DynamicResource StyledListBackgroundBrush}" Margin="5,0"/>
+                <ComboBox MinWidth="70" SelectedIndex="4" Focusable="False" x:Name="cFontSize" SelectionChanged="cFontSize_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path={},StringFormat={}{0}pt}" Foreground="White" FontSize="10.667"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <sys:Double>8</sys:Double>
+                    <sys:Double>9</sys:Double>
+                    <sys:Double>10</sys:Double>
+                    <sys:Double>11</sys:Double>
+                    <sys:Double>12</sys:Double>
+                    <sys:Double>14</sys:Double>
+                    <sys:Double>18</sys:Double>
+                    <sys:Double>24</sys:Double>
+                    <sys:Double>30</sys:Double>
+                </ComboBox>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2,0,0,0">
+                    <ToggleButton Width="16" Height="16" x:Name="cColorMenu">
+                        <Rectangle x:Name="cColor" Width="12" Height="12" 
+                                   Stroke="Gray"
+                                   Fill="White" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ToggleButton>
+                    <Popup StaysOpen="False" Style="{StaticResource DropdownMenu}" IsOpen="{Binding IsChecked,ElementName=cColorMenu,Mode=TwoWay}">
+                        <ItemsControl>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Width="72">
+
+                                    </UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Width="16" Height="16" HorizontalAlignment="Stretch" Tag="{Binding}" Click="cColor_Click" x:Name="cColor">
+                                        <Rectangle Width="12" Height="12" 
+                                           Stroke="Gray"
+                                           Fill="{Binding Path={},Converter={StaticResource ColorToBrushConverter}}" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsSource>
+                                <local:ColorCollection>
+                                    <Color>#ffffffff</Color>
+                                    <Color>#ffb2b2b2</Color>
+                                    <Color>#ff4c4c4c</Color>
+                                    <Color>#ff000000</Color>
+                                    <Color>#ffffff00</Color>
+                                    <Color>#ff00ff00</Color>
+                                    <Color>#ffff0000</Color>
+                                    <Color>#ff0000ff</Color>
+                                    <Color>#ff7f7f00</Color>
+                                    <Color>#ff007f00</Color>
+                                    <Color>#ff7f0000</Color>
+                                    <Color>#ff00007f</Color>
+                                    <Color>#ff7f007f</Color>
+                                    <Color>#ff00ffff</Color>
+                                    <Color>#ffff00ff</Color>
+                                    <Color>#ff007fff</Color>
+                                </local:ColorCollection>
+                            </ItemsControl.ItemsSource>
+                        </ItemsControl>
+
+                    </Popup>
+                </StackPanel>
+                <Rectangle Width="2" Fill="{DynamicResource StyledListBackgroundBrush}" Margin="5,0"/>
+                <Button Width="16" Height="16" x:Name="cHyperlink" Click="cHyperlink_Click">
+                    <TextBlock FontFamily="Webdings" HorizontalAlignment="Center" VerticalAlignment="Center">ü</TextBlock>
+                </Button>
+                <Button Width="16" Height="16" Visibility="Collapsed">
+                    <TextBlock FontFamily="Webdings" HorizontalAlignment="Center" VerticalAlignment="Center">&#x97;</TextBlock>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <RichTextBox x:Name="cContent" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+                     AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True"
+                     Background="{DynamicResource StyledListBackgroundBrush}" BorderBrush="{x:Null}" 
+                     BorderThickness="0" SelectionBrush="{DynamicResource SelectedColorBrush}"
+                     ContextMenuOpening="cContent_ContextMenuOpening"
+                     SelectionChanged="cContent_SelectionChanged">
+            <FlowDocument FontSize="16.0" Foreground="White">
+            </FlowDocument>
+            <RichTextBox.Resources>
+                <Style TargetType="Paragraph">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+            <RichTextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="ApplicationCommands.Cut" Tag="static"/>
+                    <MenuItem Command="ApplicationCommands.Copy" Tag="static"/>
+                    <MenuItem Command="ApplicationCommands.Paste" Tag="static"/>
+                </ContextMenu>
+            </RichTextBox.ContextMenu>
+        </RichTextBox>
+    </Grid>
+</Window>
