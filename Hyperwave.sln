@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperwave.Util", "Hyperwave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperwave.Browser", "Hyperwave.Browser\Hyperwave.Browser.csproj", "{CEC16969-F353-4E33-80AD-49A4990CD649}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eve.Api", "Eve.Api\Eve.Api.csproj", "{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{CEC16969-F353-4E33-80AD-49A4990CD649}.Debug|Any CPU.Build.0 = Debug|x64
 		{CEC16969-F353-4E33-80AD-49A4990CD649}.Release|Any CPU.ActiveCfg = Release|x64
 		{CEC16969-F353-4E33-80AD-49A4990CD649}.Release|Any CPU.Build.0 = Release|x64
+		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

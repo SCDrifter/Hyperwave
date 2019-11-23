@@ -1,8 +1,8 @@
 ﻿using Hyperwave.Common;
 using Hyperwave.Config;
 using Hyperwave.ViewModel;
-using IO.Swagger.Api;
-using IO.Swagger.Model;
+using Eve.Api.Api;
+using Eve.Api.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,7 +143,7 @@ namespace Hyperwave.Controller
                     allianceId: id, 
                     datasource: ESIConfiguration.DataSource);
             }
-            catch(IO.Swagger.Client.ApiException e)
+            catch(Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(this, e);
                 data.LoadFailed = true;
@@ -180,7 +180,7 @@ namespace Hyperwave.Controller
                     corporationId: id,
                     datasource: ESIConfiguration.DataSource);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(this, e);
                 data.LoadFailed = true;
@@ -218,7 +218,7 @@ namespace Hyperwave.Controller
                     corporationId: id, 
                     datasource: ESIConfiguration.DataSource);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(this, e);
                 return;
@@ -308,7 +308,7 @@ namespace Hyperwave.Controller
                     characterId: id, 
                     datasource: ESIConfiguration.DataSource);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(this, e);
                 data.LoadFailed = true;
@@ -345,7 +345,7 @@ namespace Hyperwave.Controller
                     characterId: id, 
                     datasource: ESIConfiguration.DataSource);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(this, e);
                 return;

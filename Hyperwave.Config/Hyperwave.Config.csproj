@@ -36,9 +36,6 @@
     <AssemblyOriginatorKeyFile>SigningKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IO.Swagger">
-      <HintPath>..\..\..\EveSwaggerInterface\CSharp\src\IO.Swagger\bin\Release\IO.Swagger.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -61,6 +58,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="SigningKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eve.Api\Eve.Api.csproj">
+      <Project>{7afe4922-69eb-4e86-a2b8-af07b78c3199}</Project>
+      <Name>Eve.Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

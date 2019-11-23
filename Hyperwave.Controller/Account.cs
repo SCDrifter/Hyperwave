@@ -2,9 +2,9 @@
 using Hyperwave.ViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using IO.Swagger.Api;
+using Eve.Api.Api;
 using Hyperwave.Config;
-using IO.Swagger.Model;
+using Eve.Api.Model;
 using Hyperwave.Common;
 using System.Linq;
 
@@ -97,7 +97,7 @@ namespace Hyperwave.Controller
 
                 await GetMailingLists(api);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -122,7 +122,7 @@ namespace Hyperwave.Controller
                     datasource: ESIConfiguration.DataSource,
                     token: mDBAccount.AccessToken);
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 return;
@@ -227,7 +227,7 @@ namespace Hyperwave.Controller
                 list = await LoadMailsWorker(null, ViewAccount, null, DBAccount.LastMailId, true);
 #endif           
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -268,7 +268,7 @@ namespace Hyperwave.Controller
                 viewmails = await LoadMailsWorker(label, view.Source,(int)view.LastMailId);
                 GetCache(label).Add(viewmails);                
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -321,7 +321,7 @@ namespace Hyperwave.Controller
                     GetCache(label).Set(viewmails);
                 }
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -534,7 +534,7 @@ namespace Hyperwave.Controller
 
                 
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -587,7 +587,7 @@ namespace Hyperwave.Controller
                 mViewAccount.AccountState = AccountState;
                 return true;
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -712,7 +712,7 @@ namespace Hyperwave.Controller
 
                 return true;
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 mReadFailed = true;
@@ -752,7 +752,7 @@ namespace Hyperwave.Controller
 
                 return true;
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 return false;
@@ -786,7 +786,7 @@ namespace Hyperwave.Controller
                 ViewAccount.Sync(this);
                 return true;
             }
-            catch(IO.Swagger.Client.ApiException e)
+            catch(Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null,e);
                 return false;
@@ -819,7 +819,7 @@ namespace Hyperwave.Controller
                 ViewAccount.Sync(this);
                 return true;
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
                 return false;

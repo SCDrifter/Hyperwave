@@ -1,6 +1,6 @@
 ﻿using System;
 using Hyperwave.ViewModel;
-using IO.Swagger.Model;
+using Eve.Api.Model;
 
 namespace Hyperwave.Controller
 {

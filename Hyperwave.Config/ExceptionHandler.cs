@@ -1,4 +1,4 @@
-﻿using IO.Swagger.Client;
+﻿using Eve.Api.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;

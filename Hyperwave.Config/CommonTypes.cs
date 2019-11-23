@@ -1,5 +1,5 @@
 ﻿using System;
-using IO.Swagger.Model;
+using Eve.Api.Model;
 namespace Hyperwave.Common
 {
     public enum EntityType

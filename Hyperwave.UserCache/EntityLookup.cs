@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IO.Swagger.Api;
-using IO.Swagger.Model;
+using Eve.Api.Api;
+using Eve.Api.Model;
 using Hyperwave.Config;
 using System.Data.SQLite;
 using Hyperwave.Common;
@@ -181,7 +181,7 @@ namespace Hyperwave.UserCache
                     createdlist.Add(info);
                 }
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
             }*/
@@ -211,7 +211,7 @@ namespace Hyperwave.UserCache
                     createdlist.Add(info);
                 }
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
             }*/
@@ -241,7 +241,7 @@ namespace Hyperwave.UserCache
                     createdlist.Add(info);
                 }
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
             }*/
@@ -427,7 +427,7 @@ namespace Hyperwave.UserCache
 
 
             }
-            catch (IO.Swagger.Client.ApiException e)
+            catch (Eve.Api.Client.ApiException e)
             {
                 ExceptionHandler.HandleApiException(null, e);
             }
