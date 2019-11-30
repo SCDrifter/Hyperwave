@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedData.h" />
+    <ClInclude Include="Messages.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Boilerplate</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedData.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Boilerplate">
+      <UniqueIdentifier>{6e66fe91-e933-4817-9e34-7b62df0ef036}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

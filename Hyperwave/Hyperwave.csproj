@@ -28,6 +28,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +39,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -333,10 +336,6 @@
     <ProjectReference Include="..\Hyperwave.Controller\Hyperwave.Controller.csproj">
       <Project>{b8f5f413-903f-4bc1-96cd-041afb1a6ee2}</Project>
       <Name>Hyperwave.Controller</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hyperwave.Shell\Hyperwave.Shell.csproj">
-      <Project>{137b2c23-d855-40a2-9833-15b5219841e6}</Project>
-      <Name>Hyperwave.Shell</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hyperwave.UserCache\Hyperwave.UserCache.csproj">
       <Project>{278daa95-1471-4a58-957a-32a131dd4e26}</Project>

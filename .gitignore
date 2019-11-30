@@ -1,6 +1,9 @@
 .vs
 bin
 obj
+Lib
 packages/*
 ReadSample.html
 *.sdf
+*.aps
+*.vcxproj.user
