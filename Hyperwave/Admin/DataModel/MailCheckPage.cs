@@ -56,7 +56,7 @@ namespace Hyperwave.Admin.DataModel
             Settings.Default.BackgroundEnabled = mBackgroundEnabled;
             Settings.Default.BackgroundMailCheckUnit = mBackgroundMailCheckUnit;
             Settings.Default.BackgroundMailCheckInterval = ConvertUnits(mBackgroundMailCheckInterval,mBackgroundMailCheckUnit,MailCheckIntervalUnit.Seconds);
-            Settings.Default.BackgroundSettingChecksum = CalculateCanarySetting();
+            //Settings.Default.BackgroundSettingUpdate = CalculateCanarySetting();
         }
 
         decimal ConvertUnits(decimal value,MailCheckIntervalUnit from,MailCheckIntervalUnit to)

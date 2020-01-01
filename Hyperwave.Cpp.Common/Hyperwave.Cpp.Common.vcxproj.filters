@@ -9,12 +9,14 @@
     </ClInclude>
     <ClInclude Include="SharedData.h" />
     <ClInclude Include="Messages.h" />
+    <ClInclude Include="Mutex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Boilerplate</Filter>
     </ClCompile>
     <ClCompile Include="SharedData.cpp" />
+    <ClCompile Include="Mutex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Boilerplate">

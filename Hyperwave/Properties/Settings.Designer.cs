@@ -12,7 +12,7 @@ namespace Hyperwave.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -157,13 +157,37 @@ namespace Hyperwave.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1739211801")]
-        public int BackgroundSettingChecksum {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool BackgroundSettingUpdate {
             get {
-                return ((int)(this["BackgroundSettingChecksum"]));
+                return ((bool)(this["BackgroundSettingUpdate"]));
             }
             set {
-                this["BackgroundSettingChecksum"] = value;
+                this["BackgroundSettingUpdate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SupressNotificationsFullscreen {
+            get {
+                return ((bool)(this["SupressNotificationsFullscreen"]));
+            }
+            set {
+                this["SupressNotificationsFullscreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("90")]
+        public decimal InitalBackgroundMailCheckInterval {
+            get {
+                return ((decimal)(this["InitalBackgroundMailCheckInterval"]));
+            }
+            set {
+                this["InitalBackgroundMailCheckInterval"] = value;
             }
         }
     }

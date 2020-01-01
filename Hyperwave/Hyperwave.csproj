@@ -52,6 +52,50 @@
   <PropertyGroup>
     <ApplicationIcon>Images\Icons\Program.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -325,32 +369,6 @@
     <Resource Include="Images\Icons\32\Contacts.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hyperwave.Auth\Hyperwave.Auth.csproj">
-      <Project>{420d40e9-d736-4d62-9475-4f5b984cf2d3}</Project>
-      <Name>Hyperwave.Auth</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hyperwave.Config\Hyperwave.Config.csproj">
-      <Project>{f94cc468-b4aa-4a8d-9b63-c58fbc74b046}</Project>
-      <Name>Hyperwave.Config</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hyperwave.Controller\Hyperwave.Controller.csproj">
-      <Project>{b8f5f413-903f-4bc1-96cd-041afb1a6ee2}</Project>
-      <Name>Hyperwave.Controller</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hyperwave.UserCache\Hyperwave.UserCache.csproj">
-      <Project>{278daa95-1471-4a58-957a-32a131dd4e26}</Project>
-      <Name>Hyperwave.UserCache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Hyperwave.ViewModel\Hyperwave.ViewModel.csproj">
-      <Project>{5b7281a7-cbfb-4e4a-bf29-2e4a003c77fc}</Project>
-      <Name>Hyperwave.ViewModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LexEngine\LexEngine.csproj">
-      <Project>{fea9bbb1-f7c4-4e18-b34f-2ec9ba00578c}</Project>
-      <Name>LexEngine</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -384,7 +402,36 @@
     <Resource Include="Images\Logos\Gallente.png" />
     <Resource Include="Images\Logos\Minmatar.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Hyperwave.Auth\Hyperwave.Auth.csproj">
+      <Project>{420d40e9-d736-4d62-9475-4f5b984cf2d3}</Project>
+      <Name>Hyperwave.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Config\Hyperwave.Config.csproj">
+      <Project>{f94cc468-b4aa-4a8d-9b63-c58fbc74b046}</Project>
+      <Name>Hyperwave.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Controller\Hyperwave.Controller.csproj">
+      <Project>{b8f5f413-903f-4bc1-96cd-041afb1a6ee2}</Project>
+      <Name>Hyperwave.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.Shell\Hyperwave.Shell.vcxproj">
+      <Project>{a7dc91ab-e673-4366-9710-864aa4f33801}</Project>
+      <Name>Hyperwave.Shell</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.UserCache\Hyperwave.UserCache.csproj">
+      <Project>{278daa95-1471-4a58-957a-32a131dd4e26}</Project>
+      <Name>Hyperwave.UserCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hyperwave.ViewModel\Hyperwave.ViewModel.csproj">
+      <Project>{5b7281a7-cbfb-4e4a-bf29-2e4a003c77fc}</Project>
+      <Name>Hyperwave.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LexEngine\LexEngine.csproj">
+      <Project>{fea9bbb1-f7c4-4e18-b34f-2ec9ba00578c}</Project>
+      <Name>LexEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Sound\CalandarEvent.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -397,6 +444,9 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(SolutionDir)Hyperwave.DB\bin\$(PlatformName)\$(ConfigurationName)\$(PlatformName)\SQLite.Interop.dll $(TargetDir)SQLite.Interop.dll</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -23,19 +23,28 @@ bool States::RemoveClient(HWND hwnd)
     return mClients.size() > 0;
 }
 
-bool States::HasValidClients()
+bool States::HasValidClients(HWND postback)
 {
-    TWindowSet dellist;
+    size_t size = mClients.size();
     for (HWND i : mClients)
     {
         if (!IsWindow(i))
-            dellist.insert(i);
+        {
+            PostMessage(postback, gAppMessage, HSERV_CLIENT_DISCONNECT, (LPARAM)i);
+            size--;
+        }
     }
 
-    for (HWND i : dellist)
+    return size > 0;
+}
+
+void States::BroadcastMessage(HWND postback, UINT msg, WPARAM wparam, LPARAM lparam)
+{
+    for (HWND i : mClients)
     {
-        RemoveClient(i);
-	}
-	
-    return mClients.size() > 0;
+        if (!IsWindow(i))
+            PostMessage(postback, gAppMessage, HSERV_CLIENT_DISCONNECT, (LPARAM)i);
+        else
+            PostMessage(i, msg, wparam, lparam);
+    }
 }

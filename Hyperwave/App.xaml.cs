@@ -28,30 +28,21 @@ namespace Hyperwave
     /// </summary>
     public partial class App : Application
     {
-        EveMailClient mClient = new EveMailClient();
         DispatcherTimer mMailTimer = null;
         string mEvePath = null;
-        private bool mBackgroundEnabled;
-        private decimal mBackgroundMailCheckInterval;
-        private MailCheckIntervalUnit mBackgroundMailCheckUnit;
-        private int mBackgroundSettingChecksum;
         int mProcessCount = 0;
         private SkinStyle mColorScheme;
 
-        public const string APPID = "Deadevetech.Hyperwave.1";
-#if NDEBUG
-        string mShellPath;
-#endif
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             
-            if(mClient.Commands.ConnectToExistingClient(50))
+            if(Client.Commands.ConnectToExistingClient(50))
             {
                 if (e.Args.Length == 0)
-                    mClient.Commands.SendCommand("ShowWindow");
+                    Client.Commands.SendCommand("ShowWindow");
                 else
-                    mClient.Commands.SendCommand(new ApplicationCommand(ParseUrlCmdline(e.Args)));
+                    Client.Commands.SendCommand(new ApplicationCommand(ParseUrlCmdline(e.Args)));
 
                 Shutdown();
                 return;
@@ -59,50 +50,38 @@ namespace Hyperwave
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-#if NDEBUG
-            mShellPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), @"Programs\Hyperwave Test.lnk");
-            Installer.CreateShortcut(mShellPath, System.Reflection.Assembly.GetEntryAssembly().Location, APPID);
-#endif
-
             AddProcessCount();
-
-            mBackgroundEnabled = Settings.Default.BackgroundEnabled;
-            mBackgroundMailCheckInterval = Settings.Default.BackgroundMailCheckInterval;
-            mBackgroundMailCheckUnit = Settings.Default.BackgroundMailCheckUnit;
-            mBackgroundSettingChecksum = Settings.Default.BackgroundSettingChecksum;
             mColorScheme = Settings.Default.ColorScheme;
             
             
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
 
-            mClient.Commands.CommandRecieved += Commands_CommandRecieved;
-            mClient.Commands.RegisterCommandHandler("ShowWindow", Command_ShowWindow);
-            mClient.Commands.RegisterCommandHandler("NewMail", Command_NewMail);
-            mClient.Commands.RegisterCommandHandler("CheckMail", Command_CheckMail);
-            //mClient.Commands.RegisterCommandHandler("Install", Command_Install);
-            //mClient.Commands.RegisterCommandHandler("Uninstall", Command_Uninstall);
+            Client.Commands.CommandRecieved += Commands_CommandRecieved;
+            Client.Commands.RegisterCommandHandler("ShowWindow", Command_ShowWindow);
+            Client.Commands.RegisterCommandHandler("NewMail", Command_NewMail);
+            Client.Commands.RegisterCommandHandler("CheckMail", Command_CheckMail);
 
-            mClient.Commands.RegisterCommandHandler("NoOp", delegate (object s, CommandEventArgs ce)
+            Client.Commands.RegisterCommandHandler("NoOp", delegate (object s, CommandEventArgs ce)
              {
              });
 
 
-            mClient.AccountNotification += mClient_AccountNotification;
+            Client.AccountNotification += mClient_AccountNotification;
 
-            mClient.ControllerIdle += mClient_ControllerIdle;
-            mClient.ControllerActive += mClient_ControllerActive;
+            Client.ControllerIdle += mClient_ControllerIdle;
+            Client.ControllerActive += mClient_ControllerActive;
             
-            Task discard = mClient.Commands.StartServerLoop();
+            Task discard = Client.Commands.StartServerLoop();
 
             SetStyle(Settings.Default.ColorScheme);
 
-            mClient.Init();
+            Client.Init();
 
             if (e.Args.Length == 0)
-                mClient.Commands.SendCommand("ShowWindow");
+                Client.Commands.SendCommand("ShowWindow");
             else
             {
-                mClient.Commands.SendCommand(new ApplicationCommand(ParseUrlCmdline(e.Args)));
+                Client.Commands.SendCommand(new ApplicationCommand(ParseUrlCmdline(e.Args)));
             }
 
             RemoveProcessCount();
@@ -117,19 +96,8 @@ namespace Hyperwave
             {
                 case "eve-mail":
                     return ParseEveMailUrl(url);
-                case "hyperwave":
-                    return ParseLicenseUrl(url);
-                default:
-                    return new string[] { "NoOp" };
-            }
-        }
-
-        private string[] ParseLicenseUrl(Uri url)
-        {
-            switch (url.Host)
-            {
-                case "activate":
-                    return new string[] { "ActivateLicense", (url.Query ?? "?").Substring(1) };
+                //case "hyperwave":
+                //    return ParseLicenseUrl(url);
                 default:
                     return new string[] { "NoOp" };
             }
@@ -188,7 +156,7 @@ namespace Hyperwave
             RemoveProcessCount();
         }
 
-        private async void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             
             switch(e.PropertyName)
@@ -200,41 +168,10 @@ namespace Hyperwave
                         mColorScheme = Settings.Default.ColorScheme;
                     }
                     break;
-                case "BackgroundSettingChecksum":
-                    if(Settings.Default.BackgroundSettingChecksum != mBackgroundSettingChecksum)
-                        await SetupBackgroundTask();
-                    break;
+                
             }
         }
-
-        async Task SetupBackgroundTask()
-        {
-            AddProcessCount();
-
-            try
-            {
-                if (await Installer.SetupTask(System.Reflection.Assembly.GetExecutingAssembly().Location, Settings.Default.BackgroundEnabled, Settings.Default.BackgroundMailCheckInterval))
-                {
-                    mBackgroundEnabled = Settings.Default.BackgroundEnabled;
-                    mBackgroundMailCheckInterval = Settings.Default.BackgroundMailCheckInterval;
-                    mBackgroundMailCheckUnit = Settings.Default.BackgroundMailCheckUnit;
-                    mBackgroundSettingChecksum = Settings.Default.BackgroundSettingChecksum;
-                }
-                else
-                {
-                    MessageBox.Show(GetMsgBoxOwner(), "Unable to setup Background mail checking task, reverting settings to previous good value", "Hyperwave", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                    Settings.Default.BackgroundEnabled = mBackgroundEnabled;
-                    Settings.Default.BackgroundMailCheckInterval = mBackgroundMailCheckInterval;
-                    Settings.Default.BackgroundMailCheckUnit = mBackgroundMailCheckUnit;
-                    Settings.Default.BackgroundSettingChecksum = mBackgroundSettingChecksum;
-                }
-            }
-            finally
-            {
-                RemoveProcessCount();
-            }
-        }
+               
 
         private Window GetMsgBoxOwner()
         {
@@ -340,7 +277,7 @@ namespace Hyperwave
                         Title = string.Format("{0} new Eve-Mails for character {1}",args.NewMails.Length,args.ForAccount.UserName)                        
                     };
 
-                    notify.NotificationActivated += (o,e) => mClient.Commands.SendCommand("ShowWindow", args.ForAccount.Id.ToString());
+                    notify.NotificationActivated += (o,e) => Client.Commands.SendCommand("ShowWindow", args.ForAccount.Id.ToString());
                     notify.Show();
                 }
                 else
@@ -360,7 +297,7 @@ namespace Hyperwave
 
                         mail.IsItemRead = true;
 
-                        mClient.SaveMailMetaData(mail);
+                        Client.SaveMailMetaData(mail);
                     };
                     foreach(var item in args.NewMails)
                     {
@@ -396,9 +333,9 @@ namespace Hyperwave
             if (mMailTimer != null)
                 return;
 
-            mClient.UpdateAccounts(false);
+            Client.UpdateAccounts(false);
             if (Settings.Default.ShowNotifications)
-                mClient.CheckMails();
+                Client.CheckMails();
         }
 
         private void Command_ShowWindow(object sender, CommandEventArgs e)
@@ -408,7 +345,7 @@ namespace Hyperwave
             if(e.Command.Args.Length == 1)
             {
                 ViewAccount account = null;
-                foreach(var i in mClient.ViewAccounts)
+                foreach(var i in Client.ViewAccounts)
                 {
                     if (i.Id.ToString() != e.Command.Args[0] && i.UserName != e.Command.Args[0])
                         i.IsSelected = false;
@@ -432,7 +369,7 @@ namespace Hyperwave
         private void Command_NewMail(object sender,CommandEventArgs e)
         {
             StartTimer();
-            DraftMessageSource msg = mClient.CreateDraft();
+            DraftMessageSource msg = Client.CreateDraft();
 
             for(int i = 0;i < e.Command.Args.Length;i++)
             {
@@ -500,10 +437,9 @@ namespace Hyperwave
             res.Add(skin);
         }
 
-        public EveMailClient Client
-        {
-            get { return mClient; }
-        }
+        public EveMailClient Client { get; } = new EveMailClient();
+
+        public ServiceConnection ServiceLink { get; } = new ServiceConnection();
 
         public static EveMailClient CurrentClient
         {
@@ -518,15 +454,8 @@ namespace Hyperwave
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            mClient.Dispose();
-            ImageCache.Clear();
-#if NDEBUG
-            if(mShellPath != null)
-                File.Delete(mShellPath);
-#endif
+            Client.Dispose();
         }
         
-    }
-
-    
+    }    
 }

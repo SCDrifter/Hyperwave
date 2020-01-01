@@ -35,8 +35,14 @@
     <Setting Name="ColorScheme" Type="Hyperwave.Config.SkinStyle" Scope="User">
       <Value Profile="(Default)">Gallente</Value>
     </Setting>
-    <Setting Name="BackgroundSettingChecksum" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-1739211801</Value>
+    <Setting Name="BackgroundSettingUpdate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SupressNotificationsFullscreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="InitalBackgroundMailCheckInterval" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">90</Value>
     </Setting>
   </Settings>
 </SettingsFile>

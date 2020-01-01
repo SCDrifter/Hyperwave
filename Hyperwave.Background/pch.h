@@ -9,5 +9,8 @@
 
 // add headers that you want to pre-compile here
 #include "framework.h"
+#include "..\Hyperwave.Cpp.Common\Messages.h"
+
+extern UINT gAppMessage;
 
 #endif //PCH_H

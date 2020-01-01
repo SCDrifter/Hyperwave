@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hyperwave.ViewModel;
 using Hyperwave.Controller;
-using Hyperwave.Shell;
 
 namespace Hyperwave.MailView
 {
@@ -174,21 +173,7 @@ namespace Hyperwave.MailView
                 LoadHtml("(Unable to load message)");
             else
             {
-                LoadHtml(item.Body);
-                //var notifytest = new Notification()
-                //{
-                //    Text = new string[]
-                //    {
-                //    "New Eve-Mail",
-                //    item.MailSubject,
-                //    item.From.Name,
-                //    ""
-                //    },
-                //    ImageUrl = new Uri(item.From.ImageUrl128),
-                //    AppID = App.APPID
-                //};
-
-                //notifytest.Show();
+                LoadHtml(item.Body);                
             }
 
             

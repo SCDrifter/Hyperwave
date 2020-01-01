@@ -125,7 +125,7 @@ namespace Hyperwave.Accounts
                 }
             }
 
-            public bool CanUseBuiltinBrowser => Environment.Is64BitOperatingSystem;
+            public bool CanUseBuiltinBrowser => Environment.Is64BitProcess;
         }
 
         AccountOptions mOptions = new AccountOptions()

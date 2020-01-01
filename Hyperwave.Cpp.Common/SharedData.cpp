@@ -1,7 +1,11 @@
 #include "pch.h"
+
 #include "SharedData.h"
 
+constexpr auto MUTEX_NAME = L"Hyperwave.Background.";
+
 SharedData::SharedData()
+    : mLock(MUTEX_NAME)
 {
     if (!MapMemory(true))
         return;
@@ -11,29 +15,33 @@ SharedData::SharedData()
 }
 
 SharedData::SharedData(HWND window)
+    : mLock(MUTEX_NAME)
 {
     if (!MapMemory(false))
         return;
 
-    HWND oldwindow;
-    HWND nullwindow = nullptr;
-
     mProcessId = GetCurrentProcessId();
     mWindow = window;
 
-    while ((oldwindow = (HWND)InterlockedCompareExchangePointer((volatile PVOID*)&mBlock->ServerWindow, window, nullwindow)) != nullwindow)
     {
-        if (IsWindow(oldwindow)) // server already running
+        Lock lock(mLock);
+
+        HANDLE existing_process = OpenProcessHandleNoLock();
+
+        if (existing_process != NULL) // server already running
         {
+            CloseHandle(existing_process);
             UnmapViewOfFile(mBlock);
             CloseHandle(m_hSharedMem);
             m_hSharedMem = nullptr;
             mBlock = nullptr;
             return;
         }
-        nullwindow = oldwindow;
+
+        mBlock->ServerProcessId = mProcessId;
+        mBlock->ServerWindow = mWindow;
+        GetCreationTime(GetCurrentProcess(), &mBlock->ServeCreateTime);
     }
-    InterlockedExchange(&mBlock->ServerProcessId, mProcessId);
 }
 
 SharedData::~SharedData()
@@ -57,8 +65,8 @@ bool SharedData::MapMemory(bool readonly)
     DWORD protect = readonly
         ? PAGE_EXECUTE_READ
         : PAGE_EXECUTE_READWRITE;
-    
-	DWORD sam = readonly
+
+    DWORD sam = readonly
         ? FILE_MAP_READ
         : FILE_MAP_READ | FILE_MAP_WRITE;
 
@@ -79,4 +87,36 @@ bool SharedData::MapMemory(bool readonly)
         return false;
     }
     return true;
+}
+
+void SharedData::GetCreationTime(HANDLE hprocess, FILETIME* creationtime)
+{
+    FILETIME trash1, trash2, trash3;
+    GetProcessTimes(hprocess, creationtime, &trash1, &trash2, &trash3);
+}
+
+HANDLE SharedData::OpenProcessHandleNoLock() const
+{
+    HANDLE ret = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_TERMINATE, FALSE, mBlock->ServerProcessId);
+
+    if (ret == nullptr)
+        return NULL;
+
+    FILETIME create = { 0 };
+
+    GetCreationTime(ret, &create);
+
+    if (CompareFileTime(&create, &mBlock->ServeCreateTime) != 0)
+    {
+        CloseHandle(ret);
+        ret = NULL;
+    }
+
+    if (ret != nullptr && WaitForSingleObject(ret, 0) == WAIT_OBJECT_0)
+    {
+        CloseHandle(ret);
+        ret = NULL;
+    }
+
+    return ret;
 }

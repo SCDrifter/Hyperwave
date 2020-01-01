@@ -7,7 +7,8 @@ public:
     bool IsFullscreenApplicationRunning();
     void AddClient(HWND hwnd);
     bool RemoveClient(HWND hwnd);
-    bool HasValidClients();
+    bool HasValidClients(HWND postback);
+    void BroadcastMessage(HWND postback, UINT msg, WPARAM wparam, LPARAM lparam);
 
 private:
     typedef std::set<HWND> TWindowSet;

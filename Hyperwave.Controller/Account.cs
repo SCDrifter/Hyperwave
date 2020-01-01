@@ -234,7 +234,7 @@ namespace Hyperwave.Controller
                 mViewAccount.AccountState = AccountState;
                 return null;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return null;
             }

@@ -34,14 +34,20 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_ int nCmdShow)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+
+    HWND first_client = NULL;
+
     Settings settings;
     States states;
+
     gSettings = &settings;
     gStates = &states;
 
     gSettings->Load();
     gSettings->Save();
+
+    if (1 == swscanf_s(lpCmdLine, L"%p", &first_client))
+        gStates->AddClient(first_client);
 
     gAppMessage = RegisterWindowMessage(HSERV_REGISTERED_MESSAGE_NAME);
 
@@ -123,7 +129,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
         case WM_TIMER:
             return HandleTimers(wparam, lparam);
         case WM_APP:
-            SendNotifyMessage(HWND_BROADCAST, gAppMessage, 0, reinterpret_cast<LPARAM>(g_hWnd));
+            gStates->BroadcastMessage(g_hWnd, gAppMessage, HSERV_SERVER_BROADCAST, reinterpret_cast<LPARAM>(g_hWnd));
             //TODO: Register power and terminal state messages
             return 0;
         default:
@@ -145,13 +151,12 @@ LRESULT HandleAppMessage(WPARAM msg, LPARAM arg)
             return 0;
 
         case HSERV_CLIENT_CONNECT:
-            KillTimer(g_hWnd, TIMER_CLIENT_CONNECT);
             gStates->AddClient(wndarg);
+            PostMessage(wndarg, gAppMessage, HSERV_SERVER_BROADCAST, reinterpret_cast<LPARAM>(g_hWnd));
             return 0;
 
         case HSERV_CLIENT_DISCONNECT:
-            if (!gStates->RemoveClient(wndarg) && !gSettings->Enabled())
-                SetTimer(g_hWnd, TIMER_CLIENT_CONNECT, CLIENT_CONNECT_TIMEOUT, NULL);
+            gStates->RemoveClient(wndarg);
             return 0;
 
         case HSERV_GET_ENABLED:
@@ -179,8 +184,7 @@ LRESULT HandleAppMessage(WPARAM msg, LPARAM arg)
             }
             else
             {
-                if (!gStates->HasValidClients())
-                    SetTimer(g_hWnd, TIMER_CLIENT_CONNECT, CLIENT_CONNECT_TIMEOUT, NULL);
+                SetTimer(g_hWnd, TIMER_CLIENT_CONNECT, CLIENT_CONNECT_TIMEOUT, NULL);
                 KillTimer(g_hWnd, TIMER_INITIAL_TRIGGER);
                 KillTimer(g_hWnd, TIMER_NORMAL_TRIGGER);
             }
@@ -230,10 +234,10 @@ LRESULT HandleTimers(WPARAM timer_id, LPARAM arg)
     {
         case TIMER_CLIENT_CONNECT:
 
-            if (!gSettings->Enabled() && !gStates->HasValidClients())
-                DestroyWindow(g_hWnd);
-            else
+            if (gSettings->Enabled())
                 KillTimer(g_hWnd, timer_id);
+            else if (!gStates->HasValidClients(g_hWnd))
+                DestroyWindow(g_hWnd);
 
             return 0;
 
@@ -253,7 +257,7 @@ LRESULT HandleTimers(WPARAM timer_id, LPARAM arg)
 
 void LaunchApp()
 {
-    if (gStates->HasValidClients())
+    if (gStates->HasValidClients(g_hWnd))
         return;
     if (gSettings->SupressFullscreen() && gStates->IsFullscreenApplicationRunning())
         return;

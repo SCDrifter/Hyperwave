@@ -3,4 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <StartArguments>--url=file:///C:\Projects\CSharp\Hyperwave\ReadSample.html</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>--url=file:///C:\Projects\CSharp\Hyperwave\ReadSample.html</StartArguments>
+  </PropertyGroup>
 </Project>

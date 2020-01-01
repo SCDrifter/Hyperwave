@@ -6,4 +6,4 @@
 #include "States.h"
 
 #include "..\Hyperwave.Cpp.Common\SharedData.h"
-#include "..\Hyperwave.Cpp.Common\Messages.h"
+

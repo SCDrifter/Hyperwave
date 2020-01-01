@@ -13,4 +13,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>task --path "C:\Projects\CSharp\Hyperwave\Hyperwave\bin\Debug\Hyperwave.exe" --interval 120 enable</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>task --path "C:\Projects\CSharp\Hyperwave\Hyperwave\bin\Debug\Hyperwave.exe" --interval 120 enable</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartArguments>task --path "C:\Projects\CSharp\Hyperwave\Hyperwave\bin\Debug\Hyperwave.exe" --interval 120 enable</StartArguments>
+  </PropertyGroup>
 </Project>
