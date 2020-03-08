@@ -15,11 +15,7 @@
             <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" >
                 <Button x:Name="cCreateAccount" Style="{StaticResource FlatDialogButton}" HorizontalAlignment="Center" IsDefault="True" Click="cCreateAccount_Click">
                     <TextBlock Margin="5,2">Create</TextBlock>
-                </Button>
-                <CheckBox Margin="0,0,0,10" HorizontalAlignment="Center"
-                          Style="{StaticResource FlatDialogCheckBox}" 
-                          IsEnabled="{Binding CanUseBuiltinBrowser}"
-                          IsChecked="{Binding UseBuiltinBrowser,Mode=TwoWay}">Use Builtin Browser</CheckBox>
+                </Button>                
             </StackPanel>
             <Grid  DockPanel.Dock="Top" Background="{DynamicResource MailHeadersBackgroundBrush}">
                 <TextBlock HorizontalAlignment="Center" Margin="5">Select Permissions</TextBlock>

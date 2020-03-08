@@ -10,6 +10,9 @@
 // add headers that you want to pre-compile here
 #include "framework.h"
 #include "..\Hyperwave.Cpp.Common\Messages.h"
+#include "Logger.h"
+
+extern Logger* gLog;
 
 extern UINT gAppMessage;
 

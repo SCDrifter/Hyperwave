@@ -19,8 +19,11 @@ namespace Hyperwave.Accounts
         CancellationTokenSource mCancelHttpServer;
         Task mHttpServerTask;
         private int mPort;
+        
+        NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+
         EventWaitHandle mCloseBrowserEvent = null;
-        private Task mProcessTask;
+        
 
         private string mChallengeCode = null;
 
@@ -32,7 +35,6 @@ namespace Hyperwave.Accounts
         public bool IsOpen => mHttpServerTask != null;
 
         public AccessFlag AccessFlags { get;  set; }
-        public bool UseBuildinBrowser { get;  set; }
               
         public async Task Run()
         {
@@ -45,20 +47,17 @@ namespace Hyperwave.Accounts
             mHttpServerTask = RunHttpServer(mCancelHttpServer.Token, setport);
             mPort = await setport.Task;
 
+            mLog.Info($"Running Local server at: http://localhost:{mPort}");
 
             Success = false;
 
             string url = SSOAuth.GetUrl(AccessFlags, mPort, PrivateData,out mChallengeCode).ToString();
-            if (UseBuildinBrowser)
-                StartBuiltinBrowser(url);
-            else
-                StartSystemBrowser(url);
+            
+            StartSystemBrowser(url);
+            
             var task = mHttpServerTask;
             await task;
             mHttpServerTask = null;
-
-            if(mProcessTask != null)
-                await mProcessTask;
             }
 
         public void Close()
@@ -70,6 +69,8 @@ namespace Hyperwave.Accounts
         {
             if (mHttpServerTask == null)
                 return;
+            mLog.Info("Shuting down server");
+
             Task task = mHttpServerTask;
             mHttpServerTask = null;
 
@@ -87,30 +88,9 @@ namespace Hyperwave.Accounts
         }
 
 
-
-        private void StartBuiltinBrowser(string url)
-        {
-            mCloseBrowserEvent = new EventWaitHandle(false, EventResetMode.ManualReset, "Zukatech.Hyperwave.Events.Browser");
-
-            ProcessStartInfo info = new ProcessStartInfo()
-            {
-                FileName = Path.Combine(App.AppDirectory, @"Browser\Hyperwave.Browser.exe"),
-                Arguments = $"\"--url={url}\""
-            };
-
-            mProcessTask = WaitForProcessClose(Process.Start(info));            
-        }
-
-        private async Task WaitForProcessClose(Process process)
-        {
-            await Task.Run(() => { process.WaitForExit(); });
-            process.Close();
-            if(!Success)
-                await CloseAsync();
-        }
-
         private void StartSystemBrowser(string url)
         {
+            mLog.Info($"Starting system browser with url: {url}");
             ProcessStartInfo info = new ProcessStartInfo()
             {
                 FileName = url,

@@ -3,11 +3,13 @@
 #include "Settings.h"
 #include <winreg.h>
 
+#include "..\\Hyperwave.Cpp.Common\HyperwaveUtil.h"
+
 #define SETTINGS_LOCATION L"Software\\Zukalitech\\Hyperwave"
 
 static bool RegReadBool(LPCWSTR name, bool default_value);
 static unsigned int RegReadInt(LPCWSTR name, unsigned int default_value);
-static wchar_t* RegReadString(LPCWSTR name);
+static wchar_t* RegReadGlobalString(LPCWSTR name);
 
 static void RegWriteBool(HKEY key, LPCWSTR name, bool value);
 static void RegWriteInt(HKEY key, LPCWSTR name, unsigned int value);
@@ -29,7 +31,7 @@ Settings::~Settings()
 
 void Settings::Load()
 {
-    mHyperwaveDirectory = RegReadString(L"HyperwaveDirectory");
+    mHyperwaveDirectory = HyperwaveUtil::GetApplicationDirectory();
     mEnabled = RegReadBool(L"Enabled", true);
     mInitialDelay = RegReadInt(L"InitialDelay", 60 * 3);
     mIntervalDelay = RegReadInt(L"IntervalDelay", 60 * 30);
@@ -59,7 +61,9 @@ void Settings::Save() const
         {
             wchar_t path[MAX_PATH];
             swprintf_s(path, L"\"%s\\Hyperwave.Background.exe\"", mHyperwaveDirectory);
-            RegSetValueEx(key, L"Hyperwave", 0, REG_SZ, (BYTE*)path, lstrlen(path) + 1);
+            DWORD len = lstrlen(path) + 1;
+            RegSetValueEx(key, L"Hyperwave", 0, REG_SZ, (BYTE*)path, len * sizeof(wchar_t));
+
         }
 
         RegCloseKey(key);
@@ -85,15 +89,15 @@ static unsigned int RegReadInt(LPCWSTR name, unsigned int default_value)
         result = default_value;
     return result;
 }
-static wchar_t* RegReadString(LPCWSTR name)
+static wchar_t* RegReadGlobalString(LPCWSTR name)
 {
     DWORD size = 0;
-    if (FAILED(RegGetValue(HKEY_CURRENT_USER, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, nullptr, &size)))
+    if (FAILED(RegGetValue(HKEY_LOCAL_MACHINE, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, nullptr, &size)))
         return nullptr;
 
     wchar_t* ret = new wchar_t[size / sizeof(wchar_t)];
 
-    if (FAILED(RegGetValue(HKEY_CURRENT_USER, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, ret, &size)))
+    if (FAILED(RegGetValue(HKEY_LOCAL_MACHINE, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, ret, &size)))
     {
         delete[] ret;
         return nullptr;

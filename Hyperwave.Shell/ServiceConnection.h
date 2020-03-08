@@ -1,10 +1,10 @@
 #pragma once
+#include "IShellLoggerFactory.h"
 #include "IWorkItem.h"
 
 using namespace System::Threading::Tasks;
 
 class ServiceClient;
-
 
 namespace Hyperwave
 {
@@ -14,7 +14,7 @@ public
     ref class ServiceConnection
     {
     public:
-        ServiceConnection();
+        ServiceConnection(IShellLoggerFactory ^ factory);
         ~ServiceConnection()
         {
             this->!ServiceConnection();
@@ -36,12 +36,14 @@ public
         Task ^ SetIntervalDelayAsync(unsigned int value);
         Task ^ SetSupressFullscreenAsync(bool value);
 
-		event System::EventHandler ^ StateChanged;
-	private:
+        event System::EventHandler ^ StateChanged;
+
+    private:
         void OnStateChanged();
 
     private:
         ServiceClient* mClient;
+        IShellLogger ^ mLog;
     };
 }
 }

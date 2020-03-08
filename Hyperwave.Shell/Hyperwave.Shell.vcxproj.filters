@@ -9,5 +9,7 @@
     <ClInclude Include="ServiceConnection.h" />
     <ClInclude Include="IWorkItem.h" />
     <ClInclude Include="ServiceClient.h" />
+    <ClInclude Include="IShellLogger.h" />
+    <ClInclude Include="IShellLoggerFactory.h" />
   </ItemGroup>
 </Project>

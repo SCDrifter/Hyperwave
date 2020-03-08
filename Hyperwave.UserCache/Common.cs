@@ -25,7 +25,7 @@ namespace Hyperwave.UserCache
         private static void PrepareDB()
         {
             string fname = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            fname = Path.Combine(fname, "Hyperwave");
+            fname = Path.Combine(fname, @"Zukalitech\Hyperwave");
 
             if (!Directory.Exists(fname))
                 Directory.CreateDirectory(fname);

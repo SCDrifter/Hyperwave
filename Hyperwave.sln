@@ -21,8 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexEngine", "LexEngine\LexE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperwave.Util", "Hyperwave.Util\Hyperwave.Util.csproj", "{6B275CDF-BE7E-4623-96B5-0D141FD51FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperwave.Browser", "Hyperwave.Browser\Hyperwave.Browser.csproj", "{CEC16969-F353-4E33-80AD-49A4990CD649}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eve.Api", "Eve.Api\Eve.Api.csproj", "{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hyperwave.Background", "Hyperwave.Background\Hyperwave.Background.vcxproj", "{B356D735-5DC1-46B6-9D54-AEFAC80F7CC3}"
@@ -117,11 +115,6 @@ Global
 		{6B275CDF-BE7E-4623-96B5-0D141FD51FA9}.Release|x64.Build.0 = Release|x64
 		{6B275CDF-BE7E-4623-96B5-0D141FD51FA9}.Release|x86.ActiveCfg = Release|x86
 		{6B275CDF-BE7E-4623-96B5-0D141FD51FA9}.Release|x86.Build.0 = Release|x86
-		{CEC16969-F353-4E33-80AD-49A4990CD649}.Debug|x64.ActiveCfg = Debug|x64
-		{CEC16969-F353-4E33-80AD-49A4990CD649}.Debug|x64.Build.0 = Debug|x64
-		{CEC16969-F353-4E33-80AD-49A4990CD649}.Debug|x86.ActiveCfg = Debug|x86
-		{CEC16969-F353-4E33-80AD-49A4990CD649}.Release|x64.ActiveCfg = Release|x64
-		{CEC16969-F353-4E33-80AD-49A4990CD649}.Release|x86.ActiveCfg = Release|x86
 		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Debug|x64.ActiveCfg = Debug|x64
 		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Debug|x64.Build.0 = Debug|x64
 		{7AFE4922-69EB-4E86-A2B8-AF07B78C3199}.Debug|x86.ActiveCfg = Debug|x86

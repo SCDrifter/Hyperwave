@@ -37,6 +37,9 @@
     <ClInclude Include="Main.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Support</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -49,6 +52,9 @@
       <Filter>Support</Filter>
     </ClCompile>
     <ClCompile Include="States.cpp">
+      <Filter>Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
       <Filter>Support</Filter>
     </ClCompile>
   </ItemGroup>

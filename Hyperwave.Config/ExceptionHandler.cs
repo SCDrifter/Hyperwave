@@ -11,9 +11,11 @@ namespace Hyperwave.Config
     {
         public static event EventHandler<ExceptionEventArgs<ApiException>> ApiExceptionOccurred;
         public static event EventHandler<ExceptionEventArgs<Exception>> OtherExceptionOccurred;
+        static NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
 
         public static void HandleApiException(object source,ApiException e)
         {
+            mLog.Error(e);
             LastException = e.Message;
             if (ApiExceptionOccurred != null)
                 ApiExceptionOccurred(source, new ExceptionEventArgs<ApiException>() { Exception = e });
@@ -21,6 +23,7 @@ namespace Hyperwave.Config
 
         public static void HandleOtherException(object source, Exception e)
         {
+            mLog.Error(e);
             LastException = e.Message;
             if (OtherExceptionOccurred != null)
                 OtherExceptionOccurred(source, new ExceptionEventArgs<Exception>() { Exception = e });

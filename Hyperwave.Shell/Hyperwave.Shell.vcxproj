@@ -24,6 +24,8 @@
     <ClCompile Include="ServiceConnection.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IShellLogger.h" />
+    <ClInclude Include="IShellLoggerFactory.h" />
     <ClInclude Include="IWorkItem.h" />
     <ClInclude Include="ServiceClient.h" />
     <ClInclude Include="ServiceConnection.h" />

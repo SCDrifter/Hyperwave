@@ -29,20 +29,25 @@ namespace Hyperwave.DB
         List<Account> mAccounts = new List<Account>();
         SortedSet<Account> mDirtyAccounts = new SortedSet<Account>();
 
+        NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+
         public AccountDatabase()
         {
             string fname = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            fname = Path.Combine(fname, "Hyperwave");
+            fname = Path.Combine(fname, @"Zukalitech\Hyperwave");
 
             if (!Directory.Exists(fname))
                 Directory.CreateDirectory(fname);
 
             fname = Path.Combine(fname, "DB.sqlite");
 
+            mLog.Debug($"DB File:{fname}");
+
             if (!File.Exists(fname))
                 ExtractDB(fname);
 
             mDB = new SQLiteConnection(string.Format("DataSource={0};FailIfMissing=True;", fname));
+                       
 
             mCmd_AddAccount = new SQLiteCommand(@"INSERT INTO Accounts(CharacterId,CharacterName,Permissions) VALUES (@id,@name,@permissions)", mDB);
             mCmd_AddAccount.Parameters.AddWithValue("@id", 0L);
@@ -56,6 +61,7 @@ SET
     CharacterName=@name,
     AccessToken=@access,
     RefreshToken=@refresh,
+    Permissions=@permissions,
     Expires=@expires,
     UnreadCount=@unread,
     FolderExpanded=@expanded,
@@ -68,6 +74,7 @@ WHERE
             mCmd_UpdateAccount.Parameters.AddWithValue("@access", "");
             mCmd_UpdateAccount.Parameters.AddWithValue("@refresh", "");
             mCmd_UpdateAccount.Parameters.AddWithValue("@expires", new DateTime());
+            mCmd_UpdateAccount.Parameters.AddWithValue("@permissions", 0);
             mCmd_UpdateAccount.Parameters.AddWithValue("@unread", 0);
             mCmd_UpdateAccount.Parameters.AddWithValue("@expanded", 0);
             mCmd_UpdateAccount.Parameters.AddWithValue("@lastmailid", 0);
@@ -88,6 +95,7 @@ WHERE
 
         private void ExtractDB(string fname)
         {
+            mLog.Debug($"Creating File:{fname}");
             var asm = System.Reflection.Assembly.GetExecutingAssembly();
 
             using (var istream = asm.GetManifestResourceStream("Hyperwave.DB.DB.sqlite"))
@@ -104,6 +112,8 @@ WHERE
         public void Load()
         {
             mDB.Open();
+
+            mLog.Debug("DB file opened successfully ");
 
             using (SQLiteCommand load = new SQLiteCommand(@"SELECT CharacterId,CharacterName,AccessToken,Expires,RefreshToken,UnreadCount,Permissions,LastMailId,FolderExpanded FROM Accounts ORDER BY CharacterName", mDB))
             {
@@ -217,6 +227,7 @@ WHERE
                         mCmd_UpdateAccount.Parameters["@access"].Value = i.AccessToken;
                         mCmd_UpdateAccount.Parameters["@refresh"].Value = i.RefreshToken;
                         mCmd_UpdateAccount.Parameters["@expires"].Value = i.Expires;
+                        mCmd_UpdateAccount.Parameters["@permissions"].Value = (int)i.Permissions;
                         mCmd_UpdateAccount.Parameters["@unread"].Value = i.UnreadCount;
                         mCmd_UpdateAccount.Parameters["@expanded"].Value = i.IsExpanded;
                         mCmd_UpdateAccount.Parameters["@lastmailid"].Value = i.LastMailId;

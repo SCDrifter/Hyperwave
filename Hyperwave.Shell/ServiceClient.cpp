@@ -1,6 +1,7 @@
 
 #include "ServiceClient.h"
 #include "..\Hyperwave.Cpp.Common\Messages.h"
+#include "..\Hyperwave.Cpp.Common\HyperwaveUtil.h"
 #include <stdio.h>
 
 extern HMODULE gLocalModule;
@@ -14,36 +15,19 @@ constexpr auto WM_WORK_ITEM = WM_APP + 2;
 
 constexpr auto WINDOW_CLASS = L"c4c3d60d-7ee7-4c86-a1e0-0fcd2584f4df";
 
-constexpr auto SETTINGS_LOCATION = L"Software\\Zukalitech\\Hyperwave";
-
 volatile LONG ServiceClient::mClassRegCount = 0;
 
 UINT ServiceClient::mAppMessage = WM_NULL;
 
-static wchar_t* RegReadString(LPCWSTR name)
-{
-    DWORD size = 0;
-    if (FAILED(RegGetValue(HKEY_CURRENT_USER, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, nullptr, &size)))
-        return nullptr;
 
-    wchar_t* ret = new wchar_t[size / sizeof(wchar_t)];
-
-    if (FAILED(RegGetValue(HKEY_CURRENT_USER, SETTINGS_LOCATION, name, RRF_RT_REG_SZ, nullptr, ret, &size)))
-    {
-        delete[] ret;
-        return nullptr;
-    }
-
-    return ret;
-}
-
-ServiceClient::ServiceClient(System::Action^ listener)
+ServiceClient::ServiceClient(System::Action ^ listener, IShellLoggerFactory ^ factory)
 {
     mShared = nullptr;
     mState = (LONG)ServiceState::STOPPED;
     mListener = listener;
+    mLog = factory->Create("Hyperwave.Shell.dll!ServiceClient");
 
-    mHyperwaveDirectory = RegReadString(L"HyperwaveDirectory");
+    mHyperwaveDirectory = HyperwaveUtil::GetApplicationDirectory();
 
     m_hWnd = nullptr;
     m_hProcess = nullptr;
@@ -55,24 +39,32 @@ ServiceClient::ServiceClient(System::Action^ listener)
     m_hStartupSignal = CreateEvent(nullptr, TRUE, FALSE, nullptr);
 
     if (m_hStartupSignal == nullptr)
+    {
+        mLog->Fatal("CreateEvent()={0}", GetWin32ErrorText());
         throw gcnew FatalShellException();
+    }
 
     m_hWndThread = CreateThread(nullptr, 0, &ServiceClient::ThreadEntry, this, 0, &mWndThreadId);
 
     if (m_hWndThread == nullptr)
     {
+        mLog->Fatal("CreateThread()={0}", GetWin32ErrorText());
         CloseHandle(m_hStartupSignal);
-        SetState(ServiceState::ERROR_STOPPED);
-        return;
+        throw gcnew FatalShellException();
     }
     HANDLE wait[] = { m_hWndThread, m_hStartupSignal };
+
     switch (WaitForMultipleObjects(2, wait, FALSE, INFINITE))
     {
         case WAIT_OBJECT_0:
+            mLog->Error("Thread stopped unexpectedly");
             CloseHandle(m_hStartupSignal);
+            CloseHandle(m_hWndThread);
+            m_hWndThread = nullptr;
             SetState(ServiceState::ERROR_STOPPED);
             break;
         case WAIT_OBJECT_0 + 1:
+            mLog->Info("Thread now ready, Resuming main flow.");
             CloseHandle(m_hStartupSignal);
             break;
         default:
@@ -84,12 +76,14 @@ ServiceClient::~ServiceClient()
 {
     if (m_hWndThread != nullptr)
     {
+        mLog->Info("Shutting down thread");
         if (IsWindow(m_hWnd))
             PostMessage(m_hWnd, WM_CLOSE, 0, 0);
 
         WaitForSingleObject(m_hWndThread, INFINITE);
         CloseHandle(m_hWndThread);
         m_hWndThread = nullptr;
+        mLog->Info("Thread shutdown");
     }
 
     if (mHyperwaveDirectory != nullptr)
@@ -107,8 +101,10 @@ ServiceState ServiceClient::SetState(ServiceState newstate, bool notify_window)
     if (oldstate == newstate)
         return oldstate;
 
-	if (((System::Action^) mListener) != nullptr)
-		mListener->Invoke();
+    mLog->Info("State: {0}->{1}", oldstate, newstate);
+
+    if (((System::Action ^) mListener) != nullptr)
+        mListener->Invoke();
 
     if (notify_window && m_hWnd != nullptr)
         PostMessage(m_hWnd, WM_STATE_CHANGED, (WPARAM)oldstate, (LPARAM)newstate);
@@ -121,6 +117,8 @@ bool ServiceClient::SetStateIf(ServiceState state, ServiceState newstate)
     ServiceState oldstate = (ServiceState)InterlockedCompareExchange(&mState, (LONG)newstate, (LONG)state);
     if (oldstate == newstate || oldstate != state)
         return false;
+
+    mLog->Info("State: {0}->{1}", oldstate, newstate);
 
     if (((System::Action ^) mListener) != nullptr)
         mListener->Invoke();
@@ -140,7 +138,7 @@ void ServiceClient::PostWorkItem(IWorkItem ^ item)
         return;
     }
 
-    GCHandle handle = GCHandle::Alloc(item,GCHandleType::Pinned);
+    GCHandle handle = GCHandle::Alloc(item, GCHandleType::Pinned);
     PostMessage(m_hWnd, WM_WORK_ITEM, 0, (LPARAM)GCHandle::ToIntPtr(handle));
 }
 
@@ -175,14 +173,22 @@ DWORD ServiceClient::ThreadMain()
     SharedData sdata;
 
     if (!sdata.IsConnected())
+    {
+        mLog->Error("Unable to connect to shared data");
         return -3;
-
+    }
     mShared = &sdata;
 
     if (!RegisterWindowClass())
-        return -1;
+    {
+        mLog->Error("Unable to register window class");
+		return -1;
+    }
     if (!CreateWindowInstance())
+    {
+        mLog->Error("Failed to create window");
         return -2;
+    }
     SetEvent(m_hStartupSignal);
     MSG msg;
 
@@ -191,6 +197,7 @@ DWORD ServiceClient::ThreadMain()
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
+    mLog->Error("Thread closed");
     UnRegisterWindowClass();
 
     m_hWnd = nullptr;
@@ -219,13 +226,21 @@ bool ServiceClient::RegisterWindowClass()
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
     wcex.lpszClassName = WINDOW_CLASS;
 
-    return 0 != RegisterClassEx(&wcex);
+    bool ret = (0 != RegisterClassEx(&wcex));
+    if (!ret)
+        mLog->Error("RegisterClassEx() = {0}",GetWin32ErrorText());
+    return ret;
 }
 
 bool ServiceClient::CreateWindowInstance()
 {
     m_hWnd = CreateWindowEx(0, WINDOW_CLASS, L"", 0, 0, 0, 100, 100, HWND_MESSAGE, NULL, gLocalModule, this);
-    return m_hWnd != nullptr;
+    bool ret = (m_hWnd != nullptr);
+    
+	if (!ret)
+        mLog->Error("CreateWindowEx() = {0}", GetWin32ErrorText());
+
+    return ret;
 }
 
 void ServiceClient::UnRegisterWindowClass()
@@ -240,10 +255,12 @@ void ServiceClient::ConnectToApp(bool restart)
     m_hProcess = mShared->OpenProcessHandle();
     if (m_hProcess == nullptr)
     {
+        mLog->Info("Background process not running, starting");
         StartApp(restart);
         return;
     }
     RegisterProcessMonitor();
+    mLog->Info("Background process running, sending connect message");
     PostMessage(mShared->ServerWindow(), mAppMessage, HSERV_CLIENT_CONNECT, (LPARAM)m_hWnd);
     SetState(restart ? ServiceState::RECONNECTING : ServiceState::CONNECTING);
 }
@@ -251,7 +268,10 @@ void ServiceClient::ConnectToApp(bool restart)
 void ServiceClient::RegisterProcessMonitor()
 {
     UnRegisterProcessMonitor();
-    RegisterWaitForSingleObject(&m_hProcessWait, m_hProcess, &ServiceClient::OnProcessStopped, this, INFINITE, WT_EXECUTEONLYONCE);
+    if (!RegisterWaitForSingleObject(&m_hProcessWait, m_hProcess, &ServiceClient::OnProcessStopped, this, INFINITE, WT_EXECUTEONLYONCE))
+    {
+        mLog->Warning("RegisterWaitForSingleObject()={0}", GetWin32ErrorText());
+    }
 }
 
 void ServiceClient::UnRegisterProcessMonitor()
@@ -280,8 +300,11 @@ void ServiceClient::StartApp(bool restart)
 
     swprintf_s(cmdline, L"%s\\Hyperwave.Background.exe %p", mHyperwaveDirectory, m_hWnd);
 
+	mLog->Info("Starting background process:\r\n\t{0}", gcnew System::String(cmdline));
+
     if (!CreateProcess(nullptr, cmdline, nullptr, nullptr, FALSE, 0, nullptr, mHyperwaveDirectory, &sinfo, &pi))
     {
+        mLog->Error("CreateProcess()={0}", GetWin32ErrorText());
         SetState(ServiceState::ERROR_STOPPED);
         return;
     }
@@ -365,11 +388,13 @@ bool ServiceClient::OnWindowMessage(UINT msg, WPARAM wparam, LPARAM lparam, LRES
             return true;
 
         case WM_DESTROY:
+            mLog->Info("Window closing");
             CloseApp();
             if (SetState(ServiceState::STOPPED, false) == ServiceState::ONLINE)
                 PostMessage(m_hServerWnd, mAppMessage, HSERV_CLIENT_DISCONNECT, (LPARAM)m_hWnd);
 
             *result = 0;
+            PostQuitMessage(0);
             return true;
 
         case WM_TIMER:
@@ -388,6 +413,7 @@ bool ServiceClient::HandleInternalMessage(UINT msg, WPARAM wparam, LPARAM lparam
     switch (msg)
     {
         case WM_APP_STOPPED:
+            mLog->Info("msg: WM_APP_STOPPED");
             CloseApp();
             if (SetStateIf(ServiceState::RECONNECTING, ServiceState::ERROR_STOPPED))
                 return true;
@@ -396,10 +422,11 @@ bool ServiceClient::HandleInternalMessage(UINT msg, WPARAM wparam, LPARAM lparam
             return true;
 
         case WM_STATE_CHANGED:
+            mLog->Info("msg: WM_STATE_CHANGED");
             switch ((ServiceState)lparam)
             {
                 case ServiceState::ERROR_STOPPED:
-                    DestroyWindow(m_hWnd);
+                    //DestroyWindow(m_hWnd);
                     break;
 
                 case ServiceState::ONLINE:
@@ -415,6 +442,7 @@ bool ServiceClient::HandleInternalMessage(UINT msg, WPARAM wparam, LPARAM lparam
             return true;
 
         case WM_WORK_ITEM:
+            mLog->Info("msg: WM_WORK_ITEM");
             AddWorkItem(lparam);
             return true;
     }
@@ -427,6 +455,7 @@ bool ServiceClient::HandleAppMessage(WPARAM msg, LPARAM arg, LRESULT* result)
     switch (msg)
     {
         case HSERV_SERVER_BROADCAST:
+            mLog->Info("msg: HSERV_SERVER_BROADCAST");
             m_hServerWnd = (HWND)arg;
             SetState(ServiceState::ONLINE);
             return true;
@@ -440,10 +469,23 @@ bool ServiceClient::HandleTimer(WPARAM timer_id, LRESULT* result)
     switch (timer_id)
     {
         case TIMER_CONNECT:
+            mLog->Info("Timer: TIMER_CONNECT");
             TerminateProcess(m_hProcess, -1);
             return true;
         default:
             break;
     }
     return false;
+}
+
+System::String ^ ServiceClient::GetWin32ErrorText()
+{
+    wchar_t* text = nullptr;
+    FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, 0, GetLastError(), 0, (LPWSTR)&text, 1024, nullptr);
+    if (text == nullptr)
+        return gcnew System::String("Unknown win32 error");
+    System::String ^ ret = gcnew System::String(text);
+    LocalFree(text);
+
+    return ret->Substring(0, ret->Length - 2);
 }

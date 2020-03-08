@@ -22,6 +22,8 @@ namespace Hyperwave.Controller
         List<ILabelSource> mLabels = new List<ILabelSource>();
         private Label mDraftLabel;
 
+        NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+
         internal Account(EveMailClient client,DB.Account account)
         {
             mDBAccount = account;
@@ -64,6 +66,8 @@ namespace Hyperwave.Controller
 
         public async Task UpdateAccount()
         {
+            mLog.Info($"{this.UserName}: Updating account");
+
             await RefreshToken();
 
             MailApi api = new MailApi();
@@ -84,6 +88,8 @@ namespace Hyperwave.Controller
 
                 mLabels.Clear();
 
+                mLog.Info($"{this.UserName}: {labels.TotalUnreadCount.Value} unread mails");
+
                 mDBAccount.UnreadCount = labels.TotalUnreadCount.Value;
 
                 for (int i = 0;i < labels.Labels.Count;i++)
@@ -91,7 +97,8 @@ namespace Hyperwave.Controller
                     var item = labels.Labels[i];
                     var label = new Label(mClient, this, item);
                     mLabels.Add(label);
-                    if(label.Type == LabelType.Outbox)
+                    mLog.Info($"{this.UserName}: Added label '{label.Name}'");
+                    if (label.Type == LabelType.Outbox)
                         draft_index = i + 1;
                 }
 
@@ -140,8 +147,9 @@ namespace Hyperwave.Controller
                     EntityID = i.MailingListId.Value,
                     Name = i.Name
                 };
-
-                mLabels.Add(new Label(mClient, this, i.MailingListId.Value, i.Name, LabelType.MailingList));
+                var label = new Label(mClient, this, i.MailingListId.Value, i.Name, LabelType.MailingList);
+                mLabels.Add(label);
+                mLog.Info($"{this.UserName}: Added mailing list '{label.Name}'");
             }
 
             await UserCache.EntityLookupAsync.AddLookups(info);
@@ -153,6 +161,7 @@ namespace Hyperwave.Controller
 
             if (mDBAccount.Expires < DateTime.Now)
             {
+                mLog.Info($"{this.UserName}: Refreshing tokens");
                 Auth.TokenInfo token = await Auth.SSOAuth.RefreshTokenInfoAsync(DBAccount.RefreshToken);
                 if (token == null)
                 {
@@ -316,7 +325,8 @@ namespace Hyperwave.Controller
             {
                 if (!GetCachedItems(label, out viewmails))
                 {
-                    view.IsLoading = true;
+                    mLog.Info($"{this.UserName}: Updating from source");
+                    view.IsLoading = true; 
                     viewmails = await LoadMailsWorker(label, view.Source);
                     GetCache(label).Set(viewmails);
                 }
@@ -333,6 +343,7 @@ namespace Hyperwave.Controller
             }
             view.IsDraft = false;
 
+            mLog.Info($"{this.UserName}: {viewmails.Count} mails retrieved");
 
             foreach (var i in viewmails)
             {

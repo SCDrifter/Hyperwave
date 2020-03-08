@@ -5,6 +5,7 @@
 #include "..\Hyperwave.Cpp.Common\SharedData.h"
 #include "ServiceConnection.h"
 
+
 using namespace Hyperwave::Shell;
 
 namespace Hyperwave
@@ -30,7 +31,7 @@ public
 class ServiceClient
 {
 public:
-    ServiceClient(System::Action ^ listener);
+    ServiceClient(System::Action ^ listener, IShellLoggerFactory ^factory);
     ~ServiceClient();
 
     ServiceState GetState();
@@ -67,6 +68,8 @@ private:
     bool HandleAppMessage(WPARAM msg, LPARAM arg, LRESULT* result);
     bool HandleTimer(WPARAM timer_id, LRESULT* result);
 
+	System::String ^ GetWin32ErrorText();
+
 private:
     typedef System::Collections::Generic::Queue<IWorkItem ^> TWorkItemQueue;
 
@@ -89,4 +92,5 @@ private:
 
     SharedData* mShared;
     wchar_t* mHyperwaveDirectory;
+    msclr::gcroot<IShellLogger ^> mLog;
 };

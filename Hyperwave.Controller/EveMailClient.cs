@@ -149,6 +149,19 @@ namespace Hyperwave.Controller
             OnAccountAction(true, account);
         }
 
+        public async Task<bool> UpdateAccountAuthAsync(Auth.TokenInfo token, Auth.CharacterInfo charinfo, Auth.AccessFlag permissions)
+        {
+            foreach(Account i in Accounts)
+            {
+                if (i.Id != charinfo.CharacterId)
+                    continue;
+                i.DBAccount.UpdateAuthInfo(token, permissions);
+                await mAccountDB.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
         async Task RemoveAccountInternal(ISourceInfo source)
         {
             Account account = (Account)source.AccountSource;

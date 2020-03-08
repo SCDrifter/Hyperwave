@@ -160,12 +160,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HyperwaveUtil.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Mutex.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SharedData.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HyperwaveUtil.cpp" />
     <ClCompile Include="Mutex.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

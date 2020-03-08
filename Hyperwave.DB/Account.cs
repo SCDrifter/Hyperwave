@@ -157,6 +157,14 @@ namespace Hyperwave.DB
             Expires = tokens.Expires;
         }
 
+        public void UpdateAuthInfo(TokenInfo tokens,AccessFlag permissions)
+        {
+            AccessToken = tokens.AccessToken;
+            RefreshToken = tokens.RefreshToken;
+            Expires = tokens.Expires;
+            Permissions = permissions;
+        }
+
         int IComparable<Account>.CompareTo(Account other)
         {
             return CharacterId.CompareTo(other.CharacterId);

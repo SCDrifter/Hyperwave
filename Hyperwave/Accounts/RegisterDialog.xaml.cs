@@ -24,7 +24,7 @@ namespace Hyperwave.Accounts
     {
         class AccountOptions  : INotifyPropertyChanged
         {
-            private bool mUseBuiltinBrowser;
+            private bool mUseBuiltinBrowser;            
 
             public AccessFlag Flags { get; private set; }
 
@@ -138,6 +138,8 @@ namespace Hyperwave.Accounts
         bool mIsCancelling = false;
         private SSOLoginController mLogin;
 
+        NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+
         public RegisterDialog()
         {
             InitializeComponent();
@@ -149,12 +151,12 @@ namespace Hyperwave.Accounts
             cCreationPage.Visibility = Visibility.Hidden;
             cActionPage.Visibility = Visibility.Visible;
             cActionText.Text = "Waiting for character login.";
+            mLog.Info(cActionText.Text);
 
             mLogin = new SSOLoginController()
             {
                 AccessFlags = mOptions.Flags,
-                PrivateData = "privatedata",
-                UseBuildinBrowser = mOptions.UseBuiltinBrowser
+                PrivateData = "privatedata"
             };
 
             await mLogin.Run();
@@ -179,18 +181,27 @@ namespace Hyperwave.Accounts
             {
                 mCancel = new CancellationTokenSource();
                 cActionText.Text = "Authorizing account.";
-                TokenInfo tinfo = await SSOAuth.GetTokenInfoAsync(authcode,challenge_code,mCancel.Token);
+                mLog.Info(cActionText.Text);
+                TokenInfo tinfo = await SSOAuth.GetTokenInfoAsync(authcode, challenge_code, mCancel.Token);
 
                 cActionText.Text = "Retrieving Character information.";
+                mLog.Info(cActionText.Text);
                 CharacterInfo cinfo = await SSOAuth.GetCharacterInfoAsync(tinfo.AccessToken, mCancel.Token);
 
-                await ((App)Application.Current).Client.AddAccountAsync(tinfo, cinfo, mOptions.Flags);
+                if (await GetClient().UpdateAccountAuthAsync(tinfo, cinfo, mOptions.Flags))
+                    mLog.Info($"Updated Account:{cinfo.CharacterName}({cinfo.CharacterId})");
+                else
+                {
+                    await GetClient().AddAccountAsync(tinfo, cinfo, mOptions.Flags);
+                    mLog.Info($"Added Account:{cinfo.CharacterName}({cinfo.CharacterId})");
+                }
             }
-            catch(TaskCanceledException)
+            catch (TaskCanceledException)
             {                
             }
             catch(Exception e)
             {
+                mLog.Error(e,"Authorize Failed");
                 MessageBox.Show(e.Message, "Unable to add account");
                 mIsCancelling = false;
                 mCancel = null;
@@ -204,6 +215,11 @@ namespace Hyperwave.Accounts
             mIsCancelling = false;
             mCancel = null;
             Close();
+        }
+
+        private static Controller.EveMailClient GetClient()
+        {
+            return ((App)Application.Current).Client;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

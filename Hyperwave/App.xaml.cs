@@ -32,13 +32,15 @@ namespace Hyperwave
         string mEvePath = null;
         int mProcessCount = 0;
         private SkinStyle mColorScheme;
-
-
+        ServiceConnection mServiceLink = null;
+        NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+        
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            
+            mLog.Info("Application Instance Startup");
             if(Client.Commands.ConnectToExistingClient(50))
             {
+                mLog.Info("Existing instance found forwarding commandline and exiting");
                 if (e.Args.Length == 0)
                     Client.Commands.SendCommand("ShowWindow");
                 else
@@ -47,6 +49,8 @@ namespace Hyperwave
                 Shutdown();
                 return;
             }
+
+            mServiceLink = new ServiceConnection(new Common.LoggerWrapperFactory());
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
@@ -92,13 +96,14 @@ namespace Hyperwave
             Uri url;
             if (args.Length != 1 || !Uri.TryCreate(args[0], UriKind.Absolute, out url))
                 return args;
+            mLog.Info($"Found URL: {url}");
             switch (url.Scheme)
             {
                 case "eve-mail":
+                    mLog.Info("Url is an eve-mail link");
                     return ParseEveMailUrl(url);
-                //case "hyperwave":
-                //    return ParseLicenseUrl(url);
                 default:
+                    mLog.Warn("Unknown url type");
                     return new string[] { "NoOp" };
             }
         }
@@ -211,7 +216,9 @@ namespace Hyperwave
 
         internal void RemoveProcessCount()
         {
-            if(--mProcessCount <= 0)
+            bool stop = (--mProcessCount <= 0);
+            mLog.Info($"Process activity count decreased to {mProcessCount}.");
+            if(stop)
                 Shutdown();
 
         }
@@ -219,12 +226,14 @@ namespace Hyperwave
         internal void AddProcessCount()
         {
             mProcessCount++;
+            mLog.Info($"Process activity count increased to {mProcessCount}.");
         }
 
         
 
         private void mMailTimer_Tick(object sender, EventArgs e)
         {
+            mLog.Info("Checking Mails");
             Client.UpdateAccounts(true);
 
             if (Settings.Default.ShowNotifications)
@@ -245,6 +254,8 @@ namespace Hyperwave
                 i.Dispose();
             }
 
+            mLog.Info($"IsEveClientRunning()={ret}");
+
             return ret;
         }
 
@@ -262,12 +273,12 @@ namespace Hyperwave
 
         private void mClient_AccountNotification(object sender, AccountNotificationEventArgs args)
         {
-
             if (Settings.Default.SupressNotificationsClient && IsEveClientRunning())
                 return;
 
             if (args.NewMails != null)
             {
+                mLog.Info($"{args.NewMails.Length} new mails notifications");
                 if (args.NewMails.Length > 2)
                 {
                     Notification notify = new Notification()
@@ -324,22 +335,29 @@ namespace Hyperwave
         
         private void Commands_CommandRecieved(object sender, CommandEventArgs e)
         {
-            MessageBox.Show(string.Format("Invalid commandline argument {0}", e.Command.Command));
+            mLog.Info($"Invalid commandline argument {e.Command.Command}");
+            MessageBox.Show($"Invalid commandline argument {e.Command.Command}");
         }
                         
 
         private void Command_CheckMail(object sender, CommandEventArgs e)
         {
+            mLog.Info("CheckMail command received");
             if (mMailTimer != null)
+            {
+                mLog.Warn("CheckMail ignored client timer already running");
                 return;
+            }
 
             Client.UpdateAccounts(false);
             if (Settings.Default.ShowNotifications)
                 Client.CheckMails();
+            mLog.Info("CheckMail finished");
         }
 
         private void Command_ShowWindow(object sender, CommandEventArgs e)
         {
+            mLog.Info("ShowWindow command received");
             StartTimer();
 
             if(e.Command.Args.Length == 1)
@@ -368,6 +386,7 @@ namespace Hyperwave
 
         private void Command_NewMail(object sender,CommandEventArgs e)
         {
+            mLog.Info("Create new mail command recieved");
             StartTimer();
             DraftMessageSource msg = Client.CreateDraft();
 
@@ -439,7 +458,7 @@ namespace Hyperwave
 
         public EveMailClient Client { get; } = new EveMailClient();
 
-        public ServiceConnection ServiceLink { get; } = new ServiceConnection();
+        public ServiceConnection ServiceLink => mServiceLink;
 
         public static EveMailClient CurrentClient
         {
@@ -454,7 +473,9 @@ namespace Hyperwave
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+            this.ServiceLink.Dispose();
             Client.Dispose();
+            mLog.Info("Application shutdown");
         }
         
     }    

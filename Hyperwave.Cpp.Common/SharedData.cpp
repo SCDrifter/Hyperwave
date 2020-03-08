@@ -7,7 +7,7 @@ constexpr auto MUTEX_NAME = L"Hyperwave.Background.";
 SharedData::SharedData()
     : mLock(MUTEX_NAME)
 {
-    if (!MapMemory(true))
+    if (!MapMemory(false))
         return;
 
     mProcessId = 0;
@@ -97,7 +97,7 @@ void SharedData::GetCreationTime(HANDLE hprocess, FILETIME* creationtime)
 
 HANDLE SharedData::OpenProcessHandleNoLock() const
 {
-    HANDLE ret = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_TERMINATE, FALSE, mBlock->ServerProcessId);
+    HANDLE ret = OpenProcess(SYNCHRONIZE | PROCESS_QUERY_INFORMATION | PROCESS_TERMINATE, FALSE, mBlock->ServerProcessId);
 
     if (ret == nullptr)
         return NULL;

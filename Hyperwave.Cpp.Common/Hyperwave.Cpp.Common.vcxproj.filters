@@ -10,6 +10,7 @@
     <ClInclude Include="SharedData.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Mutex.h" />
+    <ClInclude Include="HyperwaveUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -17,6 +18,7 @@
     </ClCompile>
     <ClCompile Include="SharedData.cpp" />
     <ClCompile Include="Mutex.cpp" />
+    <ClCompile Include="HyperwaveUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Boilerplate">
