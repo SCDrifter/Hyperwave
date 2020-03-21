@@ -83,6 +83,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -101,7 +102,10 @@
                     <viewmodel2:MailCheckIntervalUnit>Minutes</viewmodel2:MailCheckIntervalUnit>
                     <viewmodel2:MailCheckIntervalUnit>Hours</viewmodel2:MailCheckIntervalUnit>
                 </ComboBox>
-                <CheckBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" IsChecked="{Binding SupressNotificationsClient}" IsEnabled="{Binding IsChecked,ElementName=cMailNotify}">Suppress notifications when client is running</CheckBox>
+                <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+                    <CheckBox IsChecked="{Binding SupressNotificationsClient}" IsEnabled="{Binding IsChecked,ElementName=cMailNotify}">Suppress notifications when client is running</CheckBox>
+                    <CheckBox IsChecked="{Binding SupressNotificationsFullscreen}" IsEnabled="{Binding IsChecked,ElementName=cMailNotify}">Suppress notifications when fullscreen app is running</CheckBox>
+                </StackPanel>
 
                 <GroupBox Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="5" Grid.RowSpan="4" Header="Background mail notifications"/>
 
@@ -109,6 +113,13 @@
                 <Label Grid.Row="7" Grid.Column="1">_Interval:</Label>
                 <common:NumericEntry Grid.Row="7" Grid.Column="2" MaximumValue="1000" MinimumValue="{Binding BackgroundMailCheckMin}" Value="{Binding BackgroundMailCheckInterval,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}"/>
                 <ComboBox Grid.Column="3" Grid.Row="7" Width="100" Margin="5" Style="{StaticResource SmallFlatWindowComboBox}"  SelectedItem="{Binding BackgroundMailCheckUnit}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}">
+                    <viewmodel2:MailCheckIntervalUnit>Seconds</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Minutes</viewmodel2:MailCheckIntervalUnit>
+                    <viewmodel2:MailCheckIntervalUnit>Hours</viewmodel2:MailCheckIntervalUnit>
+                </ComboBox>
+                <Label Grid.Row="8" Grid.Column="1">Startup _Delay:</Label>
+                <common:NumericEntry Grid.Row="8" Grid.Column="2" MaximumValue="1000" MinimumValue="{Binding InitialBackgroundMailCheckMin}" Value="{Binding InitialBackgroundMailCheckInterval,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}"/>
+                <ComboBox Grid.Column="3" Grid.Row="8" Width="100" Margin="5" Style="{StaticResource SmallFlatWindowComboBox}"  SelectedItem="{Binding InitialBackgroundMailCheckUnit}" IsEnabled="{Binding IsChecked,ElementName=cBackgroundUpdate}">
                     <viewmodel2:MailCheckIntervalUnit>Seconds</viewmodel2:MailCheckIntervalUnit>
                     <viewmodel2:MailCheckIntervalUnit>Minutes</viewmodel2:MailCheckIntervalUnit>
                     <viewmodel2:MailCheckIntervalUnit>Hours</viewmodel2:MailCheckIntervalUnit>

@@ -17,6 +17,9 @@ namespace Hyperwave.Admin.DataModel
         bool mBackgroundEnabled;
         decimal mBackgroundMailCheckInterval;
         MailCheckIntervalUnit mBackgroundMailCheckUnit;
+        private bool mSupressNotificationsFullscreen;
+        private decimal mInitialBackgroundMailCheckInterval;
+        private MailCheckIntervalUnit mInitialBackgroundMailCheckUnit;
 
         public MailCheckPage(ConfigPage parent)
             :base(parent)
@@ -26,9 +29,12 @@ namespace Hyperwave.Admin.DataModel
             mMailCheckInterval = ConvertUnits(Settings.Default.MailCheckInterval,MailCheckIntervalUnit.Seconds,mMailCheckUnit);
             mSupressNotificationsClient = Settings.Default.SupressNotificationsClient;
             mBackgroundEnabled = Settings.Default.BackgroundEnabled;
+            mSupressNotificationsFullscreen = Settings.Default.SupressNotificationsFullscreen;
             mBackgroundMailCheckUnit = Settings.Default.BackgroundMailCheckUnit;
             mBackgroundMailCheckInterval = ConvertUnits(Settings.Default.BackgroundMailCheckInterval,MailCheckIntervalUnit.Seconds,mBackgroundMailCheckUnit);
-            
+            mInitialBackgroundMailCheckUnit = Settings.Default.InitialBackgroundMailCheckUnit;
+            mInitialBackgroundMailCheckInterval = ConvertUnits(Settings.Default.InitialBackgroundMailCheckInterval, MailCheckIntervalUnit.Seconds, mInitialBackgroundMailCheckUnit);
+
         }
 
         public override string Name
@@ -49,6 +55,8 @@ namespace Hyperwave.Admin.DataModel
 
         public override void Apply()
         {
+            bool needs_update = NeedsServiceUpdate();
+
             Settings.Default.ShowNotifications = mShowNotifications;
             Settings.Default.MailCheckUnit = mMailCheckUnit;
             Settings.Default.MailCheckInterval = ConvertUnits(mMailCheckInterval,mMailCheckUnit,MailCheckIntervalUnit.Seconds);
@@ -56,7 +64,8 @@ namespace Hyperwave.Admin.DataModel
             Settings.Default.BackgroundEnabled = mBackgroundEnabled;
             Settings.Default.BackgroundMailCheckUnit = mBackgroundMailCheckUnit;
             Settings.Default.BackgroundMailCheckInterval = ConvertUnits(mBackgroundMailCheckInterval,mBackgroundMailCheckUnit,MailCheckIntervalUnit.Seconds);
-            //Settings.Default.BackgroundSettingUpdate = CalculateCanarySetting();
+            if (needs_update)
+                Settings.Default.UpdateBackgroundSettings++;
         }
 
         decimal ConvertUnits(decimal value,MailCheckIntervalUnit from,MailCheckIntervalUnit to)
@@ -142,6 +151,14 @@ namespace Hyperwave.Admin.DataModel
                 return ConvertUnits(30, MailCheckIntervalUnit.Seconds, BackgroundMailCheckUnit);
             }
         }
+               
+        public decimal InitialBackgroundMailCheckMin
+        {
+            get
+            {
+                return ConvertUnits(30, MailCheckIntervalUnit.Seconds, InitialBackgroundMailCheckUnit);
+            }
+        }
 
         public decimal MailCheckInterval
         {
@@ -172,17 +189,20 @@ namespace Hyperwave.Admin.DataModel
                 OnPropertyChanged("SupressNotificationsClient");
             }
         }
-
-        private int CalculateCanarySetting()
+               
+        public bool SupressNotificationsFullscreen
         {
-            StringBuilder compiler = new StringBuilder();
-            compiler.Append(mBackgroundEnabled.ToString());
-            if (mBackgroundEnabled)
+            get
             {
-                compiler.Append(mBackgroundMailCheckUnit.ToString());
-                compiler.Append(mBackgroundMailCheckInterval.ToString());
+                return mSupressNotificationsFullscreen;
             }
-            return compiler.ToString().GetHashCode();
+            set
+            {
+                if (value == mSupressNotificationsFullscreen)
+                    return;
+                mSupressNotificationsFullscreen = value;
+                OnPropertyChanged("SupressNotificationsFullscreen");
+            }
         }
 
         public bool BackgroundEnabled
@@ -233,18 +253,60 @@ namespace Hyperwave.Admin.DataModel
             }
         }
 
+        public MailCheckIntervalUnit InitialBackgroundMailCheckUnit
+        {
+            get
+            {
+                return mInitialBackgroundMailCheckUnit;
+            }
+            set
+            {
+                if (value == mInitialBackgroundMailCheckUnit)
+                    return;
+                InitialBackgroundMailCheckInterval = ConvertUnits(InitialBackgroundMailCheckInterval, mInitialBackgroundMailCheckUnit, value);
+
+                mInitialBackgroundMailCheckUnit = value;
+                OnPropertyChanged("InitialBackgroundMailCheckUnit");
+                OnPropertyChanged("InitialBackgroundMailCheckMin");
+            }
+        }
+
+        public decimal InitialBackgroundMailCheckInterval
+        {
+            get
+            {
+                return mInitialBackgroundMailCheckInterval;
+            }
+            set
+            {
+                if (value == mInitialBackgroundMailCheckInterval)
+                    return;
+                mInitialBackgroundMailCheckInterval = value;
+                OnPropertyChanged("InitialBackgroundMailCheckInterval");
+            }
+        }
+
         public override bool HasChanged
         {
             get
             {
                 return Settings.Default.ShowNotifications != mShowNotifications
                     || ConvertUnits(Settings.Default.MailCheckInterval,MailCheckIntervalUnit.Seconds,MailCheckUnit) != mMailCheckInterval
-                    || Settings.Default.MailCheckUnit != mMailCheckUnit
+                    || Settings.Default.MailCheckUnit != mMailCheckUnit 
                     || Settings.Default.SupressNotificationsClient != mSupressNotificationsClient
+                    || NeedsServiceUpdate();
+            }
+        }
+
+        private bool NeedsServiceUpdate()
+        {
+            return Settings.Default.SupressNotificationsClient != mSupressNotificationsClient
+                    || Settings.Default.SupressNotificationsFullscreen != mSupressNotificationsFullscreen
+                    || ConvertUnits(Settings.Default.InitialBackgroundMailCheckInterval, MailCheckIntervalUnit.Seconds, InitialBackgroundMailCheckUnit) != mInitialBackgroundMailCheckInterval
+                    || Settings.Default.InitialBackgroundMailCheckUnit != mInitialBackgroundMailCheckUnit
                     || Settings.Default.BackgroundEnabled != mBackgroundEnabled
                     || ConvertUnits(Settings.Default.BackgroundMailCheckInterval, MailCheckIntervalUnit.Seconds, BackgroundMailCheckUnit) != mBackgroundMailCheckInterval
                     || Settings.Default.BackgroundMailCheckUnit != mBackgroundMailCheckUnit;
-            }
         }
     }
 }

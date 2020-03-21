@@ -3,7 +3,7 @@
 #include "ServiceClient.h"
 
 generic<typename T>
-ref class WorkItem abstract : IWorkItem
+    ref class WorkItem abstract : IWorkItem
 {
 public:
     WorkItem()
@@ -60,7 +60,7 @@ protected:
     }
 };
 
-Hyperwave::Shell::ServiceConnection::ServiceConnection(IShellLoggerFactory ^factory)
+Hyperwave::Shell::ServiceConnection::ServiceConnection(IShellLoggerFactory ^ factory)
 {
     mLog = factory->Create(GetType()->FullName);
     mClient = new ServiceClient(gcnew System::Action(this, &ServiceConnection::OnStateChanged), factory);
@@ -92,7 +92,6 @@ Task<bool> ^ Hyperwave::Shell::ServiceConnection::GetEnabledAsync()
     mClient->PostWorkItem(item);
     return item->Wait();
 }
-
 
 ref class GetInitialDelayWorkItem : IntWorkItem
 {
@@ -152,13 +151,13 @@ public:
     {
         mValue = value;
     }
-    
-	virtual int Msg() override
+
+    virtual int Msg() override
     {
         return HSERV_SET_ENABLED;
     }
 
-	virtual void* Param() override
+    virtual void* Param() override
     {
         return mValue ? (void*)1 : 0;
     }
@@ -196,7 +195,6 @@ public:
 private:
     unsigned int mValue;
 };
-
 
 Task ^ Hyperwave::Shell::ServiceConnection::SetInitialDelayAsync(unsigned int value)
 {
@@ -267,6 +265,15 @@ Task ^ Hyperwave::Shell::ServiceConnection::SetSupressFullscreenAsync(bool value
 }
 
 void Hyperwave::Shell::ServiceConnection::OnStateChanged()
-{    
-	StateChanged(this, gcnew System::EventArgs());
+{
+    StateChanged(this, gcnew System::EventArgs());
+}
+
+bool Hyperwave::Shell::ServiceConnection::IsFullscreenAppRunning::get()
+{
+    QUERY_USER_NOTIFICATION_STATE state = QUNS_ACCEPTS_NOTIFICATIONS;
+
+    SHQueryUserNotificationState(&state);
+
+    return state != QUNS_ACCEPTS_NOTIFICATIONS && state != QUNS_APP;
 }

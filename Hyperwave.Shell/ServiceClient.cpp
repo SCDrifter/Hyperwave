@@ -138,7 +138,7 @@ void ServiceClient::PostWorkItem(IWorkItem ^ item)
         return;
     }
 
-    GCHandle handle = GCHandle::Alloc(item, GCHandleType::Pinned);
+    GCHandle handle = GCHandle::Alloc(item, GCHandleType::Normal);
     PostMessage(m_hWnd, WM_WORK_ITEM, 0, (LPARAM)GCHandle::ToIntPtr(handle));
 }
 

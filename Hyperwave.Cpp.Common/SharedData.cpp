@@ -50,8 +50,9 @@ SharedData::~SharedData()
         return;
     if (mWindow != nullptr)
     {
-        InterlockedCompareExchangePointer((PVOID*)&mBlock->ServerWindow, nullptr, mWindow);
-        InterlockedCompareExchange(&mBlock->ServerProcessId, 0, mProcessId);
+        Lock lock(mLock);
+        mBlock->ServerWindow = nullptr;
+        mBlock->ServerProcessId = 0;
     }
 
     UnmapViewOfFile(mBlock);

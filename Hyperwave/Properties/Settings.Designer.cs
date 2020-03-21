@@ -158,18 +158,6 @@ namespace Hyperwave.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool BackgroundSettingUpdate {
-            get {
-                return ((bool)(this["BackgroundSettingUpdate"]));
-            }
-            set {
-                this["BackgroundSettingUpdate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SupressNotificationsFullscreen {
             get {
                 return ((bool)(this["SupressNotificationsFullscreen"]));
@@ -182,12 +170,36 @@ namespace Hyperwave.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("90")]
-        public decimal InitalBackgroundMailCheckInterval {
+        public decimal InitialBackgroundMailCheckInterval {
             get {
-                return ((decimal)(this["InitalBackgroundMailCheckInterval"]));
+                return ((decimal)(this["InitialBackgroundMailCheckInterval"]));
             }
             set {
-                this["InitalBackgroundMailCheckInterval"] = value;
+                this["InitialBackgroundMailCheckInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Minutes")]
+        public global::Hyperwave.ViewModel.MailCheckIntervalUnit InitialBackgroundMailCheckUnit {
+            get {
+                return ((global::Hyperwave.ViewModel.MailCheckIntervalUnit)(this["InitialBackgroundMailCheckUnit"]));
+            }
+            set {
+                this["InitialBackgroundMailCheckUnit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int UpdateBackgroundSettings {
+            get {
+                return ((int)(this["UpdateBackgroundSettings"]));
+            }
+            set {
+                this["UpdateBackgroundSettings"] = value;
             }
         }
     }

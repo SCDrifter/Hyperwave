@@ -58,12 +58,12 @@ namespace Hyperwave.Admin.DataModel
         {
             return new ConfigPage[]
             {
-                new MailCheckPage(this),
-                new MailReadPage(this),
-                new ColorThemePage(this)
+                new MailCheckPage(this)
                 {
                     IsSelected = true
-                }
+                },
+                new MailReadPage(this),
+                new ColorThemePage(this)
             };
         }
 

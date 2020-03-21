@@ -40,8 +40,7 @@
         <SolidColorBrush x:Key="ScrollBarButtonActiveBackgroundBrush" Color="{StaticResource SelectedColor}"/>
         <SolidColorBrush x:Key="ScrollBarButtonDisabledBackgroundBrush" Color="#3A666666"/>
         <SolidColorBrush x:Key="ScrollBarGlyphBrush" Color="#444" />
-        <SolidColorBrush x:Key="ProgressBarForeground" Color="#FF6F9C6F"/>
-        <SolidColorBrush x:Key="TextBlockForegroundBrush" Color="White"/>-->
+        <SolidColorBrush x:Key="ProgressBarForeground" Color="#FF6F9C6F"/>-->
 
         
 

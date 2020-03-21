@@ -24,6 +24,8 @@ UINT gAppMessage;
 
 Logger* gLog = nullptr;
 
+int MainFlow(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow);
+int ShutdownFlow();
 bool RegisterWindowClasses(HINSTANCE hInstance);
 BOOL InitInstance(HINSTANCE, int);
 int MessagePump();
@@ -34,7 +36,6 @@ LRESULT HandlePowerBroadcast(WPARAM pbtevent, LPARAM eventdata);
 LRESULT HandleSessionChange(WPARAM wtsevent, LPARAM session_id);
 bool SuspendOperation();
 void ResumeOperation();
-
 void LaunchApp();
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -44,6 +45,32 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
 
+    if (lstrcmpi(lpCmdLine, L"--shutdown") == 0)
+        return ShutdownFlow();
+    else
+		return MainFlow(hInstance, lpCmdLine, nCmdShow);
+}
+
+int ShutdownFlow()
+{
+    SharedData data;
+    if (!data.IsConnected())
+        return 0;
+    HANDLE process = data.OpenProcessHandle();
+
+	if (process == NULL)
+        return 0;
+
+	gAppMessage = RegisterWindowMessage(HSERV_REGISTERED_MESSAGE_NAME);
+
+	PostMessage(data.ServerWindow(), gAppMessage, HSERV_SHUTDOWN, 0);
+
+	WaitForSingleObject(process, INFINITE);
+    return 0;
+}
+
+int MainFlow(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow)
+{
     HWND first_client = NULL;
 
     Settings settings;
@@ -154,7 +181,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
         case WM_DESTROY:
             gLog->Trace(L"WM_DESTROY");
             gSettings->Save();
-           //WTSUnRegisterSessionNotification(hwnd);
+            //WTSUnRegisterSessionNotification(hwnd);
             PostQuitMessage(0);
             break;
         case WM_POWERBROADCAST:
@@ -187,6 +214,10 @@ LRESULT HandleAppMessage(WPARAM msg, LPARAM arg)
     switch (msg)
     {
         case HSERV_SERVER_BROADCAST:
+            return 0;
+
+		case HSERV_SHUTDOWN:
+            PostMessage(g_hWnd, WM_CLOSE, 0, 0);
             return 0;
 
         case HSERV_CLIENT_CONNECT:

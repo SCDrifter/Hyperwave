@@ -51,6 +51,7 @@ namespace Hyperwave
             }
 
             mServiceLink = new ServiceConnection(new Common.LoggerWrapperFactory());
+            mServiceLink.StateChanged += ServiceLink_StateChanged;
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
@@ -89,6 +90,31 @@ namespace Hyperwave
             }
 
             RemoveProcessCount();
+        }
+
+        private async void ServiceLink_StateChanged(object sender, EventArgs e)
+        {
+            if (!mServiceLink.IsConnected)
+                return;
+            if (Settings.Default.UpdateBackgroundSettings > 0)
+                await UpdateBackgroundService();
+            else
+            {
+                Settings.Default.BackgroundEnabled = await mServiceLink.GetEnabledAsync();
+                Settings.Default.BackgroundMailCheckInterval = await mServiceLink.GetIntervalDelayAsync();
+                Settings.Default.InitialBackgroundMailCheckInterval = await mServiceLink.GetInitialDelayAsync();
+                Settings.Default.Save();
+            }
+        }
+
+        private async Task UpdateBackgroundService()
+        {
+            await mServiceLink.SetEnabledAsync(Settings.Default.BackgroundEnabled);
+            await mServiceLink.SetInitialDelayAsync((uint)Settings.Default.InitialBackgroundMailCheckInterval);
+            await mServiceLink.SetIntervalDelayAsync((uint)Settings.Default.BackgroundMailCheckInterval);
+            await mServiceLink.SetSupressFullscreenAsync(!Settings.Default.SupressNotificationsFullscreen);
+            Settings.Default.UpdateBackgroundSettings = 0;
+            Settings.Default.Save();
         }
 
         private string[] ParseUrlCmdline(string[] args)
@@ -161,7 +187,7 @@ namespace Hyperwave
             RemoveProcessCount();
         }
 
-        private void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             
             switch(e.PropertyName)
@@ -173,7 +199,10 @@ namespace Hyperwave
                         mColorScheme = Settings.Default.ColorScheme;
                     }
                     break;
-                
+                case "UpdateBackgroundSettings":
+                    if (Settings.Default.UpdateBackgroundSettings > 0 && mServiceLink.IsConnected)
+                        await UpdateBackgroundService();
+                    break;
             }
         }
                
@@ -233,6 +262,11 @@ namespace Hyperwave
 
         private void mMailTimer_Tick(object sender, EventArgs e)
         {
+            if (Settings.Default.SupressNotificationsClient && IsEveClientRunning())
+                return;
+            if (Settings.Default.SupressNotificationsFullscreen && ServiceConnection.IsFullscreenAppRunning)
+                return;
+
             mLog.Info("Checking Mails");
             Client.UpdateAccounts(true);
 
@@ -259,6 +293,7 @@ namespace Hyperwave
             return ret;
         }
 
+
         private void GetEvePath()
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\CCP\EVEONLINE"))
@@ -274,6 +309,8 @@ namespace Hyperwave
         private void mClient_AccountNotification(object sender, AccountNotificationEventArgs args)
         {
             if (Settings.Default.SupressNotificationsClient && IsEveClientRunning())
+                return;
+            if (Settings.Default.SupressNotificationsFullscreen && ServiceConnection.IsFullscreenAppRunning)
                 return;
 
             if (args.NewMails != null)
@@ -345,7 +382,18 @@ namespace Hyperwave
             mLog.Info("CheckMail command received");
             if (mMailTimer != null)
             {
-                mLog.Warn("CheckMail ignored client timer already running");
+                mLog.Warn("CheckMail ignored, client timer already running");
+                return;
+            }
+
+            if (Settings.Default.SupressNotificationsClient && IsEveClientRunning())
+            {
+                mLog.Warn("CheckMail ignored, Eve client running");
+                return;
+            }
+            if (Settings.Default.SupressNotificationsFullscreen && ServiceConnection.IsFullscreenAppRunning)
+            {
+                mLog.Warn("CheckMail ignored, Fullscreen app running");
                 return;
             }
 

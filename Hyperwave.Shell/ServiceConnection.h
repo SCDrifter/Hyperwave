@@ -10,8 +10,7 @@ namespace Hyperwave
 {
 namespace Shell
 {
-public
-    ref class ServiceConnection
+	public ref class ServiceConnection
     {
     public:
         ServiceConnection(IShellLoggerFactory ^ factory);
@@ -37,6 +36,11 @@ public
         Task ^ SetSupressFullscreenAsync(bool value);
 
         event System::EventHandler ^ StateChanged;
+
+        static property bool IsFullscreenAppRunning
+		{
+            bool get();
+        }
 
     private:
         void OnStateChanged();
