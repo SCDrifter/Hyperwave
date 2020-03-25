@@ -63,12 +63,14 @@ protected:
 Hyperwave::Shell::ServiceConnection::ServiceConnection(IShellLoggerFactory ^ factory)
 {
     mLog = factory->Create(GetType()->FullName);
-    mClient = new ServiceClient(gcnew System::Action(this, &ServiceConnection::OnStateChanged), factory);
+    mClient = nullptr;
+    mLogFactory = factory;
 }
 
 Hyperwave::Shell::ServiceConnection::!ServiceConnection()
 {
-    delete mClient;
+    if (mClient != nullptr)
+		delete mClient;
 }
 
 bool Hyperwave::Shell::ServiceConnection::IsConnected::get()
@@ -84,6 +86,15 @@ public:
         return HSERV_GET_ENABLED;
     }
 };
+
+void Hyperwave::Shell::ServiceConnection::Connect()
+{
+    if (mClient != nullptr)
+        return;
+
+    mClient = new ServiceClient(this, mLogFactory);
+    mClient->Connect();
+}
 
 Task<bool> ^ Hyperwave::Shell::ServiceConnection::GetEnabledAsync()
 {
@@ -104,6 +115,8 @@ public:
 
 Task<unsigned int> ^ Hyperwave::Shell::ServiceConnection::GetInitialDelayAsync()
 {
+    Connect();
+
     mLog->Trace("{0}()", __FUNCTION__);
     GetInitialDelayWorkItem ^ item = gcnew GetInitialDelayWorkItem();
     mClient->PostWorkItem(item);
@@ -121,6 +134,8 @@ public:
 
 Task<unsigned int> ^ Hyperwave::Shell::ServiceConnection::GetIntervalDelayAsync()
 {
+    Connect();
+
     mLog->Trace("{0}()", __FUNCTION__);
     GetIntervalDelayWorkItem ^ item = gcnew GetIntervalDelayWorkItem();
     mClient->PostWorkItem(item);
@@ -138,6 +153,8 @@ public:
 
 Task<bool> ^ Hyperwave::Shell::ServiceConnection::GetSupressFullscreenAsync()
 {
+    Connect();
+
     mLog->Trace("{0}()", __FUNCTION__);
     GetSupressFullscreenWorkItem ^ item = gcnew GetSupressFullscreenWorkItem();
     mClient->PostWorkItem(item);
@@ -168,6 +185,8 @@ private:
 
 Task ^ Hyperwave::Shell::ServiceConnection::SetEnabledAsync(bool value)
 {
+    Connect();
+
     mLog->Trace("{0}({1})", __FUNCTION__, value);
     SetEnabledWorkItem ^ item = gcnew SetEnabledWorkItem(value);
     mClient->PostWorkItem(item);
@@ -198,6 +217,8 @@ private:
 
 Task ^ Hyperwave::Shell::ServiceConnection::SetInitialDelayAsync(unsigned int value)
 {
+    Connect();
+
     mLog->Trace("{0}({1})", __FUNCTION__, value);
     SetInitialDelayWorkItem ^ item = gcnew SetInitialDelayWorkItem(value);
     mClient->PostWorkItem(item);
@@ -228,6 +249,8 @@ private:
 
 Task ^ Hyperwave::Shell::ServiceConnection::SetIntervalDelayAsync(unsigned int value)
 {
+    Connect();
+
     mLog->Trace("{0}({1})", __FUNCTION__, value);
     SetIntervalDelayWorkItem ^ item = gcnew SetIntervalDelayWorkItem(value);
     mClient->PostWorkItem(item);
@@ -258,6 +281,8 @@ private:
 
 Task ^ Hyperwave::Shell::ServiceConnection::SetSupressFullscreenAsync(bool value)
 {
+    Connect();
+
     mLog->Trace("{0}({1})", __FUNCTION__, value);
     SetSupressFullscreenWorkItem ^ item = gcnew SetSupressFullscreenWorkItem(value);
     mClient->PostWorkItem(item);
@@ -266,7 +291,12 @@ Task ^ Hyperwave::Shell::ServiceConnection::SetSupressFullscreenAsync(bool value
 
 void Hyperwave::Shell::ServiceConnection::OnStateChanged()
 {
-    StateChanged(this, gcnew System::EventArgs());
+    StateChanged(this, System::EventArgs::Empty);
+}
+
+void Hyperwave::Shell::ServiceConnection::OnShutdownInitiated()
+{
+    ShutdownInitiated(this, System::EventArgs::Empty);    
 }
 
 bool Hyperwave::Shell::ServiceConnection::IsFullscreenAppRunning::get()

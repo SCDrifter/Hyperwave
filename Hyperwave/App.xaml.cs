@@ -32,9 +32,8 @@ namespace Hyperwave
         string mEvePath = null;
         int mProcessCount = 0;
         private SkinStyle mColorScheme;
-        ServiceConnection mServiceLink = null;
         NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
-        
+       
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             mLog.Info("Application Instance Startup");
@@ -50,8 +49,10 @@ namespace Hyperwave
                 return;
             }
 
-            mServiceLink = new ServiceConnection(new Common.LoggerWrapperFactory());
-            mServiceLink.StateChanged += ServiceLink_StateChanged;
+            ServiceLink = new ServiceConnection(new Common.LoggerWrapperFactory());
+            ServiceLink.StateChanged += ServiceLink_StateChanged;
+            ServiceLink.ShutdownInitiated += ServiceLink_ShutdownInitiated;
+            ServiceLink.Connect();
 
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
@@ -92,27 +93,40 @@ namespace Hyperwave
             RemoveProcessCount();
         }
 
+        private void ServiceLink_ShutdownInitiated(object sender, EventArgs e)
+        {
+            Action action = () =>
+            {
+                foreach(var i in Client.DraftWindows)
+                {
+                    i.Save();
+                }
+                this.Shutdown();
+            };
+            Dispatcher.BeginInvoke(action);
+        }
+
         private async void ServiceLink_StateChanged(object sender, EventArgs e)
         {
-            if (!mServiceLink.IsConnected)
+            if (!ServiceLink.IsConnected)
                 return;
             if (Settings.Default.UpdateBackgroundSettings > 0)
                 await UpdateBackgroundService();
             else
             {
-                Settings.Default.BackgroundEnabled = await mServiceLink.GetEnabledAsync();
-                Settings.Default.BackgroundMailCheckInterval = await mServiceLink.GetIntervalDelayAsync();
-                Settings.Default.InitialBackgroundMailCheckInterval = await mServiceLink.GetInitialDelayAsync();
+                Settings.Default.BackgroundEnabled = await ServiceLink.GetEnabledAsync();
+                Settings.Default.BackgroundMailCheckInterval = await ServiceLink.GetIntervalDelayAsync();
+                Settings.Default.InitialBackgroundMailCheckInterval = await ServiceLink.GetInitialDelayAsync();
                 Settings.Default.Save();
             }
         }
 
         private async Task UpdateBackgroundService()
         {
-            await mServiceLink.SetEnabledAsync(Settings.Default.BackgroundEnabled);
-            await mServiceLink.SetInitialDelayAsync((uint)Settings.Default.InitialBackgroundMailCheckInterval);
-            await mServiceLink.SetIntervalDelayAsync((uint)Settings.Default.BackgroundMailCheckInterval);
-            await mServiceLink.SetSupressFullscreenAsync(!Settings.Default.SupressNotificationsFullscreen);
+            await ServiceLink.SetEnabledAsync(Settings.Default.BackgroundEnabled);
+            await ServiceLink.SetInitialDelayAsync((uint)Settings.Default.InitialBackgroundMailCheckInterval);
+            await ServiceLink.SetIntervalDelayAsync((uint)Settings.Default.BackgroundMailCheckInterval);
+            await ServiceLink.SetSupressFullscreenAsync(!Settings.Default.SupressNotificationsFullscreen);
             Settings.Default.UpdateBackgroundSettings = 0;
             Settings.Default.Save();
         }
@@ -200,7 +214,7 @@ namespace Hyperwave
                     }
                     break;
                 case "UpdateBackgroundSettings":
-                    if (Settings.Default.UpdateBackgroundSettings > 0 && mServiceLink.IsConnected)
+                    if (Settings.Default.UpdateBackgroundSettings > 0 && ServiceLink.IsConnected)
                         await UpdateBackgroundService();
                     break;
             }
@@ -483,6 +497,7 @@ namespace Hyperwave
             MailWriter.MailWriter writer;
 
             Client.OpenDraft(msg, out writer);
+            
 
             writer.Show();
 
@@ -506,7 +521,7 @@ namespace Hyperwave
 
         public EveMailClient Client { get; } = new EveMailClient();
 
-        public ServiceConnection ServiceLink => mServiceLink;
+        public ServiceConnection ServiceLink { get; private set; } = null;
 
         public static EveMailClient CurrentClient
         {
@@ -521,7 +536,7 @@ namespace Hyperwave
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            this.ServiceLink.Dispose();
+            ServiceLink.Dispose();
             Client.Dispose();
             mLog.Info("Application shutdown");
         }

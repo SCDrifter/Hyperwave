@@ -31,8 +31,10 @@ public
 class ServiceClient
 {
 public:
-    ServiceClient(System::Action ^ listener, IShellLoggerFactory ^factory);
+    ServiceClient(IServiceConnection ^ listener, IShellLoggerFactory ^ factory);
     ~ServiceClient();
+
+	void Connect();
 
     ServiceState GetState();
 
@@ -78,7 +80,7 @@ private:
     volatile static LONG mClassRegCount;
     static UINT mAppMessage;
     msclr::gcroot<TWorkItemQueue ^> mBackQueue;
-    msclr::gcroot<System::Action ^> mListener;
+    msclr::gcroot<IServiceConnection^> mListener;
 
     HWND m_hWnd;
     HANDLE m_hWndThread;

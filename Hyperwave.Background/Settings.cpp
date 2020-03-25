@@ -32,7 +32,7 @@ Settings::~Settings()
 void Settings::Load()
 {
     mHyperwaveDirectory = HyperwaveUtil::GetApplicationDirectory();
-    mEnabled = RegReadBool(L"Enabled", true);
+    mEnabled = RegReadBool(L"Enabled", false);
     mInitialDelay = RegReadInt(L"InitialDelay", 60 * 3);
     mIntervalDelay = RegReadInt(L"IntervalDelay", 60 * 30);
     mSupressFullscreen = RegReadBool(L"SupressFullscreen", true);

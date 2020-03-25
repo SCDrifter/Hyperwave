@@ -20,7 +20,7 @@ volatile LONG ServiceClient::mClassRegCount = 0;
 UINT ServiceClient::mAppMessage = WM_NULL;
 
 
-ServiceClient::ServiceClient(System::Action ^ listener, IShellLoggerFactory ^ factory)
+ServiceClient::ServiceClient(IServiceConnection ^ listener, IShellLoggerFactory ^ factory)
 {
     mShared = nullptr;
     mState = (LONG)ServiceState::STOPPED;
@@ -36,6 +36,30 @@ ServiceClient::ServiceClient(System::Action ^ listener, IShellLoggerFactory ^ fa
 
     mBackQueue = gcnew TWorkItemQueue();
 
+    m_hStartupSignal = nullptr;
+    m_hWndThread = nullptr;
+}
+
+ServiceClient::~ServiceClient()
+{
+    if (m_hWndThread != nullptr)
+    {
+        mLog->Info("Shutting down thread");
+        if (IsWindow(m_hWnd))
+            PostMessage(m_hWnd, WM_CLOSE, 0, 0);
+
+        WaitForSingleObject(m_hWndThread, INFINITE);
+        CloseHandle(m_hWndThread);
+        m_hWndThread = nullptr;
+        mLog->Info("Thread shutdown");
+    }
+
+    if (mHyperwaveDirectory != nullptr)
+        delete[] mHyperwaveDirectory;
+}
+
+void ServiceClient::Connect()
+{
     m_hStartupSignal = CreateEvent(nullptr, TRUE, FALSE, nullptr);
 
     if (m_hStartupSignal == nullptr)
@@ -72,24 +96,6 @@ ServiceClient::ServiceClient(System::Action ^ listener, IShellLoggerFactory ^ fa
     }
 }
 
-ServiceClient::~ServiceClient()
-{
-    if (m_hWndThread != nullptr)
-    {
-        mLog->Info("Shutting down thread");
-        if (IsWindow(m_hWnd))
-            PostMessage(m_hWnd, WM_CLOSE, 0, 0);
-
-        WaitForSingleObject(m_hWndThread, INFINITE);
-        CloseHandle(m_hWndThread);
-        m_hWndThread = nullptr;
-        mLog->Info("Thread shutdown");
-    }
-
-    if (mHyperwaveDirectory != nullptr)
-        delete[] mHyperwaveDirectory;
-}
-
 ServiceState ServiceClient::GetState()
 {
     return (ServiceState)InterlockedCompareExchange(&mState, mState, mState);
@@ -103,8 +109,8 @@ ServiceState ServiceClient::SetState(ServiceState newstate, bool notify_window)
 
     mLog->Info("State: {0}->{1}", oldstate, newstate);
 
-    if (((System::Action ^) mListener) != nullptr)
-        mListener->Invoke();
+    if (((IServiceConnection ^) mListener) != nullptr)
+        mListener->OnStateChanged();
 
     if (notify_window && m_hWnd != nullptr)
         PostMessage(m_hWnd, WM_STATE_CHANGED, (WPARAM)oldstate, (LPARAM)newstate);
@@ -120,8 +126,8 @@ bool ServiceClient::SetStateIf(ServiceState state, ServiceState newstate)
 
     mLog->Info("State: {0}->{1}", oldstate, newstate);
 
-    if (((System::Action ^) mListener) != nullptr)
-        mListener->Invoke();
+    if (((IServiceConnection ^) mListener) != nullptr)
+        mListener->OnStateChanged();
 
     if (m_hWnd != nullptr)
         PostMessage(m_hWnd, WM_STATE_CHANGED, (WPARAM)oldstate, (LPARAM)newstate);
@@ -458,6 +464,10 @@ bool ServiceClient::HandleAppMessage(WPARAM msg, LPARAM arg, LRESULT* result)
             mLog->Info("msg: HSERV_SERVER_BROADCAST");
             m_hServerWnd = (HWND)arg;
             SetState(ServiceState::ONLINE);
+            return true;
+        case HSERV_SHUTDOWN:
+            mLog->Info("msg: HSERV_SHUTDOWN");
+            mListener->OnShutdownInitiated();
             return true;
     }
     return false;

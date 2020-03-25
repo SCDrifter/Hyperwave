@@ -47,6 +47,18 @@ namespace Hyperwave.UserCache
 
         }
 
+
+        public static int PurgeRecords(EntityType type)
+        {
+            Common.InitializeDB();
+            using (SQLiteCommand cmd = new SQLiteCommand(Common.DB))
+            {
+                cmd.CommandText = @"DELETE FROM Names WHERE EntityType=@type";
+                cmd.Parameters.AddWithValue("@type", (int)type);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
         
 
         private static void LookupIDsInternal(EntityInfo[] entities, bool cacheinfo)
@@ -82,7 +94,7 @@ namespace Hyperwave.UserCache
                         item.OnFinished(true);
                         continue;
                     case -1:
-                        item.Name = string.Format("(Unknown {0}{1})", item.EntityType);
+                        item.Name = string.Format("(Unknown {0})", item.EntityType);
                         workinglist.RemoveAt(i);
                         item.OnFinished(true);
                         continue;
@@ -152,99 +164,108 @@ namespace Hyperwave.UserCache
 
         private static void LookupByIDAndType(List<EntityInfo> workinglist, List<EntityInfo> createdlist)
         {
-            LookupCharacters(workinglist, createdlist);
-            LookupCorps(workinglist, createdlist);
-            LookupAlliances(workinglist, createdlist);
+            RemoveMailingListIds(workinglist);
+            if (workinglist.Count == 0)
+                return;
+
+            UniverseApi api = new UniverseApi();
+            Queue<List<int?>> queue = new Queue<List<int?>>();
+
+            queue.Enqueue(new List<int?>(from x in workinglist where x.EntityType != EntityType.Mailinglist select (int?)x.EntityID));
+
+            while (queue.Count > 0)
+            {
+                var idlist = queue.Dequeue();
+                if (PerformLookup(workinglist, idlist, api, createdlist))
+                    continue;
+                if (idlist.Count == 1)
+                {
+                    RegisterMailingList(idlist[0].Value);
+                    continue;
+                }
+                int halfpoint = idlist.Count / 2;
+                if (halfpoint > 0)
+                    queue.Enqueue(idlist.GetRange(0, halfpoint));
+                queue.Enqueue(idlist.GetRange(halfpoint, idlist.Count - halfpoint));
+
+            }
         }
 
-        static void LookupCharacters(List<EntityInfo> workinglist, List<EntityInfo> createdlist)
+        private static bool PerformLookup(List<EntityInfo> workinglist, List<int?> idlist, UniverseApi api, List<EntityInfo> createdlist)
         {
-            /*CharacterApi api = new CharacterApi();
+
+            List<PostUniverseNames200Ok> names;
             try
             {
-                List<long?> idlist = new List<long?>(from x in workinglist where x.EntityType == EntityType.Character select (long?)x.EntityID);
-
-                if (idlist.Count == 0)
-                    return;
-
-                var items = api.GetCharactersNames(
-                    characterIds: idlist, 
-                    datasource: ESIConfiguration.DataSource, 
-                    userAgent: ESIConfiguration.UserAgent);
-
-                foreach (var i in items)
-                {
-                    var info = workinglist.Find((j) => i.CharacterId.Value == j.EntityID);
-                    info.Name = i.CharacterName;
-                    workinglist.Remove(info);
-                    info.OnFinished(true);
-                    createdlist.Add(info);
-                }
+                names = api.PostUniverseNames(idlist);
             }
             catch (Eve.Api.Client.ApiException e)
             {
-                ExceptionHandler.HandleApiException(null, e);
-            }*/
+                if (e.ErrorCode == 404)
+                    return false;
+                throw;
+            }
+
+
+            foreach (var i in names)
+            {
+                var info = workinglist.Find((j) => i.Id.Value == j.EntityID);
+
+                EntityType type = EntityType.Alliance;
+
+                switch (i.Category ?? PostUniverseNames200Ok.CategoryEnum.Station)
+                {
+                    case PostUniverseNames200Ok.CategoryEnum.Alliance:
+                        type = EntityType.Alliance;
+                        break;
+                    case PostUniverseNames200Ok.CategoryEnum.Corporation:
+                        type = EntityType.Corporation;
+                        break;
+                    case PostUniverseNames200Ok.CategoryEnum.Character:
+                        type = EntityType.Character;
+                        break;
+                    default:
+                        continue;
+                }
+                info.Name = i.Name;
+                info.EntityType = type;
+                workinglist.Remove(info);
+                info.OnFinished(true);
+                createdlist.Add(info);
+            }
+
+            return true;
         }
 
-        static void LookupCorps(List<EntityInfo> workinglist, List<EntityInfo> createdlist)
+        private static void RemoveMailingListIds(List<EntityInfo> entities)
         {
-            /*CorporationApi api = new CorporationApi();
-            try
+            using (SQLiteCommand cmd = new SQLiteCommand(Common.DB))
             {
-                List<int?> idlist = new List<int?>(from x in workinglist where x.EntityType == EntityType.Corporation select (int?)x.EntityID);
-
-                if (idlist.Count == 0)
-                    return;
-
-                var items = api.GetCorporationsNames(
-                    corporationIds: idlist,
-                    datasource: ESIConfiguration.DataSource,
-                    userAgent: ESIConfiguration.UserAgent);
-
-                foreach (var i in items)
+                cmd.CommandText = "SELECT * FROM MailingListIds";
+                using (var reader = cmd.ExecuteReader())
                 {
-                    var info = workinglist.Find((j) => i.CorporationId.Value == j.EntityID);
-                    info.Name = i.CorporationName;
-                    workinglist.Remove(info);
-                    info.OnFinished(true);
-                    createdlist.Add(info);
+                    while (reader.Read())
+                    {
+                        long id = reader.GetInt64(0);
+                        var info = entities.Find((j) => id == j.EntityID);
+
+                        if (info == null)
+                            continue;
+
+                        info.EntityType = EntityType.Mailinglist;
+                        entities.Remove(info);
+                    }
                 }
             }
-            catch (Eve.Api.Client.ApiException e)
-            {
-                ExceptionHandler.HandleApiException(null, e);
-            }*/
         }
-
-        static void LookupAlliances(List<EntityInfo> workinglist, List<EntityInfo> createdlist)
+        private static void RegisterMailingList(long id)
         {
-            /*AllianceApi api = new AllianceApi();
-            try
+            using (SQLiteCommand cmd = new SQLiteCommand(Common.DB))
             {
-                List<int?> idlist = new List<int?>(from x in workinglist where x.EntityType == EntityType.Alliance select (int?)x.EntityID);
-
-                if (idlist.Count == 0)
-                    return;
-
-                var items = api.GetAlliancesNames(
-                    allianceIds: idlist,
-                    datasource: ESIConfiguration.DataSource,
-                    userAgent: ESIConfiguration.UserAgent);
-
-                foreach (var i in items)
-                {
-                    var info = workinglist.Find((j) => i.AllianceId.Value == j.EntityID);
-                    info.Name = i.AllianceName;
-                    workinglist.Remove(info);
-                    info.OnFinished(true);
-                    createdlist.Add(info);
-                }
+                cmd.CommandText = "INSERT OR IGNORE INTO MailingListIds VALUES (@id)";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
             }
-            catch (Eve.Api.Client.ApiException e)
-            {
-                ExceptionHandler.HandleApiException(null, e);
-            }*/
         }
 
         private static void SearchOffline(List<EntityInfo> ret, string text, bool exactmatch, EntityType? restrict_type)

@@ -296,7 +296,7 @@ namespace Hyperwave.MailWriter
             Save();
         }
 
-        private void Save()
+        public void Save()
         {
             mDraft.Body = EveMarkupLanguage.ConvertFromFlowDocument(cContent.Document, MailView.MailBodyView.BASE_FONT_SIZE);
             mDraft.Save(mDraftSource);

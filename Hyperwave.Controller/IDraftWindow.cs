@@ -7,5 +7,6 @@ namespace Hyperwave.Controller
         void SetDraft(DraftMessageSource mail);
         void SetFocus();
         void DraftDeleted();
+        void Save();
     }
 }

@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Hyperwave")]
-[assembly: AssemblyDescription("Eve Email Client")]
+[assembly: AssemblyDescription("Eve Mail Client")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael-Paul Jakovlevski")]
 [assembly: AssemblyProduct("Hyperwave")]

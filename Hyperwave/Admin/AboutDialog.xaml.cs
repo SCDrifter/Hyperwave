@@ -1,7 +1,9 @@
 ﻿using Hyperwave.ViewModel;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -66,6 +68,22 @@ namespace Hyperwave.Admin
             };
 
             Process.Start(psi);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var content = new TextRange(cLicense.ContentStart, cLicense.ContentEnd);
+            SaveFileDialog dlg = new SaveFileDialog()
+            {
+                Filter="RTF File|*.rtf"
+            };
+
+            if (!(dlg.ShowDialog(this) ?? false))
+                return;
+            using (var stream = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+            {
+                content.Save(stream, DataFormats.Rtf);
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ HINSTANCE gLocalModule;
 HWND g_hWnd;
 
 UINT gAppMessage;
+bool mShutdownInitiated = false;
 
 Logger* gLog = nullptr;
 
@@ -37,6 +38,7 @@ LRESULT HandleSessionChange(WPARAM wtsevent, LPARAM session_id);
 bool SuspendOperation();
 void ResumeOperation();
 void LaunchApp();
+bool IsLoggingEnabled();
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
@@ -48,7 +50,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     if (lstrcmpi(lpCmdLine, L"--shutdown") == 0)
         return ShutdownFlow();
     else
-		return MainFlow(hInstance, lpCmdLine, nCmdShow);
+        return MainFlow(hInstance, lpCmdLine, nCmdShow);
 }
 
 int ShutdownFlow()
@@ -58,14 +60,15 @@ int ShutdownFlow()
         return 0;
     HANDLE process = data.OpenProcessHandle();
 
-	if (process == NULL)
+    if (process == NULL)
         return 0;
 
-	gAppMessage = RegisterWindowMessage(HSERV_REGISTERED_MESSAGE_NAME);
+    gAppMessage = RegisterWindowMessage(HSERV_REGISTERED_MESSAGE_NAME);
 
-	PostMessage(data.ServerWindow(), gAppMessage, HSERV_SHUTDOWN, 0);
+    PostMessage(data.ServerWindow(), gAppMessage, HSERV_SHUTDOWN, 0);
 
-	WaitForSingleObject(process, INFINITE);
+    WaitForSingleObject(process, INFINITE);
+    CloseHandle(process);
     return 0;
 }
 
@@ -82,7 +85,7 @@ int MainFlow(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow)
     gSettings->Load();
     gSettings->Save();
 
-    Logger logger(true);
+    Logger logger(IsLoggingEnabled());
     gLog = &logger;
 
     gLog->Info(L"Command started with args: %s", lpCmdLine);
@@ -104,6 +107,22 @@ int MainFlow(HINSTANCE hInstance, LPWSTR lpCmdLine, int nCmdShow)
     }
 
     return MessagePump();
+}
+
+bool IsLoggingEnabled()
+{
+    wchar_t file[MAX_PATH * 2];
+
+    swprintf_s(file, L"%s\\NLog.config", gSettings->HyperwaveDirectory());
+
+    DWORD attr = GetFileAttributes(file);
+
+    if (attr == INVALID_FILE_ATTRIBUTES)
+        return false;
+    else if (attr & FILE_ATTRIBUTE_DIRECTORY)
+        return false;
+    else
+		return true;
 }
 
 bool RegisterWindowClasses(HINSTANCE hInstance)
@@ -216,20 +235,30 @@ LRESULT HandleAppMessage(WPARAM msg, LPARAM arg)
         case HSERV_SERVER_BROADCAST:
             return 0;
 
-		case HSERV_SHUTDOWN:
-            PostMessage(g_hWnd, WM_CLOSE, 0, 0);
+        case HSERV_SHUTDOWN:
+            if (!gStates->HasValidClients(g_hWnd))
+                DestroyWindow(g_hWnd);
+            else
+            {
+                mShutdownInitiated = true;
+                gStates->BroadcastMessage(g_hWnd, gAppMessage, HSERV_SHUTDOWN, 0);
+            }
             return 0;
 
         case HSERV_CLIENT_CONNECT:
             gLog->Info(L"Client %p connected", wndarg);
             gStates->AddClient(wndarg);
             PostMessage(wndarg, gAppMessage, HSERV_SERVER_BROADCAST, reinterpret_cast<LPARAM>(g_hWnd));
+            if (mShutdownInitiated)
+                PostMessage(wndarg, gAppMessage, HSERV_SHUTDOWN, 0);
             return 0;
 
         case HSERV_CLIENT_DISCONNECT:
             gLog->Info(L"Client %p disconnected", wndarg);
-            gStates->RemoveClient(wndarg);
-            SetTimer(g_hWnd, TIMER_CLIENT_CONNECT, CLIENT_CONNECT_TIMEOUT, NULL);
+            if (!gStates->RemoveClient(wndarg) && mShutdownInitiated)
+                DestroyWindow(g_hWnd);
+            else
+                SetTimer(g_hWnd, TIMER_CLIENT_CONNECT, CLIENT_CONNECT_TIMEOUT, NULL);
             return 0;
 
         case HSERV_GET_ENABLED:

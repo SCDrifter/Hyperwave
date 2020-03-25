@@ -17,6 +17,9 @@
     <StartArguments>task --path "C:\Projects\CSharp\Hyperwave\Hyperwave\bin\Debug\Hyperwave.exe" --interval 120 enable</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <StartArguments>task --path "C:\Projects\CSharp\Hyperwave\Hyperwave\bin\Debug\Hyperwave.exe" --interval 120 enable</StartArguments>
+    <StartArguments>cache clear -u</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <StartArguments>clear_cache -c</StartArguments>
   </PropertyGroup>
 </Project>

@@ -7,3 +7,6 @@ ReadSample.html
 *.sdf
 *.aps
 *.vcxproj.user
+/Installer/Hyperwave-*.exe
+/Support/
+/TestCommandTree

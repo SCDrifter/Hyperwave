@@ -7,3 +7,9 @@ public:
     virtual int Msg() abstract = 0;
     virtual void* Param() abstract = 0;
 };
+interface class IServiceConnection
+{
+public:
+    virtual void OnStateChanged() = 0;
+    virtual void OnShutdownInitiated() = 0;
+};

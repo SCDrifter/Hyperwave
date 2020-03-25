@@ -95,38 +95,45 @@
                 </FlowDocumentScrollViewer>
             </TabItem>
             <TabItem Header="License">
-                <FlowDocumentScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <FlowDocumentScrollViewer>
 
-                    <FlowDocumentScrollViewer.Resources>
-                        <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
-                            <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
-                        </Style>
-                        <Style TargetType="ListItem">
-                            <Setter Property="Margin" Value="0,0,0,20"/>
-                        </Style>
-                    </FlowDocumentScrollViewer.Resources>
-                    <FlowDocument FontFamily="Arial" FontSize="12" Background="{DynamicResource WebBrowserBackgroundBrush}" Foreground="White">
-                        <Paragraph>
-                            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-                        </Paragraph>
-                        <List MarkerStyle="Decimal">
-                            <ListItem><Paragraph>The above copyright notice and these permission notices shall be included in all copies or substantial portions of the Software.</Paragraph></ListItem>
-                            <ListItem>
-                                <Paragraph>Any Modified Software must remain in complience with
-                                    <Hyperlink NavigateUri="https://community.eveonline.com/support/policies/third-party-policies-en/" Click="Hyperlink_Click">CCP Third Party Policy</Hyperlink>.
-                                </Paragraph>
-                            </ListItem>
-                            <ListItem>
-                                <Paragraph>
-                                    Any Modified Software must use it's own user agent field when sending requests to CCP Eve Swagger Interface("ESI").
-                                </Paragraph>
-                            </ListItem>
-                        </List>
-                        <Paragraph>
-                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                            
-                        </Paragraph>
-                    </FlowDocument>
-                </FlowDocumentScrollViewer>
+                        <FlowDocumentScrollViewer.Resources>
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource FlatScrollbar}">
+                                <Setter Property="Background" Value="{DynamicResource WebBrowserBackgroundBrush}"/>
+                            </Style>
+                            <Style TargetType="ListItem">
+                                <Setter Property="Margin" Value="0,0,0,20"/>
+                            </Style>
+                        </FlowDocumentScrollViewer.Resources>
+                        <FlowDocument FontFamily="Arial" FontSize="12" Background="{DynamicResource WebBrowserBackgroundBrush}" Foreground="White" x:Name="cLicense">
+                            <Paragraph>
+                                Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                            </Paragraph>
+                            <List MarkerStyle="Decimal">
+                                <ListItem><Paragraph>The above copyright notice and these permission notices shall be included in all copies or substantial portions of the Software.</Paragraph></ListItem>
+                                <ListItem>
+                                    <Paragraph>Any Modified Software must remain in complience with
+                                        <Hyperlink NavigateUri="https://community.eveonline.com/support/policies/third-party-policies-en/" Click="Hyperlink_Click">CCP Third Party Policy</Hyperlink>.
+                                    </Paragraph>
+                                </ListItem>
+                                <ListItem>
+                                    <Paragraph>
+                                        Any Modified Software must use it's own user agent field when sending requests to CCP Eve Swagger Interface("ESI").
+                                    </Paragraph>
+                                </ListItem>
+                            </List>
+                            <Paragraph>
+                            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                            
+                            </Paragraph>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                    <!--<Button Grid.Row="1" HorizontalAlignment="Center" Click="Button_Click">Save To RTF File...</Button>-->
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

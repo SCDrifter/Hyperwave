@@ -223,10 +223,7 @@ namespace Hyperwave.UserCache
                 queue.Enqueue(idlist.GetRange(halfpoint,idlist.Count - halfpoint));
 
             }
-            // await Task.WhenAll(
-            //     LookupCharacters(workinglist, createdlist),
-            //     LookupCorps(workinglist, createdlist),
-            //     LookupAlliances(workinglist, createdlist));
+           
         }
 
         private static async Task<bool> PerformLookup(List<EntityInfo> workinglist,List<int?> idlist, UniverseApi api, List<EntityInfo> createdlist)

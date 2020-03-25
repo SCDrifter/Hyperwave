@@ -23,6 +23,9 @@ namespace Hyperwave.Controller
         private Label mDraftLabel;
 
         NLog.Logger mLog = NLog.LogManager.GetCurrentClassLogger();
+#if FAKE_NAMES
+        UserCache.EntityInfo mFakeEntityInfo;
+#endif
 
         internal Account(EveMailClient client,DB.Account account)
         {
@@ -34,7 +37,9 @@ namespace Hyperwave.Controller
             mEntityInfo.EntityType = EntityType.Character;
             mEntityInfo.EntityID = account.CharacterId;
             mEntityInfo.Name = account.CharacterName;
-
+#if FAKE_NAMES
+            GenerateFakeInfo();
+#endif
             mLabels.Add(mDraftLabel);
 
             mViewAccount.RegisterHandler("IsExpanded", ViewAccount_IsExpandedChanged);
@@ -43,7 +48,38 @@ namespace Hyperwave.Controller
 
             mClient.UpdateAccountOperationStarted += mClient_UpdateAccountOperationStarted;
             mClient.AccountRemoved += mClient_AccountRemoved;
+
         }
+
+#if FAKE_NAMES
+        static string[] mNames = new string[]
+        {
+            "Fornfox",
+            "Scotoads",
+            "Bilmarshall Bagthy Evanswood",
+            "Hillbus Barneshot",
+            "Johnreek",
+            "The Harrisonumble",
+            "Grahapheles",
+            "Feriri The Casttt",
+            "Winable",
+            "Silvagmagog"
+        };
+
+        static Random mRandom = new Random();
+        private void GenerateFakeInfo()
+        {
+            if (mEntityInfo.EntityID == 96181148)
+                mFakeEntityInfo = mEntityInfo;
+            else
+                mFakeEntityInfo = new UserCache.EntityInfo()
+                {
+                    EntityType = EntityType.Character,
+                    EntityID = 96181148,
+                    Name = mNames[mRandom.Next(0, mNames.Length)]
+                };
+        }
+#endif
 
         private void ViewAccount_IsExpandedChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -197,7 +233,11 @@ namespace Hyperwave.Controller
         {
             get
             {
+#if FAKE_NAMES
+                return mFakeEntityInfo.ImageUrl32;
+#else
                 return mEntityInfo.ImageUrl32;
+#endif
             }
         }
 
@@ -234,7 +274,7 @@ namespace Hyperwave.Controller
                 list = await LoadMailsWorker(null, ViewAccount);
 #else
                 list = await LoadMailsWorker(null, ViewAccount, null, DBAccount.LastMailId, true);
-#endif           
+#endif
             }
             catch (Eve.Api.Client.ApiException e)
             {
@@ -846,7 +886,11 @@ namespace Hyperwave.Controller
         {
             get
             {
+#if FAKE_NAMES
+                return mFakeEntityInfo.Name;
+#else
                 return mDBAccount.CharacterName;
+#endif
             }
         }
 

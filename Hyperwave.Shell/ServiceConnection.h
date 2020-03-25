@@ -9,8 +9,9 @@ class ServiceClient;
 namespace Hyperwave
 {
 namespace Shell
-{
-	public ref class ServiceConnection
+{   
+	
+	public ref class ServiceConnection : IServiceConnection
     {
     public:
         ServiceConnection(IShellLoggerFactory ^ factory);
@@ -25,6 +26,8 @@ namespace Shell
             bool get();
         }
 
+		void Connect();
+
         Task<bool> ^ GetEnabledAsync();
         Task<unsigned int> ^ GetInitialDelayAsync();
         Task<unsigned int> ^ GetIntervalDelayAsync();
@@ -36,18 +39,22 @@ namespace Shell
         Task ^ SetSupressFullscreenAsync(bool value);
 
         event System::EventHandler ^ StateChanged;
+        event System::EventHandler ^ ShutdownInitiated;
 
         static property bool IsFullscreenAppRunning
-		{
+        {
             bool get();
         }
 
     private:
-        void OnStateChanged();
+        virtual void OnStateChanged() sealed = IServiceConnection::OnStateChanged;
+        virtual void OnShutdownInitiated() sealed = IServiceConnection::OnShutdownInitiated;
 
     private:
         ServiceClient* mClient;
         IShellLogger ^ mLog;
+        IShellLoggerFactory ^ mLogFactory;
+        //bool mStateChanged;
     };
 }
 }

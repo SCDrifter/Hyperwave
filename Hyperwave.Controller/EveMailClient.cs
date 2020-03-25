@@ -72,7 +72,9 @@ namespace Hyperwave.Controller
             AddTaskToChain(load_draft_ids);
         }
 
-        
+
+        public event EventHandler<AccountOperationEventArgs> AccountAdded;
+        public event EventHandler<AccountOperationEventArgs> AccountRemoved;
         public event EventHandler<AccountNotificationEventArgs> AccountNotification;
         public event EventHandler ControllerActive;
         public event EventHandler ControllerIdle;
@@ -571,8 +573,6 @@ namespace Hyperwave.Controller
         public ObservableCollection<ViewAccount> SendAccounts { get { return mSendAccounts; } }
 
         internal event EventHandler UpdateAccountOperationStarted;
-        public event EventHandler<AccountOperationEventArgs> AccountAdded;
-        public event EventHandler<AccountOperationEventArgs> AccountRemoved;
 
         void OnAccountAction(bool added,Account account)
         {
@@ -893,6 +893,8 @@ namespace Hyperwave.Controller
             return ret;
         }
 
+
+
         static Regex mRegEx_InfoPath = new Regex(@"^(?<Type>\d+)//(?<ID>\d+)$", RegexOptions.ExplicitCapture);
         public async Task<LinkResult> ClassifyLink(Uri link)
         {
@@ -981,6 +983,8 @@ namespace Hyperwave.Controller
 
             return result;
         }
+
+        public IEnumerable<IDraftWindow> DraftWindows => mDraftWindows.Values;
     }
 
     public class AccountOperationEventArgs : EventArgs
