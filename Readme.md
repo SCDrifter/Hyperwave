@@ -1,6 +1,6 @@
 # Hyperwave Eve-Mail Client
 ### Latest Version
-##### [Hyperwave Eve-Mail Client Version 1.0.0](/?)
+##### [Hyperwave Eve-Mail Client Version 1.0.0](https://github.com/SCDrifter/Hyperwave/releases/download/v1.0.0/Hyperwave-1.0.0.exe)
 **Notes:**
  - Initial Release
 
@@ -29,7 +29,7 @@ This is a Eve-Mail Client for the Game [Eve Online](https://www.eveonline.com/).
  - [.Net Framework 4.7.2 Runtime](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net472-web-installer)
  - Minimum 1 eve account with character
  - A computer with all the cords
- - Electicity
+ - Electricity
  - A Pulse
 ### Known Issues
 
@@ -44,7 +44,7 @@ Hyperwave saves all names of characters and corporations and such in a local dat
 
 ```
 
-### Web Intergration 
+### Web Integration 
 You can place a link on your website that will open a new eve-mail draft straight from your browser similar to how mailto links work. You can do this using either Character ID or Chacater name.
 
 **By Id**
@@ -53,4 +53,4 @@ You can place a link on your website that will open a new eve-mail draft straigh
 **By Name**
 [eve-mail://character/Deadmeat/Zukalick](eve-mail://character/Deadmeat/Zukalick)
 
-*Note these links won't work if hyperwave is not installed. Also a security dialog will appear to confirm the action*
+*Note these links won't work if Hyperwave is not installed. Also a security dialog will appear to confirm the action*
