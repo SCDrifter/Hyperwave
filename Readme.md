@@ -7,6 +7,7 @@
 ### Description
 [![Main Window](Doc/MailViewSmall.png)](Doc/MailView.png)
 [![Mail Reply](Doc/MailReplySmall.png)](Doc/MailReply.png)
+
 This is a Eve-Mail Client for the Game [Eve Online](https://www.eveonline.com/). Eve-Mail is a communication system in game that is similar to E-Mail.
 
 ### Features
