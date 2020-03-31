@@ -34,9 +34,12 @@ This is a Eve-Mail Client for the Game [Eve Online](https://www.eveonline.com/).
 ### Known Issues
 
 **Mailing lists that your are not currently subscribed to Will Appear as 'Unknown Mailinglist'**
+
 CCP's ESI currently does not provided a way to retrieve the names of Mailinglists that you are not subscribed too.
 
+
 **The names in the eve client does not match those in hyperwave**
+
 Hyperwave saves all names of characters and corporations and such in a local database to reduce load on CCP servers. But on the rare occasion CCP changes a name, that means that Hyperwave will show the old name. You can reset the local cache by running the following command:
 ```
 
@@ -44,13 +47,18 @@ Hyperwave saves all names of characters and corporations and such in a local dat
 
 ```
 
+
 **Currently Does not support CSPA charges**
+
 Sending mails to someone with CSPA enabled will currently fail. This will be fixed in a futrue update
 
+
 **Almost no tooltips on any buttons**
+
 Whoops!! The button on the upper left corner adds accounts. The gear button pops up a menu with more options & settings, the rest should be labelled or easy to figure out.
 
 ### Web Integration 
+
 You can place a link on your website that will open a new eve-mail draft straight from your browser similar to how mailto links work. You can do this using either Character ID or Chacater name.
 
 **By Id**
