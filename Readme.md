@@ -13,7 +13,7 @@ This is a Eve-Mail Client for the Game [Eve Online](https://www.eveonline.com/).
 ### Features
  - Read & write Eve-Mails for multiple characters
  - Manages Eve-Mail filters and read states
- - Displays Full Formatted Eve-Mails
+ - Displays Fully Formatted Eve-Mails
  - Supports Mailing lists
  - Background mail checking with notifications(Optional)
  - WYSIWYG Eve-Mail Writer
@@ -43,6 +43,12 @@ Hyperwave saves all names of characters and corporations and such in a local dat
 %localappdata%\Programs\Zukalitech\Hyperwave\Hyperwave.Util.exe cache clear -acu
 
 ```
+
+**Currently Does not support CSPA charges**
+Sending mails to someone with CSPA enabled will currently fail. This will be fixed in a futrue update
+
+**Almost no tooltips on any buttons**
+Whoops!! The button on the upper left corner adds accounts. The gear button pops up a menu with more options & settings, the rest should be labelled or easy to figure out.
 
 ### Web Integration 
 You can place a link on your website that will open a new eve-mail draft straight from your browser similar to how mailto links work. You can do this using either Character ID or Chacater name.
