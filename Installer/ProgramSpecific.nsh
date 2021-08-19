@@ -1,4 +1,4 @@
-!define APP_VERSION "1.0.0"
+!define APP_VERSION "1.0.1"
 !define APP_NAME "Hyperwave"
 !define APP_TITLE "Hyperwave Eve-Mail Client"
 !define APP_EXE "Hyperwave.exe"
